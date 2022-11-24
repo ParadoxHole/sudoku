@@ -2,43 +2,34 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>Algorithme</nom>
-  <date_creation>24/11/2022 12:06</date_creation>
+  <date_creation>24/11/2022 12:30</date_creation>
   <Elements>
     <Action>
       <Position>698;60</Position>
-      <StyleLien>2</StyleLien>
+      <StyleLien>1</StyleLien>
       <PreAssertion>tabSudoku,</PreAssertion>
       <PostAssertion>?</PostAssertion>
       <Titre>afficherTableau</Titre>
       <DetailsVisible>1</DetailsVisible>
       <DetailsVideVisible>1</DetailsVideVisible>
-      <Enfants>
-        <Iteration>
-          <Position>837.5;141.5</Position>
-          <StyleLien>1</StyleLien>
-          <Titre>Pour i de 0 à 1</Titre>
-          <IterationFixe>1</IterationFixe>
-          <Enfants/>
-        </Iteration>
-      </Enfants>
+      <Enfants/>
     </Action>
     <Iteration>
-      <Position>1353.5;251.5</Position>
+      <Position>1231.5;250.5</Position>
       <StyleLien>1</StyleLien>
       <Titre>Pour indiceColonne de 0 à tailleTableau -1</Titre>
       <IterationFixe>1</IterationFixe>
-      <Enfants>
-        <Iteration>
-          <Position>1556.5;481.5</Position>
-          <StyleLien>1</StyleLien>
-          <Titre>Pour indiceLigne de 0 à tailleTableau -1</Titre>
-          <IterationFixe>1</IterationFixe>
-          <Enfants/>
-        </Iteration>
-      </Enfants>
+      <Enfants/>
+    </Iteration>
+    <Iteration>
+      <Position>1141.5;124.5</Position>
+      <StyleLien>1</StyleLien>
+      <Titre>Pour indiceLigne de 0 à tailleTableau -1</Titre>
+      <IterationFixe>1</IterationFixe>
+      <Enfants/>
     </Iteration>
     <Action>
-      <Position>1548;578</Position>
+      <Position>53;524</Position>
       <StyleLien>1</StyleLien>
       <PreAssertion>?</PreAssertion>
       <PostAssertion>?</PostAssertion>
@@ -48,7 +39,7 @@
       <Enfants/>
     </Action>
     <Action>
-      <Position>1574;710</Position>
+      <Position>71;274</Position>
       <StyleLien>1</StyleLien>
       <PreAssertion>?</PreAssertion>
       <PostAssertion>?</PostAssertion>
@@ -77,6 +68,13 @@
       <DetailsVideVisible>0</DetailsVideVisible>
       <Enfants/>
     </Action>
+    <Iteration>
+      <Position>90.5;186.5</Position>
+      <StyleLien>1</StyleLien>
+      <Titre>Pour i de 0 à 1</Titre>
+      <IterationFixe>1</IterationFixe>
+      <Enfants/>
+    </Iteration>
     <Action>
       <Position>434;659</Position>
       <StyleLien>1</StyleLien>
@@ -109,5 +107,71 @@
       <IterationFixe>1</IterationFixe>
       <Enfants/>
     </Iteration>
+    <Condition>
+      <Position>968;249</Position>
+      <StyleLien>1</StyleLien>
+      <estUnique>1</estUnique>
+      <operationsLogiques>
+        <operation>
+          <Titre>indiceLigne % tailleZone = 0</Titre>
+          <Enfants>
+            <Action>
+              <Position>1017;336</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>?</PostAssertion>
+              <Titre>afficher tiret</Titre>
+              <DetailsVisible>0</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+          </Enfants>
+        </operation>
+        <operation>
+          <Titre>Sinon</Titre>
+          <Enfants/>
+        </operation>
+      </operationsLogiques>
+    </Condition>
+    <Action>
+      <Position>1160;429</Position>
+      <StyleLien>1</StyleLien>
+      <PreAssertion>?</PreAssertion>
+      <PostAssertion>?</PostAssertion>
+      <Titre>?</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants/>
+    </Action>
+    <Condition>
+      <Position>988;500</Position>
+      <StyleLien>1</StyleLien>
+      <estUnique>1</estUnique>
+      <operationsLogiques>
+        <operation>
+          <Titre>indiceLigne = 0 ou taille</Titre>
+          <Enfants/>
+        </operation>
+        <operation>
+          <Titre>Sinon</Titre>
+          <Enfants/>
+        </operation>
+      </operationsLogiques>
+    </Condition>
+    <Condition>
+      <Position>1504;246</Position>
+      <StyleLien>1</StyleLien>
+      <estUnique>1</estUnique>
+      <operationsLogiques>
+        <operation>
+          <Titre>indiceLigne = 8</Titre>
+          <Enfants/>
+        </operation>
+        <operation>
+          <Titre>Sinon</Titre>
+          <Enfants/>
+        </operation>
+      </operationsLogiques>
+    </Condition>
   </Elements>
 </Algorithme>
