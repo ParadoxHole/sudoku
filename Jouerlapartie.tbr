@@ -2,35 +2,27 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>Jouer la partie</nom>
-  <date_creation>24/11/2022 11:05</date_creation>
+  <date_creation>24/11/2022 12:06</date_creation>
   <Elements>
     <Action>
-      <Position>658;138</Position>
-      <StyleLien>1</StyleLien>
-      <PreAssertion>?</PreAssertion>
+      <Position>684;255</Position>
+      <StyleLien>2</StyleLien>
+      <PreAssertion>tabSudoku,
+nbErreurAutorise,
+nbErreurJoueur</PreAssertion>
       <PostAssertion>?</PostAssertion>
       <Titre>Jouer la partie</Titre>
       <DetailsVisible>1</DetailsVisible>
       <DetailsVideVisible>1</DetailsVideVisible>
-      <Enfants/>
-    </Action>
-    <Action>
-      <Position>682;262</Position>
-      <StyleLien>2</StyleLien>
-      <PreAssertion>?</PreAssertion>
-      <PostAssertion>?</PostAssertion>
-      <Titre>Saisie vérif</Titre>
-      <DetailsVisible>1</DetailsVisible>
-      <DetailsVideVisible>1</DetailsVideVisible>
       <Enfants>
         <Iteration>
-          <Position>754.5;348.5</Position>
+          <Position>855.5;331.5</Position>
           <StyleLien>1</StyleLien>
           <Titre>?</Titre>
           <IterationFixe>0</IterationFixe>
           <Enfants>
             <Action>
-              <Position>462;447</Position>
+              <Position>726;438</Position>
               <StyleLien>1</StyleLien>
               <PreAssertion>?</PreAssertion>
               <PostAssertion>indiceLigne,
@@ -38,203 +30,78 @@ indiceCollone,
 valeurSaisie</PostAssertion>
               <Titre>Saisie de l'utilisateur </Titre>
               <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+            <Action>
+              <Position>1018;438</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>indiceLigne,indiceCollone,
+valeurSaisie,tabSudoku</PreAssertion>
+              <PostAssertion>compatbile</PostAssertion>
+              <Titre>verifValeur</Titre>
+              <DetailsVisible>1</DetailsVisible>
               <DetailsVideVisible>1</DetailsVideVisible>
               <Enfants/>
             </Action>
             <Action>
-              <Position>807;447</Position>
-              <StyleLien>2</StyleLien>
-              <PreAssertion>indiceLigne,indiceCollone,
-valeurSaisie,tabSudoku</PreAssertion>
+              <Position>187;437</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>tabSudoku</PreAssertion>
               <PostAssertion>?</PostAssertion>
-              <Titre>Verification de la saisie</Titre>
+              <Titre>afficherTableau</Titre>
               <DetailsVisible>1</DetailsVisible>
-              <DetailsVideVisible>1</DetailsVideVisible>
-              <Enfants>
-                <Action>
-                  <Position>412;559</Position>
-                  <StyleLien>2</StyleLien>
-                  <PreAssertion>indiceLigne
-valeurSaisie</PreAssertion>
-                  <PostAssertion>compatible</PostAssertion>
-                  <Titre>Vérification Horizontale </Titre>
-                  <DetailsVisible>1</DetailsVisible>
-                  <DetailsVideVisible>1</DetailsVideVisible>
-                  <Enfants>
-                    <Iteration>
-                      <Position>578.5;631.5</Position>
-                      <StyleLien>1</StyleLien>
-                      <Titre>Pour i de 0 à 9</Titre>
-                      <IterationFixe>1</IterationFixe>
-                      <Enfants>
-                        <Condition>
-                          <Position>508;711</Position>
-                          <StyleLien>0</StyleLien>
-                          <estUnique>0</estUnique>
-                          <operationsLogiques>
-                            <operation>
-                              <Titre>valeurSaisie = tabSudoku[ indiceLigne, i ]</Titre>
-                              <Enfants>
-                                <Action>
-                                  <Position>543;785</Position>
-                                  <StyleLien>1</StyleLien>
-                                  <PreAssertion>?</PreAssertion>
-                                  <PostAssertion>?</PostAssertion>
-                                  <Titre>compatible = faux</Titre>
-                                  <DetailsVisible>0</DetailsVisible>
-                                  <DetailsVideVisible>1</DetailsVideVisible>
-                                  <Enfants/>
-                                </Action>
-                              </Enfants>
-                            </operation>
-                          </operationsLogiques>
-                        </Condition>
-                      </Enfants>
-                    </Iteration>
-                  </Enfants>
-                </Action>
-                <Condition>
-                  <Position>928;565</Position>
-                  <StyleLien>0</StyleLien>
-                  <estUnique>0</estUnique>
-                  <operationsLogiques>
-                    <operation>
-                      <Titre>compatible = faux</Titre>
-                      <Enfants>
-                        <Action>
-                          <Position>811;638</Position>
-                          <StyleLien>2</StyleLien>
-                          <PreAssertion>indiceCollone
-valeurSaisie</PreAssertion>
-                          <PostAssertion>compatible</PostAssertion>
-                          <Titre>Vérification Verticale</Titre>
-                          <DetailsVisible>1</DetailsVisible>
-                          <DetailsVideVisible>1</DetailsVideVisible>
-                          <Enfants>
-                            <Iteration>
-                              <Position>975.5;710.5</Position>
-                              <StyleLien>1</StyleLien>
-                              <Titre>Pour i de 0 à 9</Titre>
-                              <IterationFixe>1</IterationFixe>
-                              <Enfants>
-                                <Condition>
-                                  <Position>903;790</Position>
-                                  <StyleLien>0</StyleLien>
-                                  <estUnique>0</estUnique>
-                                  <operationsLogiques>
-                                    <operation>
-                                      <Titre>valeurSaisie = tabSudoku[ i, indiceCollone ]</Titre>
-                                      <Enfants>
-                                        <Action>
-                                          <Position>936;853</Position>
-                                          <StyleLien>1</StyleLien>
-                                          <PreAssertion>?</PreAssertion>
-                                          <PostAssertion>?</PostAssertion>
-                                          <Titre>compatible = faux</Titre>
-                                          <DetailsVisible>0</DetailsVisible>
-                                          <DetailsVideVisible>1</DetailsVideVisible>
-                                          <Enfants/>
-                                        </Action>
-                                      </Enfants>
-                                    </operation>
-                                  </operationsLogiques>
-                                </Condition>
-                              </Enfants>
-                            </Iteration>
-                          </Enfants>
-                        </Action>
-                      </Enfants>
-                    </operation>
-                  </operationsLogiques>
-                </Condition>
-                <Condition>
-                  <Position>1562;553</Position>
-                  <StyleLien>0</StyleLien>
-                  <estUnique>0</estUnique>
-                  <operationsLogiques>
-                    <operation>
-                      <Titre>compatible = faux</Titre>
-                      <Enfants>
-                        <Action>
-                          <Position>1444;626</Position>
-                          <StyleLien>2</StyleLien>
-                          <PreAssertion>indiceLigne
-indiceCollone
-valeurSaisie</PreAssertion>
-                          <PostAssertion>compatible</PostAssertion>
-                          <Titre>Verification de la zone</Titre>
-                          <DetailsVisible>1</DetailsVisible>
-                          <DetailsVideVisible>1</DetailsVideVisible>
-                          <Enfants>
-                            <Action>
-                              <Position>1135;739</Position>
-                              <StyleLien>1</StyleLien>
-                              <PreAssertion>indiceLigne</PreAssertion>
-                              <PostAssertion>indiceLigne</PostAssertion>
-                              <Titre>indiceLigne ← calcule savant</Titre>
-                              <DetailsVisible>1</DetailsVisible>
-                              <DetailsVideVisible>1</DetailsVideVisible>
-                              <Enfants/>
-                            </Action>
-                            <Action>
-                              <Position>1325;806</Position>
-                              <StyleLien>1</StyleLien>
-                              <PreAssertion>indiceCollone</PreAssertion>
-                              <PostAssertion>indiceCollone</PostAssertion>
-                              <Titre>indiceCollone ← calcule savant</Titre>
-                              <DetailsVisible>1</DetailsVisible>
-                              <DetailsVideVisible>1</DetailsVideVisible>
-                              <Enfants/>
-                            </Action>
-                            <Iteration>
-                              <Position>1754.5;726.5</Position>
-                              <StyleLien>1</StyleLien>
-                              <Titre>Pour i de indiceLigne à indiceLigne +2</Titre>
-                              <IterationFixe>1</IterationFixe>
-                              <Enfants>
-                                <Iteration>
-                                  <Position>1826.5;820.5</Position>
-                                  <StyleLien>1</StyleLien>
-                                  <Titre>Pour i de indiceCollone à indiceCollone +2</Titre>
-                                  <IterationFixe>1</IterationFixe>
-                                  <Enfants>
-                                    <Condition>
-                                      <Position>1772;906</Position>
-                                      <StyleLien>0</StyleLien>
-                                      <estUnique>0</estUnique>
-                                      <operationsLogiques>
-                                        <operation>
-                                          <Titre>valeurSaisie = tabSudoku[ indiceLigne, i ]</Titre>
-                                          <Enfants>
-                                            <Action>
-                                              <Position>1809;963</Position>
-                                              <StyleLien>1</StyleLien>
-                                              <PreAssertion>?</PreAssertion>
-                                              <PostAssertion>?</PostAssertion>
-                                              <Titre>compatible = faux</Titre>
-                                              <DetailsVisible>0</DetailsVisible>
-                                              <DetailsVideVisible>1</DetailsVideVisible>
-                                              <Enfants/>
-                                            </Action>
-                                          </Enfants>
-                                        </operation>
-                                      </operationsLogiques>
-                                    </Condition>
-                                  </Enfants>
-                                </Iteration>
-                              </Enfants>
-                            </Iteration>
-                          </Enfants>
-                        </Action>
-                      </Enfants>
-                    </operation>
-                  </operationsLogiques>
-                </Condition>
-              </Enfants>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants/>
             </Action>
+            <Action>
+              <Position>423;437</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>nbTour,
+nbErreurAutorise,
+nbErreurJoueur</PreAssertion>
+              <PostAssertion>?</PostAssertion>
+              <Titre>Afficher le nombre 
+de tour et d'erreur</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+            <Condition>
+              <Position>1426;448</Position>
+              <StyleLien>1</StyleLien>
+              <estUnique>0</estUnique>
+              <operationsLogiques>
+                <operation>
+                  <Titre>compatible</Titre>
+                  <Enfants/>
+                </operation>
+              </operationsLogiques>
+            </Condition>
           </Enfants>
         </Iteration>
       </Enfants>
     </Action>
+    <Action>
+      <Position>1396;553</Position>
+      <StyleLien>1</StyleLien>
+      <PreAssertion>?</PreAssertion>
+      <PostAssertion>?</PostAssertion>
+      <Titre>?</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants/>
+    </Action>
+    <Condition>
+      <Position>625;565</Position>
+      <StyleLien>1</StyleLien>
+      <estUnique>0</estUnique>
+      <operationsLogiques>
+        <operation>
+          <Titre>nbErreurJoueur > ErreurAutorise</Titre>
+          <Enfants/>
+        </operation>
+      </operationsLogiques>
+    </Condition>
   </Elements>
 </Algorithme>

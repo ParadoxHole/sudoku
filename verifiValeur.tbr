@@ -1,0 +1,204 @@
+<?xml version="1.1"?>
+<!DOCTYPE Tabula_Rasa>
+<Algorithme>
+  <nom>verifiValeur</nom>
+  <date_creation>24/11/2022 11:47</date_creation>
+  <Elements>
+    <Action>
+      <Position>487;84</Position>
+      <StyleLien>2</StyleLien>
+      <PreAssertion>indiceLigne,indiceCollone,
+valeurSaisie,tabSudoku</PreAssertion>
+      <PostAssertion>compatible</PostAssertion>
+      <Titre>verifValeur</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants>
+        <Action>
+          <Position>19;195</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>indiceLigne
+valeurSaisie</PreAssertion>
+          <PostAssertion>compatible</PostAssertion>
+          <Titre>Vérification Horizontale </Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants>
+            <Iteration>
+              <Position>184.5;268.5</Position>
+              <StyleLien>1</StyleLien>
+              <Titre>Pour i de 0 à 9</Titre>
+              <IterationFixe>1</IterationFixe>
+              <Enfants>
+                <Condition>
+                  <Position>115;347</Position>
+                  <StyleLien>0</StyleLien>
+                  <estUnique>0</estUnique>
+                  <operationsLogiques>
+                    <operation>
+                      <Titre>valeurSaisie = tabSudoku
+[ indiceLigne, i ].valeur</Titre>
+                      <Enfants>
+                        <Action>
+                          <Position>145;420</Position>
+                          <StyleLien>1</StyleLien>
+                          <PreAssertion>?</PreAssertion>
+                          <PostAssertion>?</PostAssertion>
+                          <Titre>compatible = faux</Titre>
+                          <DetailsVisible>0</DetailsVisible>
+                          <DetailsVideVisible>1</DetailsVideVisible>
+                          <Enfants/>
+                        </Action>
+                      </Enfants>
+                    </operation>
+                  </operationsLogiques>
+                </Condition>
+              </Enfants>
+            </Iteration>
+          </Enfants>
+        </Action>
+        <Condition>
+          <Position>455;198</Position>
+          <StyleLien>0</StyleLien>
+          <estUnique>0</estUnique>
+          <operationsLogiques>
+            <operation>
+              <Titre>compatible = faux</Titre>
+              <Enfants>
+                <Action>
+                  <Position>339;272</Position>
+                  <StyleLien>2</StyleLien>
+                  <PreAssertion>indiceCollone
+valeurSaisie</PreAssertion>
+                  <PostAssertion>compatible</PostAssertion>
+                  <Titre>Vérification Verticale</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>1</DetailsVideVisible>
+                  <Enfants>
+                    <Iteration>
+                      <Position>503.5;341.5</Position>
+                      <StyleLien>1</StyleLien>
+                      <Titre>Pour i de 0 à 9</Titre>
+                      <IterationFixe>1</IterationFixe>
+                      <Enfants>
+                        <Condition>
+                          <Position>430;422</Position>
+                          <StyleLien>0</StyleLien>
+                          <estUnique>0</estUnique>
+                          <operationsLogiques>
+                            <operation>
+                              <Titre>valeurSaisie = tabSudoku
+[ i, indiceCollone ].valeur</Titre>
+                              <Enfants>
+                                <Action>
+                                  <Position>461;487</Position>
+                                  <StyleLien>1</StyleLien>
+                                  <PreAssertion>?</PreAssertion>
+                                  <PostAssertion>?</PostAssertion>
+                                  <Titre>compatible = faux</Titre>
+                                  <DetailsVisible>0</DetailsVisible>
+                                  <DetailsVideVisible>1</DetailsVideVisible>
+                                  <Enfants/>
+                                </Action>
+                              </Enfants>
+                            </operation>
+                          </operationsLogiques>
+                        </Condition>
+                      </Enfants>
+                    </Iteration>
+                  </Enfants>
+                </Action>
+              </Enfants>
+            </operation>
+          </operationsLogiques>
+        </Condition>
+        <Condition>
+          <Position>1057;191</Position>
+          <StyleLien>0</StyleLien>
+          <estUnique>0</estUnique>
+          <operationsLogiques>
+            <operation>
+              <Titre>compatible = faux</Titre>
+              <Enfants>
+                <Action>
+                  <Position>938;265</Position>
+                  <StyleLien>2</StyleLien>
+                  <PreAssertion>indiceLigne
+indiceCollone
+valeurSaisie</PreAssertion>
+                  <PostAssertion>compatible</PostAssertion>
+                  <Titre>Verification de la zone</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>1</DetailsVideVisible>
+                  <Enfants>
+                    <Action>
+                      <Position>647;377</Position>
+                      <StyleLien>1</StyleLien>
+                      <PreAssertion>indiceLigne</PreAssertion>
+                      <PostAssertion>indiceLigne</PostAssertion>
+                      <Titre>indiceLigne ← (arondirHaut(IndiceLigne/tailleZone)
+-1)*tailleZone+1</Titre>
+                      <DetailsVisible>1</DetailsVisible>
+                      <DetailsVideVisible>1</DetailsVideVisible>
+                      <Enfants/>
+                    </Action>
+                    <Action>
+                      <Position>1097;377</Position>
+                      <StyleLien>1</StyleLien>
+                      <PreAssertion>indiceCollone</PreAssertion>
+                      <PostAssertion>indiceCollone</PostAssertion>
+                      <Titre>indiceCollone ← (arondirHaut(indiceCollone
+/tailleZone)-1)*tailleZone+1</Titre>
+                      <DetailsVisible>1</DetailsVisible>
+                      <DetailsVideVisible>1</DetailsVideVisible>
+                      <Enfants/>
+                    </Action>
+                    <Iteration>
+                      <Position>1583.5;380.5</Position>
+                      <StyleLien>1</StyleLien>
+                      <Titre>Pour i de indiceLigne à indiceLigne + tailleZone</Titre>
+                      <IterationFixe>1</IterationFixe>
+                      <Enfants>
+                        <Iteration>
+                          <Position>1497.5;471.5</Position>
+                          <StyleLien>1</StyleLien>
+                          <Titre>Pour i de indiceCollone à indiceCollone + tailleZone</Titre>
+                          <IterationFixe>1</IterationFixe>
+                          <Enfants>
+                            <Condition>
+                              <Position>1428;552</Position>
+                              <StyleLien>0</StyleLien>
+                              <estUnique>0</estUnique>
+                              <operationsLogiques>
+                                <operation>
+                                  <Titre>valeurSaisie = tabSudoku
+[ indiceLigne, i ].valeur</Titre>
+                                  <Enfants>
+                                    <Action>
+                                      <Position>1461;625</Position>
+                                      <StyleLien>1</StyleLien>
+                                      <PreAssertion>?</PreAssertion>
+                                      <PostAssertion>?</PostAssertion>
+                                      <Titre>compatible = faux</Titre>
+                                      <DetailsVisible>0</DetailsVisible>
+                                      <DetailsVideVisible>1</DetailsVideVisible>
+                                      <Enfants/>
+                                    </Action>
+                                  </Enfants>
+                                </operation>
+                              </operationsLogiques>
+                            </Condition>
+                          </Enfants>
+                        </Iteration>
+                      </Enfants>
+                    </Iteration>
+                  </Enfants>
+                </Action>
+              </Enfants>
+            </operation>
+          </operationsLogiques>
+        </Condition>
+      </Enfants>
+    </Action>
+  </Elements>
+</Algorithme>
