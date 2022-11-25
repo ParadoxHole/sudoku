@@ -15,56 +15,41 @@ int main()
         {0, 0, 0, 4, 1, 9, 0, 0, 5},
         {0, 0, 0, 0, 8, 0, 0, 7, 9}
     };
-    int row, col, num;
-    bool check = true;
-    cout << "SUDOKU" << endl;
-    cout << "Enter the row, column and number you want to insert: ";
-    cin >> row >> col >> num;
-    for (int i = 0; i < 9; i++)
-    {
-        if (sudoku[row][i] == num)
-        {
-            check = false;
-            break;
-        }
-    }
-    for (int i = 0; i < 9; i++)
-    {
-        if (sudoku[i][col] == num)
-        {
-            check = false;
-            break;
-        }
-    }
-    int rowStart = (row / 3) * 3;
-    int colStart = (col / 3) * 3;
-    for (int i = rowStart; i < rowStart + 3; i++)
-    {
-        for (int j = colStart; j < colStart + 3; j++)
-        {
-            if (sudoku[i][j] == num)
-            {
-                check = false;
-                break;
-            }
-        }
-    }
-    if (check)
-    {
-        sudoku[row][col] = num;
-        cout << "The number is inserted" << endl;
-    }
-    else
-    {
-        cout << "The number is not inserted" << endl;
-    }  
+    //print sudoku using . for empty spaces and with column and row numbers separated with the grid by | and | for the grid
+    cout << "    1 2 3   4 5 6   7 8 9" << endl;
+    cout << "  -------------------------" << endl; 
     for (int i = 0; i < 9; i++)
     {
         for (int j = 0; j < 9; j++)
         {
-            cout << sudoku[i][j] << " ";
+            if (j == 0)
+            {
+                cout << i + 1 << " | ";
+            }
+            if (sudoku[i][j] == 0)
+            {
+                cout << ". ";
+            }
+            else
+            {
+                cout << sudoku[i][j] << " ";
+            }
+            if (j == 2 || j == 5 || j == 8)
+            {
+                cout << "| ";
+            }
+            if (j == 8)
+            {
+                cout << i + 1;
+            }
         }
         cout << endl;
-    }
+        if (i == 2 || i == 5)
+        {
+            cout << "  -------------------------" << endl;
+        }
+    }   
+    cout << "  -------------------------" << endl; 
+    cout << "    1 2 3   4 5 6   7 8 9" << endl;
     return 0;
 }
