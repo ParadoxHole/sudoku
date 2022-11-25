@@ -2,37 +2,38 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>Algorithme</nom>
-  <date_creation>25/11/2022 14:37</date_creation>
+  <date_creation>25/11/2022 16:56</date_creation>
   <Elements>
     <Action>
-      <Position>894;34</Position>
+      <Position>919;25</Position>
       <StyleLien>2</StyleLien>
-      <PreAssertion>tabSudoku,</PreAssertion>
+      <PreAssertion>tabSudoku, TAILLE_TAB,
+TAILLE_ZONE</PreAssertion>
       <PostAssertion>?</PostAssertion>
       <Titre>afficherTableau</Titre>
       <DetailsVisible>1</DetailsVisible>
-      <DetailsVideVisible>1</DetailsVideVisible>
+      <DetailsVideVisible>0</DetailsVideVisible>
       <Enfants>
         <Iteration>
-          <Position>841.5;143.5</Position>
+          <Position>1054.5;137.5</Position>
           <StyleLien>1</StyleLien>
-          <Titre>Pour indiceLigne de 0 à tailleTableau -1</Titre>
+          <Titre>Pour indiceLigne de 0 à TAILLE_TAB -1</Titre>
           <IterationFixe>1</IterationFixe>
           <Enfants>
             <Condition>
               <Position>640;260</Position>
-              <StyleLien>1</StyleLien>
+              <StyleLien>0</StyleLien>
               <estUnique>0</estUnique>
               <operationsLogiques>
                 <operation>
-                  <Titre>indiceLigne % tailleZone = 0</Titre>
+                  <Titre>indiceLigne % TAILLE_ZONE = 0</Titre>
                   <Enfants>
                     <Action>
-                      <Position>639;356</Position>
+                      <Position>651;338</Position>
                       <StyleLien>1</StyleLien>
                       <PreAssertion>?</PreAssertion>
                       <PostAssertion>?</PostAssertion>
-                      <Titre>afficher tiret</Titre>
+                      <Titre>afficher 2 espaces et tirets</Titre>
                       <DetailsVisible>0</DetailsVisible>
                       <DetailsVideVisible>1</DetailsVideVisible>
                       <Enfants/>
@@ -44,7 +45,7 @@
             <Iteration>
               <Position>1116.5;345.5</Position>
               <StyleLien>1</StyleLien>
-              <Titre>Pour indiceColonne de 0 à tailleTableau -1</Titre>
+              <Titre>Pour indiceColonne de 0 à TAILLE_TAB -1</Titre>
               <IterationFixe>1</IterationFixe>
               <Enfants>
                 <Condition>
@@ -53,14 +54,14 @@
                   <estUnique>0</estUnique>
                   <operationsLogiques>
                     <operation>
-                      <Titre>indiceLigne % tailleZone = 0</Titre>
+                      <Titre>indiceColonne % TAILLE_ZONE = 0</Titre>
                       <Enfants>
                         <Action>
-                          <Position>706;561</Position>
+                          <Position>650;562</Position>
                           <StyleLien>1</StyleLien>
                           <PreAssertion>?</PreAssertion>
                           <PostAssertion>?</PostAssertion>
-                          <Titre>afficher tiret</Titre>
+                          <Titre>afficher barre vertical</Titre>
                           <DetailsVisible>0</DetailsVisible>
                           <DetailsVideVisible>1</DetailsVideVisible>
                           <Enfants/>
@@ -70,19 +71,19 @@
                   </operationsLogiques>
                 </Condition>
                 <Condition>
-                  <Position>1099;457</Position>
+                  <Position>881;459</Position>
                   <StyleLien>0</StyleLien>
                   <estUnique>0</estUnique>
                   <operationsLogiques>
                     <operation>
-                      <Titre>tabSudoku[indiceLigne][indiceColonne].nbDuDebut = true</Titre>
+                      <Titre>tabSudoku[indiceLigne][indiceColonne].valeur = 0</Titre>
                       <Enfants>
                         <Action>
-                          <Position>1118;575</Position>
+                          <Position>845;568</Position>
                           <StyleLien>1</StyleLien>
                           <PreAssertion>?</PreAssertion>
                           <PostAssertion>?</PostAssertion>
-                          <Titre>afficher valeur en rouge</Titre>
+                          <Titre>afficher un point</Titre>
                           <DetailsVisible>1</DetailsVisible>
                           <DetailsVideVisible>0</DetailsVideVisible>
                           <Enfants/>
@@ -92,60 +93,76 @@
                     <operation>
                       <Titre>sinon</Titre>
                       <Enfants>
-                        <Action>
-                          <Position>1285;575</Position>
-                          <StyleLien>1</StyleLien>
-                          <PreAssertion>?</PreAssertion>
-                          <PostAssertion>?</PostAssertion>
-                          <Titre>afficher valeur en bleu</Titre>
-                          <DetailsVisible>1</DetailsVisible>
-                          <DetailsVideVisible>0</DetailsVideVisible>
-                          <Enfants/>
-                        </Action>
+                        <Condition>
+                          <Position>1053;555</Position>
+                          <StyleLien>0</StyleLien>
+                          <estUnique>0</estUnique>
+                          <operationsLogiques>
+                            <operation>
+                              <Titre>tabSudoku[indiceLigne][indiceColonne].nbDuDebut = true</Titre>
+                              <Enfants>
+                                <Action>
+                                  <Position>980;672</Position>
+                                  <StyleLien>1</StyleLien>
+                                  <PreAssertion>?</PreAssertion>
+                                  <PostAssertion>?</PostAssertion>
+                                  <Titre>afficher valeur en rouge</Titre>
+                                  <DetailsVisible>1</DetailsVisible>
+                                  <DetailsVideVisible>0</DetailsVideVisible>
+                                  <Enfants/>
+                                </Action>
+                              </Enfants>
+                            </operation>
+                            <operation>
+                              <Titre>sinon</Titre>
+                              <Enfants>
+                                <Action>
+                                  <Position>1260;681</Position>
+                                  <StyleLien>1</StyleLien>
+                                  <PreAssertion>?</PreAssertion>
+                                  <PostAssertion>?</PostAssertion>
+                                  <Titre>afficher valeur en bleu</Titre>
+                                  <DetailsVisible>1</DetailsVisible>
+                                  <DetailsVideVisible>0</DetailsVideVisible>
+                                  <Enfants/>
+                                </Action>
+                              </Enfants>
+                            </operation>
+                          </operationsLogiques>
+                        </Condition>
                       </Enfants>
                     </operation>
                   </operationsLogiques>
                 </Condition>
-                <Condition>
-                  <Position>885;458</Position>
-                  <StyleLien>0</StyleLien>
-                  <estUnique>0</estUnique>
-                  <operationsLogiques>
-                    <operation>
-                      <Titre>tabSudoku[indiceLigne][indiceColonne].valeur = 0</Titre>
-                      <Enfants>
-                        <Action>
-                          <Position>928;573</Position>
-                          <StyleLien>1</StyleLien>
-                          <PreAssertion>?</PreAssertion>
-                          <PostAssertion>?</PostAssertion>
-                          <Titre>afficher point</Titre>
-                          <DetailsVisible>1</DetailsVisible>
-                          <DetailsVideVisible>0</DetailsVideVisible>
-                          <Enfants/>
-                        </Action>
-                      </Enfants>
-                    </operation>
-                  </operationsLogiques>
-                </Condition>
+                <Action>
+                  <Position>1200;457</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>?</PreAssertion>
+                  <PostAssertion>?</PostAssertion>
+                  <Titre>afficher 1 espace</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
               </Enfants>
             </Iteration>
             <Action>
-              <Position>912;247</Position>
+              <Position>865;252</Position>
               <StyleLien>1</StyleLien>
               <PreAssertion>?</PreAssertion>
               <PostAssertion>?</PostAssertion>
-              <Titre>afficher indiceLigne + 1</Titre>
+              <Titre>afficher indiceLigne + 1 et 1 espace</Titre>
               <DetailsVisible>0</DetailsVisible>
               <DetailsVideVisible>1</DetailsVideVisible>
               <Enfants/>
             </Action>
             <Action>
-              <Position>1233;274</Position>
+              <Position>1228;253</Position>
               <StyleLien>1</StyleLien>
               <PreAssertion>?</PreAssertion>
               <PostAssertion>?</PostAssertion>
-              <Titre>afficher tiret et  indiceLigne + 1</Titre>
+              <Titre>afficher barre vertical, 
+1 espace et  indiceLigne + 1</Titre>
               <DetailsVisible>1</DetailsVisible>
               <DetailsVideVisible>0</DetailsVideVisible>
               <Enfants/>
@@ -155,85 +172,59 @@
         <Iteration>
           <Position>409.5;141.5</Position>
           <StyleLien>1</StyleLien>
-          <Titre>Pour i de 1 à taille tableau</Titre>
+          <Titre>Pour i de 0 à TAILLE_TAB -1</Titre>
           <IterationFixe>1</IterationFixe>
           <Enfants>
             <Condition>
               <Position>187;267</Position>
               <StyleLien>1</StyleLien>
-              <estUnique>1</estUnique>
+              <estUnique>0</estUnique>
               <operationsLogiques>
                 <operation>
-                  <Titre>i % tailleZone = 0</Titre>
+                  <Titre>i % TAILLE_ZONE = 0</Titre>
                   <Enfants>
                     <Action>
-                      <Position>224;373</Position>
+                      <Position>113;357</Position>
                       <StyleLien>1</StyleLien>
                       <PreAssertion>?</PreAssertion>
                       <PostAssertion>?</PostAssertion>
-                      <Titre>tabuler</Titre>
+                      <Titre>afficher 2 espaces</Titre>
                       <DetailsVisible>1</DetailsVisible>
                       <DetailsVideVisible>0</DetailsVideVisible>
                       <Enfants/>
                     </Action>
+                    <Condition>
+                      <Position>317;366</Position>
+                      <StyleLien>0</StyleLien>
+                      <estUnique>0</estUnique>
+                      <operationsLogiques>
+                        <operation>
+                          <Titre>i = 0</Titre>
+                          <Enfants>
+                            <Action>
+                              <Position>294;443</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>?</PreAssertion>
+                              <PostAssertion>?</PostAssertion>
+                              <Titre>afficher 1 espace</Titre>
+                              <DetailsVisible>1</DetailsVisible>
+                              <DetailsVideVisible>0</DetailsVideVisible>
+                              <Enfants/>
+                            </Action>
+                          </Enfants>
+                        </operation>
+                      </operationsLogiques>
+                    </Condition>
                   </Enfants>
-                </operation>
-                <operation>
-                  <Titre>Sinon</Titre>
-                  <Enfants/>
                 </operation>
               </operationsLogiques>
             </Condition>
             <Action>
-              <Position>457;259</Position>
+              <Position>432;263</Position>
               <StyleLien>1</StyleLien>
               <PreAssertion>?</PreAssertion>
               <PostAssertion>?</PostAssertion>
-              <Titre>afficher i</Titre>
-              <DetailsVisible>1</DetailsVisible>
-              <DetailsVideVisible>0</DetailsVideVisible>
-              <Enfants/>
-            </Action>
-          </Enfants>
-        </Iteration>
-        <Iteration>
-          <Position>1725.5;194.5</Position>
-          <StyleLien>1</StyleLien>
-          <Titre>Pour i de 1 à taille tableau</Titre>
-          <IterationFixe>1</IterationFixe>
-          <Enfants>
-            <Condition>
-              <Position>1503;320</Position>
-              <StyleLien>1</StyleLien>
-              <estUnique>1</estUnique>
-              <operationsLogiques>
-                <operation>
-                  <Titre>i % tailleZone = 0</Titre>
-                  <Enfants>
-                    <Action>
-                      <Position>1541;433</Position>
-                      <StyleLien>1</StyleLien>
-                      <PreAssertion>?</PreAssertion>
-                      <PostAssertion>?</PostAssertion>
-                      <Titre>tabuler</Titre>
-                      <DetailsVisible>1</DetailsVisible>
-                      <DetailsVideVisible>0</DetailsVideVisible>
-                      <Enfants/>
-                    </Action>
-                  </Enfants>
-                </operation>
-                <operation>
-                  <Titre>Sinon</Titre>
-                  <Enfants/>
-                </operation>
-              </operationsLogiques>
-            </Condition>
-            <Action>
-              <Position>1773;312</Position>
-              <StyleLien>1</StyleLien>
-              <PreAssertion>?</PreAssertion>
-              <PostAssertion>?</PostAssertion>
-              <Titre>afficher i</Titre>
+              <Titre>afficher 1 espace  et i+1</Titre>
               <DetailsVisible>1</DetailsVisible>
               <DetailsVideVisible>0</DetailsVideVisible>
               <Enfants/>
@@ -241,15 +232,87 @@
           </Enfants>
         </Iteration>
         <Action>
-          <Position>1484;203</Position>
+          <Position>1411;147</Position>
           <StyleLien>1</StyleLien>
           <PreAssertion>?</PreAssertion>
           <PostAssertion>?</PostAssertion>
-          <Titre>afficher tiret</Titre>
+          <Titre>afficher tirets</Titre>
           <DetailsVisible>0</DetailsVisible>
           <DetailsVideVisible>1</DetailsVideVisible>
           <Enfants/>
         </Action>
+        <Action>
+          <Position>656;140</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>?</PreAssertion>
+          <PostAssertion>?</PostAssertion>
+          <Titre>saut à la ligne</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+        <Iteration>
+          <Position>1691.5;131.5</Position>
+          <StyleLien>1</StyleLien>
+          <Titre>Pour i de 0 à TAILLE_TAB -1</Titre>
+          <IterationFixe>1</IterationFixe>
+          <Enfants>
+            <Condition>
+              <Position>1506;241</Position>
+              <StyleLien>1</StyleLien>
+              <estUnique>0</estUnique>
+              <operationsLogiques>
+                <operation>
+                  <Titre>i % TAILLE_ZONE = 0</Titre>
+                  <Enfants>
+                    <Action>
+                      <Position>1441;347</Position>
+                      <StyleLien>1</StyleLien>
+                      <PreAssertion>?</PreAssertion>
+                      <PostAssertion>?</PostAssertion>
+                      <Titre>afficher 2 espaces</Titre>
+                      <DetailsVisible>1</DetailsVisible>
+                      <DetailsVideVisible>0</DetailsVideVisible>
+                      <Enfants/>
+                    </Action>
+                    <Condition>
+                      <Position>1626;355</Position>
+                      <StyleLien>0</StyleLien>
+                      <estUnique>0</estUnique>
+                      <operationsLogiques>
+                        <operation>
+                          <Titre>i = 0</Titre>
+                          <Enfants>
+                            <Action>
+                              <Position>1605;457</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>?</PreAssertion>
+                              <PostAssertion>?</PostAssertion>
+                              <Titre>afficher 1 espace</Titre>
+                              <DetailsVisible>1</DetailsVisible>
+                              <DetailsVideVisible>0</DetailsVideVisible>
+                              <Enfants/>
+                            </Action>
+                          </Enfants>
+                        </operation>
+                      </operationsLogiques>
+                    </Condition>
+                  </Enfants>
+                </operation>
+              </operationsLogiques>
+            </Condition>
+            <Action>
+              <Position>1807;240</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>?</PostAssertion>
+              <Titre>afficher 1 espace  et i+1</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+          </Enfants>
+        </Iteration>
       </Enfants>
     </Action>
   </Elements>
