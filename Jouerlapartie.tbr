@@ -2,7 +2,7 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>Jouer la partie</nom>
-  <date_creation>24/11/2022 12:06</date_creation>
+  <date_creation>25/11/2022 14:56</date_creation>
   <Elements>
     <Action>
       <Position>684;255</Position>
@@ -22,30 +22,7 @@ nbErreurJoueur</PreAssertion>
           <IterationFixe>0</IterationFixe>
           <Enfants>
             <Action>
-              <Position>726;438</Position>
-              <StyleLien>1</StyleLien>
-              <PreAssertion>?</PreAssertion>
-              <PostAssertion>indiceLigne,
-indiceCollone,
-valeurSaisie</PostAssertion>
-              <Titre>Saisie de l'utilisateur </Titre>
-              <DetailsVisible>1</DetailsVisible>
-              <DetailsVideVisible>0</DetailsVideVisible>
-              <Enfants/>
-            </Action>
-            <Action>
-              <Position>1018;438</Position>
-              <StyleLien>1</StyleLien>
-              <PreAssertion>indiceLigne,indiceCollone,
-valeurSaisie,tabSudoku</PreAssertion>
-              <PostAssertion>compatbile</PostAssertion>
-              <Titre>verifValeur</Titre>
-              <DetailsVisible>1</DetailsVisible>
-              <DetailsVideVisible>1</DetailsVideVisible>
-              <Enfants/>
-            </Action>
-            <Action>
-              <Position>187;437</Position>
+              <Position>280;444</Position>
               <StyleLien>1</StyleLien>
               <PreAssertion>tabSudoku</PreAssertion>
               <PostAssertion>?</PostAssertion>
@@ -55,7 +32,7 @@ valeurSaisie,tabSudoku</PreAssertion>
               <Enfants/>
             </Action>
             <Action>
-              <Position>423;437</Position>
+              <Position>501;442</Position>
               <StyleLien>1</StyleLien>
               <PreAssertion>nbTour,
 nbErreurAutorise,
@@ -68,40 +45,91 @@ de tour et d'erreur</Titre>
               <Enfants/>
             </Action>
             <Condition>
-              <Position>1426;448</Position>
-              <StyleLien>1</StyleLien>
+              <Position>1233;444</Position>
+              <StyleLien>0</StyleLien>
               <estUnique>0</estUnique>
               <operationsLogiques>
                 <operation>
                   <Titre>compatible</Titre>
-                  <Enfants/>
+                  <Enfants>
+                    <Action>
+                      <Position>960;682</Position>
+                      <StyleLien>1</StyleLien>
+                      <PreAssertion>indiceLigne,indiceCollone,
+valeurSaisie,tabSudoku</PreAssertion>
+                      <PostAssertion>tabSudoku</PostAssertion>
+                      <Titre>tabSudoku[ indiceLigne, indiceCollone ].valeur
+ ← valeurSaisie</Titre>
+                      <DetailsVisible>1</DetailsVisible>
+                      <DetailsVideVisible>1</DetailsVideVisible>
+                      <Enfants/>
+                    </Action>
+                  </Enfants>
+                </operation>
+                <operation>
+                  <Titre>erreurDeSaisie = vrai</Titre>
+                  <Enfants>
+                    <Action>
+                      <Position>1484;686</Position>
+                      <StyleLien>1</StyleLien>
+                      <PreAssertion>?</PreAssertion>
+                      <PostAssertion>?</PostAssertion>
+                      <Titre>Afficher erreur de saisie</Titre>
+                      <DetailsVisible>1</DetailsVisible>
+                      <DetailsVideVisible>0</DetailsVideVisible>
+                      <Enfants/>
+                    </Action>
+                  </Enfants>
+                </operation>
+                <operation>
+                  <Titre>nbErreurJoueur > ErreurAutorise</Titre>
+                  <Enfants>
+                    <Sortie>
+                      <Position>1659;698</Position>
+                    </Sortie>
+                  </Enfants>
                 </operation>
               </operationsLogiques>
             </Condition>
+            <Action>
+              <Position>779;441</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>indiceLigne,indiceCollone,
+valeurSaisie,tabSudoku</PreAssertion>
+              <PostAssertion>compatible
+[erreurDeSaisie]</PostAssertion>
+              <Titre>SaisieVerifSudoku</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants>
+                <Action>
+                  <Position>538;581</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>?</PreAssertion>
+                  <PostAssertion>indiceLigne,
+indiceCollone,
+valeurSaisie</PostAssertion>
+                  <Titre>Saisie de l'utilisateur </Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+                <Action>
+                  <Position>816;584</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>indiceLigne,indiceCollone,
+valeurSaisie,tabSudoku</PreAssertion>
+                  <PostAssertion>compatbile</PostAssertion>
+                  <Titre>verifValeur</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>1</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+              </Enfants>
+            </Action>
           </Enfants>
         </Iteration>
       </Enfants>
     </Action>
-    <Action>
-      <Position>1396;553</Position>
-      <StyleLien>1</StyleLien>
-      <PreAssertion>?</PreAssertion>
-      <PostAssertion>?</PostAssertion>
-      <Titre>?</Titre>
-      <DetailsVisible>1</DetailsVisible>
-      <DetailsVideVisible>1</DetailsVideVisible>
-      <Enfants/>
-    </Action>
-    <Condition>
-      <Position>625;565</Position>
-      <StyleLien>1</StyleLien>
-      <estUnique>0</estUnique>
-      <operationsLogiques>
-        <operation>
-          <Titre>nbErreurJoueur > ErreurAutorise</Titre>
-          <Enfants/>
-        </operation>
-      </operationsLogiques>
-    </Condition>
   </Elements>
 </Algorithme>

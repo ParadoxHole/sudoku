@@ -2,7 +2,7 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>verifiValeur</nom>
-  <date_creation>24/11/2022 11:47</date_creation>
+  <date_creation>25/11/2022 14:56</date_creation>
   <Elements>
     <Action>
       <Position>487;84</Position>
