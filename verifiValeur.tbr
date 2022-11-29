@@ -2,7 +2,7 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>verifiValeur</nom>
-  <date_creation>25/11/2022 14:56</date_creation>
+  <date_creation>29/11/2022 16:20</date_creation>
   <Elements>
     <Action>
       <Position>487;84</Position>
@@ -27,11 +27,11 @@ valeurSaisie</PreAssertion>
             <Iteration>
               <Position>184.5;268.5</Position>
               <StyleLien>1</StyleLien>
-              <Titre>Pour i de 0 à 9</Titre>
+              <Titre>Pour i de 0 à 8</Titre>
               <IterationFixe>1</IterationFixe>
               <Enfants>
                 <Condition>
-                  <Position>115;347</Position>
+                  <Position>114;348</Position>
                   <StyleLien>0</StyleLien>
                   <estUnique>0</estUnique>
                   <operationsLogiques>
@@ -78,7 +78,7 @@ valeurSaisie</PreAssertion>
                     <Iteration>
                       <Position>503.5;341.5</Position>
                       <StyleLien>1</StyleLien>
-                      <Titre>Pour i de 0 à 9</Titre>
+                      <Titre>Pour i de 0 à 8</Titre>
                       <IterationFixe>1</IterationFixe>
                       <Enfants>
                         <Condition>
@@ -154,7 +154,7 @@ valeurSaisie</PreAssertion>
                       <Enfants/>
                     </Action>
                     <Iteration>
-                      <Position>1583.5;380.5</Position>
+                      <Position>1573.5;380.5</Position>
                       <StyleLien>1</StyleLien>
                       <Titre>Pour i de indiceLigne à indiceLigne + tailleZone</Titre>
                       <IterationFixe>1</IterationFixe>
@@ -162,7 +162,7 @@ valeurSaisie</PreAssertion>
                         <Iteration>
                           <Position>1497.5;471.5</Position>
                           <StyleLien>1</StyleLien>
-                          <Titre>Pour i de indiceCollone à indiceCollone + tailleZone</Titre>
+                          <Titre>Pour j de indiceCollone à indiceCollone + tailleZone</Titre>
                           <IterationFixe>1</IterationFixe>
                           <Enfants>
                             <Condition>
@@ -172,10 +172,10 @@ valeurSaisie</PreAssertion>
                               <operationsLogiques>
                                 <operation>
                                   <Titre>valeurSaisie = tabSudoku
-[ indiceLigne, i ].valeur</Titre>
+[ i, j].valeur</Titre>
                                   <Enfants>
                                     <Action>
-                                      <Position>1461;625</Position>
+                                      <Position>1459;625</Position>
                                       <StyleLien>1</StyleLien>
                                       <PreAssertion>?</PreAssertion>
                                       <PostAssertion>?</PostAssertion>

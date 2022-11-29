@@ -1,0 +1,112 @@
+<?xml version="1.1"?>
+<!DOCTYPE Tabula_Rasa>
+<Algorithme>
+  <nom>saisieVerifJoueur</nom>
+  <date_creation>29/11/2022 16:55</date_creation>
+  <Elements>
+    <Action>
+      <Position>456;289</Position>
+      <StyleLien>2</StyleLien>
+      <PreAssertion>indiceLigne,indiceCollone,
+valeurSaisie,tabSudoku</PreAssertion>
+      <PostAssertion>compatible
+[erreurDeSaisie]</PostAssertion>
+      <Titre>SaisieVerifJoueur</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants>
+        <Action>
+          <Position>109;417</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>?</PreAssertion>
+          <PostAssertion>indiceLigne,
+indiceCollone,
+valeurSaisie</PostAssertion>
+          <Titre>Saisie de l'utilisateur </Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+        <Action>
+          <Position>817;418</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>indiceLigne,indiceCollone,
+valeurSaisie,tabSudoku</PreAssertion>
+          <PostAssertion>compatbile</PostAssertion>
+          <Titre>verifValeur</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+        <Condition>
+          <Position>1230;423</Position>
+          <StyleLien>0</StyleLien>
+          <estUnique>0</estUnique>
+          <operationsLogiques>
+            <operation>
+              <Titre> tabSudoku[ indiceLigne, 
+indiceCollone ].valeur != 0</Titre>
+              <Enfants>
+                <Action>
+                  <Position>1242;524</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>?</PreAssertion>
+                  <PostAssertion>valModifie</PostAssertion>
+                  <Titre>?</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>1</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+              </Enfants>
+            </operation>
+          </operationsLogiques>
+        </Condition>
+        <Action>
+          <Position>602;418</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>?</PreAssertion>
+          <PostAssertion>abandon</PostAssertion>
+          <Titre>VerifAbandon</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants>
+            <Condition>
+              <Position>573;497</Position>
+              <StyleLien>0</StyleLien>
+              <estUnique>0</estUnique>
+              <operationsLogiques>
+                <operation>
+                  <Titre>indiceLigne = 0 &amp;
+indiceCollone = 0 &amp; 
+valeurSaisi = 0</Titre>
+                  <Enfants>
+                    <Action>
+                      <Position>592;574</Position>
+                      <StyleLien>1</StyleLien>
+                      <PreAssertion>?</PreAssertion>
+                      <PostAssertion>?</PostAssertion>
+                      <Titre>abandon ← vrai</Titre>
+                      <DetailsVisible>1</DetailsVisible>
+                      <DetailsVideVisible>0</DetailsVideVisible>
+                      <Enfants/>
+                    </Action>
+                  </Enfants>
+                </operation>
+              </operationsLogiques>
+            </Condition>
+          </Enfants>
+        </Action>
+        <Action>
+          <Position>394;416</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>?</PreAssertion>
+          <PostAssertion>?</PostAssertion>
+          <Titre>charactère</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+      </Enfants>
+    </Action>
+  </Elements>
+</Algorithme>
