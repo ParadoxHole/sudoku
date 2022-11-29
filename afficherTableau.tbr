@@ -2,7 +2,7 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>Algorithme</nom>
-  <date_creation>25/11/2022 16:56</date_creation>
+  <date_creation>29/11/2022 16:59</date_creation>
   <Elements>
     <Action>
       <Position>919;25</Position>
@@ -94,7 +94,7 @@ TAILLE_ZONE</PreAssertion>
                       <Titre>sinon</Titre>
                       <Enfants>
                         <Condition>
-                          <Position>1053;555</Position>
+                          <Position>1055;575</Position>
                           <StyleLien>0</StyleLien>
                           <estUnique>0</estUnique>
                           <operationsLogiques>

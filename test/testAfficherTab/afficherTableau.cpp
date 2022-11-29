@@ -17,13 +17,13 @@ int main()
     nbSudoku tabSudoku[9][9] = {{{5,true},{3,true},{0,false},{0,false},{7,true},{0,false},{0,false},{0,false},{0,false}},
                                 {{6,true},{0,false},{0,false},{1,true},{9,true},{5,true},{0,false},{0,false},{0,false}},
                                 {{0,false},{9,true},{8,true},{0,false},{0,false},{0,false},{0,false},{6,true},{0,false}},
-                                {{8,true},{0,false},{9,false},{0,false},{6,true},{0,false},{0,false},{0,false},{3,true}},
-                                {{4,true},{0,false},{0,false},{8,true},{3,false},{3,true},{0,false},{0,false},{1,true}},
+                                {{8,true},{0,false},{0,false},{0,false},{6,true},{0,false},{0,false},{0,false},{3,true}},
+                                {{4,true},{0,false},{0,false},{8,true},{0,false},{3,true},{0,false},{0,false},{1,true}},
                                 {{7,true},{0,false},{0,false},{0,false},{2,true},{0,false},{0,false},{0,false},{6,true}},
                                 {{0,false},{6,true},{0,false},{0,false},{0,false},{0,false},{2,true},{8,true},{0,false}},
                                 {{0,false},{0,false},{0,false},{4,true},{1,true},{9,true},{0,false},{0,false},{5,true}},
-                                {{8,false},{0,false},{0,false},{0,false},{8,true},{0,false},{0,false},{7,true},{9,true}}};
-    
+                                {{0,false},{0,false},{0,false},{0,false},{8,true},{0,false},{0,false},{7,true},{9,true}}};
+                                
     afficherTableau(tabSudoku, TAILLE_TAB, TAILLE_ZONE);
 
     return 0;
