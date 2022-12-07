@@ -2,12 +2,12 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>verifiValeur</nom>
-  <date_creation>29/11/2022 16:20</date_creation>
+  <date_creation>3/12/2022 18:29</date_creation>
   <Elements>
     <Action>
       <Position>487;84</Position>
       <StyleLien>2</StyleLien>
-      <PreAssertion>indiceLigne,indiceCollone,
+      <PreAssertion>indiceLigne,indiceCollone,&#xd;
 valeurSaisie,tabSudoku</PreAssertion>
       <PostAssertion>compatible</PostAssertion>
       <Titre>verifValeur</Titre>
@@ -17,7 +17,7 @@ valeurSaisie,tabSudoku</PreAssertion>
         <Action>
           <Position>19;195</Position>
           <StyleLien>2</StyleLien>
-          <PreAssertion>indiceLigne
+          <PreAssertion>indiceLigne&#xd;
 valeurSaisie</PreAssertion>
           <PostAssertion>compatible</PostAssertion>
           <Titre>Vérification Horizontale </Titre>
@@ -36,7 +36,7 @@ valeurSaisie</PreAssertion>
                   <estUnique>0</estUnique>
                   <operationsLogiques>
                     <operation>
-                      <Titre>valeurSaisie = tabSudoku
+                      <Titre>valeurSaisie = tabSudoku&#xd;
 [ indiceLigne, i ].valeur</Titre>
                       <Enfants>
                         <Action>
@@ -68,7 +68,7 @@ valeurSaisie</PreAssertion>
                 <Action>
                   <Position>339;272</Position>
                   <StyleLien>2</StyleLien>
-                  <PreAssertion>indiceCollone
+                  <PreAssertion>indiceCollone&#xd;
 valeurSaisie</PreAssertion>
                   <PostAssertion>compatible</PostAssertion>
                   <Titre>Vérification Verticale</Titre>
@@ -87,7 +87,7 @@ valeurSaisie</PreAssertion>
                           <estUnique>0</estUnique>
                           <operationsLogiques>
                             <operation>
-                              <Titre>valeurSaisie = tabSudoku
+                              <Titre>valeurSaisie = tabSudoku&#xd;
 [ i, indiceCollone ].valeur</Titre>
                               <Enfants>
                                 <Action>
@@ -123,8 +123,8 @@ valeurSaisie</PreAssertion>
                 <Action>
                   <Position>938;265</Position>
                   <StyleLien>2</StyleLien>
-                  <PreAssertion>indiceLigne
-indiceCollone
+                  <PreAssertion>indiceLigne&#xd;
+indiceCollone&#xd;
 valeurSaisie</PreAssertion>
                   <PostAssertion>compatible</PostAssertion>
                   <Titre>Verification de la zone</Titre>
@@ -136,7 +136,7 @@ valeurSaisie</PreAssertion>
                       <StyleLien>1</StyleLien>
                       <PreAssertion>indiceLigne</PreAssertion>
                       <PostAssertion>indiceLigne</PostAssertion>
-                      <Titre>indiceLigne ← (arondirHaut(IndiceLigne/tailleZone)
+                      <Titre>indiceLigne ← (arondirHaut(IndiceLigne/tailleZone)&#xd;
 -1)*tailleZone+1</Titre>
                       <DetailsVisible>1</DetailsVisible>
                       <DetailsVideVisible>1</DetailsVideVisible>
@@ -147,7 +147,7 @@ valeurSaisie</PreAssertion>
                       <StyleLien>1</StyleLien>
                       <PreAssertion>indiceCollone</PreAssertion>
                       <PostAssertion>indiceCollone</PostAssertion>
-                      <Titre>indiceCollone ← (arondirHaut(indiceCollone
+                      <Titre>indiceCollone ← (arondirHaut(indiceCollone&#xd;
 /tailleZone)-1)*tailleZone+1</Titre>
                       <DetailsVisible>1</DetailsVisible>
                       <DetailsVideVisible>1</DetailsVideVisible>
@@ -171,7 +171,7 @@ valeurSaisie</PreAssertion>
                               <estUnique>0</estUnique>
                               <operationsLogiques>
                                 <operation>
-                                  <Titre>valeurSaisie = tabSudoku
+                                  <Titre>valeurSaisie = tabSudoku&#xd;
 [ i, j].valeur</Titre>
                                   <Enfants>
                                     <Action>

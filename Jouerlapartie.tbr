@@ -2,26 +2,13 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>Jouer la partie</nom>
-  <date_creation>29/11/2022 16:51</date_creation>
+  <date_creation>4/12/2022 17:13</date_creation>
   <Elements>
-    <Action>
-      <Position>1583;694</Position>
-      <StyleLien>1</StyleLien>
-      <PreAssertion>?</PreAssertion>
-      <PostAssertion>?</PostAssertion>
-      <Titre>Afficher erreur de saisie</Titre>
-      <DetailsVisible>1</DetailsVisible>
-      <DetailsVideVisible>0</DetailsVideVisible>
-      <Enfants/>
-    </Action>
-    <Sortie>
-      <Position>1764;704</Position>
-    </Sortie>
     <Action>
       <Position>684;255</Position>
       <StyleLien>2</StyleLien>
-      <PreAssertion>tabSudoku,
-nbErreurAutorise,
+      <PreAssertion>tabSudoku,&#xd;
+nbErreurAutorise,&#xd;
 nbErreurJoueur</PreAssertion>
       <PostAssertion>Abandon</PostAssertion>
       <Titre>Jouer la partie</Titre>
@@ -35,9 +22,9 @@ nbErreurJoueur</PreAssertion>
           <IterationFixe>0</IterationFixe>
           <Enfants>
             <Action>
-              <Position>188;434</Position>
+              <Position>-9;453</Position>
               <StyleLien>1</StyleLien>
-              <PreAssertion>tabSudoku, TAILLE_TAB,
+              <PreAssertion>tabSudoku, TAILLE_TAB,&#xd;
 TAILLE_ZONE</PreAssertion>
               <PostAssertion>?</PostAssertion>
               <Titre>afficherTableau</Titre>
@@ -46,130 +33,205 @@ TAILLE_ZONE</PreAssertion>
               <Enfants/>
             </Action>
             <Action>
-              <Position>493;448</Position>
+              <Position>301;453</Position>
               <StyleLien>1</StyleLien>
-              <PreAssertion>nbTour,
-nbErreurAutorise,
+              <PreAssertion>nbTour,&#xd;
+nbErreurAutorise,&#xd;
 nbErreurJoueur</PreAssertion>
               <PostAssertion>?</PostAssertion>
-              <Titre>Afficher le nombre 
+              <Titre>Afficher le nombre &#xd;
 de tour et d'erreur</Titre>
               <DetailsVisible>1</DetailsVisible>
               <DetailsVideVisible>0</DetailsVideVisible>
               <Enfants/>
             </Action>
             <Action>
-              <Position>779;461</Position>
+              <Position>594;452</Position>
               <StyleLien>1</StyleLien>
-              <PreAssertion>indiceLigne,indiceCollone,
+              <PreAssertion>indiceLigne,indiceCollone,&#xd;
 valeurSaisie,tabSudoku</PreAssertion>
-              <PostAssertion>compatible
+              <PostAssertion>compatible&#xd;
 [erreurDeSaisie]</PostAssertion>
               <Titre>SaisieVerifJoueur</Titre>
               <DetailsVisible>1</DetailsVisible>
               <DetailsVideVisible>1</DetailsVideVisible>
               <Enfants/>
             </Action>
-            <Condition>
-              <Position>1239;463</Position>
-              <StyleLien>0</StyleLien>
-              <estUnique>0</estUnique>
-              <operationsLogiques>
-                <operation>
-                  <Titre>compatible</Titre>
-                  <Enfants/>
-                </operation>
-                <operation>
-                  <Titre>Sinon</Titre>
-                  <Enfants>
-                    <Action>
-                      <Position>1155;695</Position>
-                      <StyleLien>1</StyleLien>
-                      <PreAssertion>indiceLigne,indiceCollone,
-valeurSaisie,tabSudoku</PreAssertion>
-                      <PostAssertion>?</PostAssertion>
-                      <Titre>rechercheDeValeurPossible</Titre>
-                      <DetailsVisible>1</DetailsVisible>
-                      <DetailsVideVisible>0</DetailsVideVisible>
-                      <Enfants/>
-                    </Action>
-                  </Enfants>
-                </operation>
-              </operationsLogiques>
-            </Condition>
-            <Condition>
-              <Position>1431;463</Position>
-              <StyleLien>1</StyleLien>
-              <estUnique>0</estUnique>
-              <operationsLogiques>
-                <operation>
-                  <Titre>erreurDeSaisie</Titre>
-                  <Enfants/>
-                </operation>
-                <operation>
-                  <Titre>nbErreurJoueur > ErreurAutorise ou abandon</Titre>
-                  <Enfants/>
-                </operation>
-              </operationsLogiques>
-            </Condition>
           </Enfants>
         </Iteration>
       </Enfants>
     </Action>
-    <Action>
-      <Position>701;630</Position>
-      <StyleLien>2</StyleLien>
-      <PreAssertion>?</PreAssertion>
-      <PostAssertion>?</PostAssertion>
-      <Titre>gererValeurCompatible</Titre>
-      <DetailsVisible>1</DetailsVisible>
-      <DetailsVideVisible>1</DetailsVideVisible>
-      <Enfants>
-        <Action>
-          <Position>321;729</Position>
-          <StyleLien>1</StyleLien>
-          <PreAssertion>indiceLigne,indiceCollone,
-valeurSaisie,tabSudoku</PreAssertion>
-          <PostAssertion>tabSudoku</PostAssertion>
-          <Titre>tabSudoku[ indiceLigne, indiceCollone ].valeur
- ← valeurSaisie</Titre>
-          <DetailsVisible>1</DetailsVisible>
-          <DetailsVideVisible>1</DetailsVideVisible>
-          <Enfants/>
-        </Action>
-        <Action>
-          <Position>844;729</Position>
-          <StyleLien>1</StyleLien>
-          <PreAssertion>?</PreAssertion>
-          <PostAssertion>?</PostAssertion>
-          <Titre>Afficher "Oui !"</Titre>
-          <DetailsVisible>1</DetailsVisible>
-          <DetailsVideVisible>0</DetailsVideVisible>
-          <Enfants/>
-        </Action>
-        <Condition>
-          <Position>971;734</Position>
-          <StyleLien>0</StyleLien>
-          <estUnique>0</estUnique>
-          <operationsLogiques>
-            <operation>
-              <Titre>valModifie</Titre>
+    <ConditionMultiple>
+      <Position>1219;459</Position>
+      <StyleLien>0</StyleLien>
+      <Titre>issueDeLaSaisie</Titre>
+      <operationsLogiques>
+        <operation>
+          <Titre>Compatible</Titre>
+          <Enfants>
+            <Action>
+              <Position>871;630</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>?</PostAssertion>
+              <Titre>traiterValeurCompatible</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
               <Enfants>
                 <Action>
-                  <Position>864;821</Position>
+                  <Position>679;732</Position>
                   <StyleLien>1</StyleLien>
-                  <PreAssertion>?</PreAssertion>
-                  <PostAssertion>?</PostAssertion>
-                  <Titre>Afficher : "valeur"  ancienneVal "modifiée en" valeurSaisie</Titre>
+                  <PreAssertion>indiceLigne,indiceCollone,&#xd;
+valeurSaisie,tabSudoku</PreAssertion>
+                  <PostAssertion>tabSudoku</PostAssertion>
+                  <Titre>tabSudoku[ indiceLigne, indiceCollone ].valeur
+ ← valeurSaisie</Titre>
                   <DetailsVisible>1</DetailsVisible>
                   <DetailsVideVisible>1</DetailsVideVisible>
                   <Enfants/>
                 </Action>
+                <Condition>
+                  <Position>546;738</Position>
+                  <StyleLien>0</StyleLien>
+                  <estUnique>0</estUnique>
+                  <operationsLogiques>
+                    <operation>
+                      <Titre>valModifie</Titre>
+                      <Enfants>
+                        <Action>
+                          <Position>438;831</Position>
+                          <StyleLien>1</StyleLien>
+                          <PreAssertion>?</PreAssertion>
+                          <PostAssertion>?</PostAssertion>
+                          <Titre>Afficher : "valeur"  tabSudoku[ indiceLigne, indiceCollone ].valeur "modifiée en" valeurSaisie</Titre>
+                          <DetailsVisible>1</DetailsVisible>
+                          <DetailsVideVisible>1</DetailsVideVisible>
+                          <Enfants/>
+                        </Action>
+                      </Enfants>
+                    </operation>
+                  </operationsLogiques>
+                </Condition>
+                <Action>
+                  <Position>383;730</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>?</PreAssertion>
+                  <PostAssertion>?</PostAssertion>
+                  <Titre>Afficher "Oui !"</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
               </Enfants>
-            </operation>
-          </operationsLogiques>
-        </Condition>
-      </Enfants>
-    </Action>
+            </Action>
+          </Enfants>
+        </operation>
+        <operation>
+          <Titre>incompatible</Titre>
+          <Enfants>
+            <Action>
+              <Position>1276;632</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>?</PostAssertion>
+              <Titre>traiterValeurIncompatible</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants>
+                <Action>
+                  <Position>1237;728</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>?</PreAssertion>
+                  <PostAssertion>?</PostAssertion>
+                  <Titre>Afficher "ERREUR #"</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+                <Condition>
+                  <Position>1416;735</Position>
+                  <StyleLien>0</StyleLien>
+                  <estUnique>0</estUnique>
+                  <operationsLogiques>
+                    <operation>
+                      <Titre>valModifie</Titre>
+                      <Enfants>
+                        <Action>
+                          <Position>1273;821</Position>
+                          <StyleLien>1</StyleLien>
+                          <PreAssertion>?</PreAssertion>
+                          <PostAssertion>?</PostAssertion>
+                          <Titre>Afficher " saisie sur grille de départ #"</Titre>
+                          <DetailsVisible>1</DetailsVisible>
+                          <DetailsVideVisible>0</DetailsVideVisible>
+                          <Enfants/>
+                        </Action>
+                      </Enfants>
+                    </operation>
+                    <operation>
+                      <Titre>Sinon</Titre>
+                      <Enfants>
+                        <Action>
+                          <Position>1506;818</Position>
+                          <StyleLien>2</StyleLien>
+                          <PreAssertion>?</PreAssertion>
+                          <PostAssertion>?</PostAssertion>
+                          <Titre>Afficher " valeur incompatible #"</Titre>
+                          <DetailsVisible>1</DetailsVisible>
+                          <DetailsVideVisible>0</DetailsVideVisible>
+                          <Enfants>
+                            <Action>
+                              <Position>1294;905</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>indiceLigne,indiceCollone,&#xd;
+valeurSaisie,tabSudoku</PreAssertion>
+                              <PostAssertion>?</PostAssertion>
+                              <Titre>rechercheDeValeurPossible</Titre>
+                              <DetailsVisible>1</DetailsVisible>
+                              <DetailsVideVisible>0</DetailsVideVisible>
+                              <Enfants/>
+                            </Action>
+                            <Condition>
+                              <Position>1662;909</Position>
+                              <StyleLien>1</StyleLien>
+                              <estUnique>0</estUnique>
+                              <operationsLogiques>
+                                <operation>
+                                  <Titre>nbErreurJoueur > ErreurAutorise ou abandon</Titre>
+                                  <Enfants/>
+                                </operation>
+                              </operationsLogiques>
+                            </Condition>
+                          </Enfants>
+                        </Action>
+                      </Enfants>
+                    </operation>
+                  </operationsLogiques>
+                </Condition>
+              </Enfants>
+            </Action>
+          </Enfants>
+        </operation>
+        <operation>
+          <Titre>abandon</Titre>
+          <Enfants>
+            <Action>
+              <Position>1513;630</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>?</PostAssertion>
+              <Titre>Afficher "ABANDON #"</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+          </Enfants>
+        </operation>
+        <operation>
+          <Titre>erreurDeSaisie</Titre>
+          <Enfants/>
+        </operation>
+      </operationsLogiques>
+    </ConditionMultiple>
   </Elements>
 </Algorithme>
