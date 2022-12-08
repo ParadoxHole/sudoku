@@ -2,10 +2,10 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>SUDOKU</nom>
-  <date_creation>29/11/2022 15:54</date_creation>
+  <date_creation>8/12/2022 00:46</date_creation>
   <Elements>
     <Action>
-      <Position>797;175</Position>
+      <Position>778;177</Position>
       <StyleLien>2</StyleLien>
       <PreAssertion>?</PreAssertion>
       <PostAssertion>?</PostAssertion>
@@ -14,39 +14,43 @@
       <DetailsVideVisible>0</DetailsVideVisible>
       <Enfants>
         <Iteration>
-          <Position>816.5;245.5</Position>
+          <Position>796.5;253.5</Position>
           <StyleLien>1</StyleLien>
           <Titre>?</Titre>
           <IterationFixe>0</IterationFixe>
           <Enfants>
             <Action>
-              <Position>458;347</Position>
+              <Position>217;362</Position>
               <StyleLien>1</StyleLien>
               <PreAssertion>?</PreAssertion>
-              <PostAssertion>?</PostAssertion>
+              <PostAssertion>tabSudoku,erreurAutorise
+nbTour,TAILLE_TAB,
+TAILLE_ZONE</PostAssertion>
               <Titre>Initialiser la partie</Titre>
               <DetailsVisible>1</DetailsVisible>
-              <DetailsVideVisible>1</DetailsVideVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
               <Enfants/>
             </Action>
             <Action>
-              <Position>734;348</Position>
+              <Position>545;363</Position>
               <StyleLien>1</StyleLien>
-              <PreAssertion>?</PreAssertion>
-              <PostAssertion>?</PostAssertion>
+              <PreAssertion>tabSudoku,erreurAutorise
+nbTour,TAILLE_TAB,
+TAILLE_ZONE</PreAssertion>
+              <PostAssertion>issueDeLaSaisie</PostAssertion>
               <Titre>Jouer la partie</Titre>
               <DetailsVisible>1</DetailsVisible>
               <DetailsVideVisible>1</DetailsVideVisible>
               <Enfants/>
             </Action>
             <Action>
-              <Position>984;348</Position>
+              <Position>1021;364</Position>
               <StyleLien>1</StyleLien>
-              <PreAssertion>?</PreAssertion>
+              <PreAssertion>issueDeLaSaisie</PreAssertion>
               <PostAssertion>?</PostAssertion>
-              <Titre>Finaliser la partie</Titre>
+              <Titre>finaliserPartie</Titre>
               <DetailsVisible>1</DetailsVisible>
-              <DetailsVideVisible>1</DetailsVideVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
               <Enfants/>
             </Action>
           </Enfants>

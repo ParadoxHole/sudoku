@@ -1,28 +1,137 @@
 <?xml version="1.1"?>
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
-  <nom>initialiser partie</nom>
-  <date_creation>3/12/2022 15:35</date_creation>
+  <nom>initialiserPartie</nom>
+  <date_creation>8/12/2022 00:48</date_creation>
   <Elements>
     <Action>
-      <Position>676;118</Position>
-      <StyleLien>1</StyleLien>
+      <Position>866;204</Position>
+      <StyleLien>2</StyleLien>
       <PreAssertion>?</PreAssertion>
-      <PostAssertion>?</PostAssertion>
+      <PostAssertion>tabSudoku,erreurAutorise
+nbTour,TAILLE_TAB,
+TAILLE_ZONE</PostAssertion>
       <Titre>initialiserPartie</Titre>
       <DetailsVisible>1</DetailsVisible>
-      <DetailsVideVisible>1</DetailsVideVisible>
-      <Enfants/>
-    </Action>
-    <Action>
-      <Position>405;307</Position>
-      <StyleLien>1</StyleLien>
-      <PreAssertion>?</PreAssertion>
-      <PostAssertion>?</PostAssertion>
-      <Titre>Initialiser le tableau avec toutes ses valeurs</Titre>
-      <DetailsVisible>1</DetailsVisible>
-      <DetailsVideVisible>1</DetailsVideVisible>
-      <Enfants/>
+      <DetailsVideVisible>0</DetailsVideVisible>
+      <Enfants>
+        <Action>
+          <Position>310;301</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>?</PreAssertion>
+          <PostAssertion>erreurAutorise</PostAssertion>
+          <Titre>Saise Du nombre d'erreur par le joueur</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants>
+            <Iteration>
+              <Position>398.5;385.5</Position>
+              <StyleLien>1</StyleLien>
+              <Titre>?</Titre>
+              <IterationFixe>0</IterationFixe>
+              <Enfants>
+                <Action>
+                  <Position>324;503</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>?</PreAssertion>
+                  <PostAssertion>erreurAutorise</PostAssertion>
+                  <Titre>saisieErreurAutorise</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+                <Action>
+                  <Position>-58;503</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>erreurAutorise</PreAssertion>
+                  <PostAssertion>erreurAutorise</PostAssertion>
+                  <Titre>erreurAutorise ← 0</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>1</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+                <Condition>
+                  <Position>613;509</Position>
+                  <StyleLien>0</StyleLien>
+                  <estUnique>0</estUnique>
+                  <operationsLogiques>
+                    <operation>
+                      <Titre>erreurAutorise >= 3</Titre>
+                      <Enfants>
+                        <Sortie>
+                          <Position>674;610</Position>
+                        </Sortie>
+                      </Enfants>
+                    </operation>
+                  </operationsLogiques>
+                </Condition>
+                <Action>
+                  <Position>792;505</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>?</PreAssertion>
+                  <PostAssertion>?</PostAssertion>
+                  <Titre>Afficher "Vous devez choisir une valeur supérieur ou égale à 3"</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+              </Enfants>
+            </Iteration>
+          </Enfants>
+        </Action>
+        <Action>
+          <Position>727;310</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>?</PreAssertion>
+          <PostAssertion>tabSudoku</PostAssertion>
+          <Titre>Initialiser le tableau avec toutes ses valeurs</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+        <Action>
+          <Position>1089;311</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>?</PreAssertion>
+          <PostAssertion>TAILLE_TAB,
+TAILLE_ZONE</PostAssertion>
+          <Titre>Initialiser les variables de Tailles</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants>
+            <Action>
+              <Position>974;412</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>TAILLE_TAB</PostAssertion>
+              <Titre>TAILLE_TAB ← 9</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+            <Action>
+              <Position>1235;414</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>TAILLE_ZONE</PostAssertion>
+              <Titre>TAILLE_ZONE ← 3</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+          </Enfants>
+        </Action>
+        <Action>
+          <Position>1454;311</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>?</PreAssertion>
+          <PostAssertion>nbTour</PostAssertion>
+          <Titre>nbTour ← 1</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+      </Enfants>
     </Action>
   </Elements>
 </Algorithme>

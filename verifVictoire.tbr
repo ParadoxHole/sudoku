@@ -1,0 +1,99 @@
+<?xml version="1.1"?>
+<!DOCTYPE Tabula_Rasa>
+<Algorithme>
+  <nom>verifVictoire</nom>
+  <date_creation>8/12/2022 00:47</date_creation>
+  <Elements>
+    <Action>
+      <Position>518;289</Position>
+      <StyleLien>2</StyleLien>
+      <PreAssertion>tabSudoku,
+TAILLE_TAB</PreAssertion>
+      <PostAssertion>booléen</PostAssertion>
+      <Titre>tabPlein</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants>
+        <Iteration>
+          <Position>587.5;393.5</Position>
+          <StyleLien>1</StyleLien>
+          <Titre>Pour i de 0 à 
+TAILLE_TAB - 1</Titre>
+          <IterationFixe>1</IterationFixe>
+          <Enfants>
+            <Iteration>
+              <Position>671.5;487.5</Position>
+              <StyleLien>0</StyleLien>
+              <Titre>Pour j de 0 à 
+TAILLE_TAB -1</Titre>
+              <IterationFixe>1</IterationFixe>
+              <Enfants>
+                <Condition>
+                  <Position>599;579</Position>
+                  <StyleLien>1</StyleLien>
+                  <estUnique>0</estUnique>
+                  <operationsLogiques>
+                    <operation>
+                      <Titre>valeurSaisie = tabSudoku
+[ i, j].valeur = 0</Titre>
+                      <Enfants>
+                        <Sortie>
+                          <Position>647;667</Position>
+                        </Sortie>
+                        <Action>
+                          <Position>687;654</Position>
+                          <StyleLien>1</StyleLien>
+                          <PreAssertion>?</PreAssertion>
+                          <PostAssertion>?</PostAssertion>
+                          <Titre>plein = faux</Titre>
+                          <DetailsVisible>0</DetailsVisible>
+                          <DetailsVideVisible>1</DetailsVideVisible>
+                          <Enfants/>
+                        </Action>
+                      </Enfants>
+                    </operation>
+                  </operationsLogiques>
+                </Condition>
+              </Enfants>
+            </Iteration>
+            <Condition>
+              <Position>492;493</Position>
+              <StyleLien>0</StyleLien>
+              <estUnique>0</estUnique>
+              <operationsLogiques>
+                <operation>
+                  <Titre>plein = faux</Titre>
+                  <Enfants>
+                    <Sortie>
+                      <Position>533;586</Position>
+                    </Sortie>
+                  </Enfants>
+                </operation>
+              </operationsLogiques>
+            </Condition>
+          </Enfants>
+        </Iteration>
+        <Action>
+          <Position>332;393</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>?</PreAssertion>
+          <PostAssertion>plein</PostAssertion>
+          <Titre>plein ← vrai</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+        <Action>
+          <Position>794;391</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>plein</PreAssertion>
+          <PostAssertion>?</PostAssertion>
+          <Titre>retourner plein</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+      </Enfants>
+    </Action>
+  </Elements>
+</Algorithme>

@@ -1,0 +1,82 @@
+<?xml version="1.1"?>
+<!DOCTYPE Tabula_Rasa>
+<Algorithme>
+  <nom>finaliserPartie</nom>
+  <date_creation>8/12/2022 00:31</date_creation>
+  <Elements>
+    <Action>
+      <Position>889;299</Position>
+      <StyleLien>2</StyleLien>
+      <PreAssertion>issueDeLaSaisie,
+erreurAutorise</PreAssertion>
+      <PostAssertion>?</PostAssertion>
+      <Titre>finaliserPartie</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>0</DetailsVideVisible>
+      <Enfants>
+        <ConditionMultiple>
+          <Position>774;406</Position>
+          <StyleLien>0</StyleLien>
+          <Titre>issueDeLaSaisie</Titre>
+          <operationsLogiques>
+            <operation>
+              <Titre>Compatible</Titre>
+              <Enfants>
+                <Action>
+                  <Position>660;541</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>?</PreAssertion>
+                  <PostAssertion>?</PostAssertion>
+                  <Titre>Afficher"Bravo ! ! ! !"</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+              </Enfants>
+            </operation>
+            <operation>
+              <Titre>incompatible</Titre>
+              <Enfants>
+                <Action>
+                  <Position>803;543</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>?</PreAssertion>
+                  <PostAssertion>?</PostAssertion>
+                  <Titre>Afficher "PERDU ! ! ! PLUS DE" erreurAutorise "ERREUR"</Titre>
+                  <DetailsVisible>0</DetailsVisible>
+                  <DetailsVideVisible>1</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+              </Enfants>
+            </operation>
+            <operation>
+              <Titre>abandon</Titre>
+              <Enfants>
+                <Action>
+                  <Position>1019;545</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>?</PreAssertion>
+                  <PostAssertion>?</PostAssertion>
+                  <Titre>Afficher "ABANDON ! !"</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+              </Enfants>
+            </operation>
+          </operationsLogiques>
+        </ConditionMultiple>
+        <Action>
+          <Position>1128;411</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>?</PreAssertion>
+          <PostAssertion>?</PostAssertion>
+          <Titre>Afficher "Appuyez une touche pour continuer..." et attendre</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+      </Enfants>
+    </Action>
+  </Elements>
+</Algorithme>

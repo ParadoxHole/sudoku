@@ -1,8 +1,8 @@
 <?xml version="1.1"?>
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
-  <nom>Algorithme</nom>
-  <date_creation>3/12/2022 18:28</date_creation>
+  <nom>afficherSudoku</nom>
+  <date_creation>8/12/2022 01:02</date_creation>
   <Elements>
     <Action>
       <Position>693;24</Position>
@@ -25,16 +25,6 @@ TAILLE_ZONE</PreAssertion>
           <Enfants/>
         </Action>
         <Action>
-          <Position>602;134</Position>
-          <StyleLien>1</StyleLien>
-          <PreAssertion>?</PreAssertion>
-          <PostAssertion>?</PostAssertion>
-          <Titre>saut à la ligne</Titre>
-          <DetailsVisible>1</DetailsVisible>
-          <DetailsVideVisible>0</DetailsVideVisible>
-          <Enfants/>
-        </Action>
-        <Action>
           <Position>371;139</Position>
           <StyleLien>2</StyleLien>
           <PreAssertion>?</PreAssertion>
@@ -44,13 +34,14 @@ TAILLE_ZONE</PreAssertion>
           <DetailsVideVisible>0</DetailsVideVisible>
           <Enfants>
             <Iteration>
-              <Position>422.5;228.5</Position>
+              <Position>422.5;225.5</Position>
               <StyleLien>1</StyleLien>
-              <Titre>Pour i de 0 à TAILLE_TAB -1</Titre>
+              <Titre>Pour i de 0 à 
+TAILLE_TAB -1</Titre>
               <IterationFixe>1</IterationFixe>
               <Enfants>
                 <Condition>
-                  <Position>200;354</Position>
+                  <Position>195;352</Position>
                   <StyleLien>1</StyleLien>
                   <estUnique>0</estUnique>
                   <operationsLogiques>
@@ -58,7 +49,7 @@ TAILLE_ZONE</PreAssertion>
                       <Titre>i % TAILLE_ZONE = 0</Titre>
                       <Enfants>
                         <Action>
-                          <Position>126;444</Position>
+                          <Position>121;442</Position>
                           <StyleLien>1</StyleLien>
                           <PreAssertion>?</PreAssertion>
                           <PostAssertion>?</PostAssertion>
@@ -68,7 +59,7 @@ TAILLE_ZONE</PreAssertion>
                           <Enfants/>
                         </Action>
                         <Condition>
-                          <Position>330;453</Position>
+                          <Position>325;451</Position>
                           <StyleLien>0</StyleLien>
                           <estUnique>0</estUnique>
                           <operationsLogiques>
@@ -76,7 +67,7 @@ TAILLE_ZONE</PreAssertion>
                               <Titre>i = 0</Titre>
                               <Enfants>
                                 <Action>
-                                  <Position>308;530</Position>
+                                  <Position>303;528</Position>
                                   <StyleLien>1</StyleLien>
                                   <PreAssertion>?</PreAssertion>
                                   <PostAssertion>?</PostAssertion>
@@ -94,7 +85,7 @@ TAILLE_ZONE</PreAssertion>
                   </operationsLogiques>
                 </Condition>
                 <Action>
-                  <Position>445;350</Position>
+                  <Position>440;348</Position>
                   <StyleLien>1</StyleLien>
                   <PreAssertion>?</PreAssertion>
                   <PostAssertion>?</PostAssertion>
@@ -120,7 +111,7 @@ TAILLE_ZONE</PreAssertion>
         <Action>
           <Position>816;136</Position>
           <StyleLien>2</StyleLien>
-          <PreAssertion>tabSudoku, TAILLE_TAB,
+          <PreAssertion>tabSudoku, TAILLE_TAB,&#xd;
 TAILLE_ZONE</PreAssertion>
           <PostAssertion>?</PostAssertion>
           <Titre>afficherNombreDuSudoku</Titre>
@@ -128,7 +119,7 @@ TAILLE_ZONE</PreAssertion>
           <DetailsVideVisible>0</DetailsVideVisible>
           <Enfants>
             <Iteration>
-              <Position>1061.5;210.5</Position>
+              <Position>1062.5;210.5</Position>
               <StyleLien>1</StyleLien>
               <Titre>Pour indiceLigne de 0 à TAILLE_TAB -1</Titre>
               <IterationFixe>1</IterationFixe>
@@ -212,14 +203,14 @@ TAILLE_ZONE</PreAssertion>
                               <estUnique>0</estUnique>
                               <operationsLogiques>
                                 <operation>
-                                  <Titre>tabSudoku[indiceLigne][indiceColonne].nbDuDebut = true</Titre>
+                                  <Titre>tabSudoku[indiceLigne][indiceColonne].nbDuDebut = vrai</Titre>
                                   <Enfants>
                                     <Action>
-                                      <Position>1066;750</Position>
+                                      <Position>1007;752</Position>
                                       <StyleLien>1</StyleLien>
                                       <PreAssertion>?</PreAssertion>
                                       <PostAssertion>?</PostAssertion>
-                                      <Titre>afficher valeur en rouge</Titre>
+                                      <Titre>afficher tabSudoku[indiceLigne][indiceColonne].valeur en rouge</Titre>
                                       <DetailsVisible>1</DetailsVisible>
                                       <DetailsVideVisible>0</DetailsVideVisible>
                                       <Enfants/>
@@ -230,11 +221,11 @@ TAILLE_ZONE</PreAssertion>
                                   <Titre>sinon</Titre>
                                   <Enfants>
                                     <Action>
-                                      <Position>1221;750</Position>
+                                      <Position>1222;750</Position>
                                       <StyleLien>1</StyleLien>
                                       <PreAssertion>?</PreAssertion>
                                       <PostAssertion>?</PostAssertion>
-                                      <Titre>afficher valeur en bleu</Titre>
+                                      <Titre>afficher tabSudoku[indiceLigne][indiceColonne].valeur en bleu</Titre>
                                       <DetailsVisible>1</DetailsVisible>
                                       <DetailsVideVisible>0</DetailsVideVisible>
                                       <Enfants/>
@@ -274,7 +265,7 @@ TAILLE_ZONE</PreAssertion>
                   <StyleLien>1</StyleLien>
                   <PreAssertion>?</PreAssertion>
                   <PostAssertion>?</PostAssertion>
-                  <Titre>afficher barre vertical, &#xd;
+                  <Titre>afficher barre vertical, &#xd;&#xd;
 1 espace et  indiceLigne + 1</Titre>
                   <DetailsVisible>1</DetailsVisible>
                   <DetailsVideVisible>0</DetailsVideVisible>
@@ -283,6 +274,16 @@ TAILLE_ZONE</PreAssertion>
               </Enfants>
             </Iteration>
           </Enfants>
+        </Action>
+        <Action>
+          <Position>610;139</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>?</PreAssertion>
+          <PostAssertion>?</PostAssertion>
+          <Titre>afficher tirets</Titre>
+          <DetailsVisible>0</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants/>
         </Action>
       </Enfants>
     </Action>

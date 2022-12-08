@@ -1,0 +1,72 @@
+<?xml version="1.1"?>
+<!DOCTYPE Tabula_Rasa>
+<Algorithme>
+  <nom>rechercheDeValeurPossible</nom>
+  <date_creation>8/12/2022 01:03</date_creation>
+  <Elements>
+    <Action>
+      <Position>419;282</Position>
+      <StyleLien>2</StyleLien>
+      <PreAssertion>indiceLigne,indiceCollone,
+tabSudoku</PreAssertion>
+      <PostAssertion>?</PostAssertion>
+      <Titre>rechercheDeValeurPossible</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>0</DetailsVideVisible>
+      <Enfants>
+        <Action>
+          <Position>374;382</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>?</PreAssertion>
+          <PostAssertion>?</PostAssertion>
+          <Titre>Afficher "Valeurs possibles : "</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+        <Iteration>
+          <Position>787.5;381.5</Position>
+          <StyleLien>1</StyleLien>
+          <Titre>Pour i de 1 à 9</Titre>
+          <IterationFixe>1</IterationFixe>
+          <Enfants>
+            <Action>
+              <Position>465;487</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>indiceLigne,indiceCollone,
+i ,tabSudoku,
+TAILLE_ZONE,TAILLE_TAB</PreAssertion>
+              <PostAssertion>booléen</PostAssertion>
+              <Titre>verifValeur</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+            <Condition>
+              <Position>855;493</Position>
+              <StyleLien>0</StyleLien>
+              <estUnique>0</estUnique>
+              <operationsLogiques>
+                <operation>
+                  <Titre>booléen de verifValeur</Titre>
+                  <Enfants>
+                    <Action>
+                      <Position>847;584</Position>
+                      <StyleLien>1</StyleLien>
+                      <PreAssertion>i</PreAssertion>
+                      <PostAssertion>?</PostAssertion>
+                      <Titre>Afficher  i</Titre>
+                      <DetailsVisible>1</DetailsVisible>
+                      <DetailsVideVisible>0</DetailsVideVisible>
+                      <Enfants/>
+                    </Action>
+                  </Enfants>
+                </operation>
+              </operationsLogiques>
+            </Condition>
+          </Enfants>
+        </Iteration>
+      </Enfants>
+    </Action>
+  </Elements>
+</Algorithme>
