@@ -1,13 +1,13 @@
 <?xml version="1.1"?>
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
-  <nom>verifVictoire</nom>
-  <date_creation>8/12/2022 00:47</date_creation>
+  <nom>tabPlein</nom>
+  <date_creation>9/12/2022 14:51</date_creation>
   <Elements>
     <Action>
-      <Position>518;289</Position>
+      <Position>494;290</Position>
       <StyleLien>2</StyleLien>
-      <PreAssertion>tabSudoku,
+      <PreAssertion>tabSudoku,&#xd;
 TAILLE_TAB</PreAssertion>
       <PostAssertion>booléen</PostAssertion>
       <Titre>tabPlein</Titre>
@@ -17,14 +17,14 @@ TAILLE_TAB</PreAssertion>
         <Iteration>
           <Position>587.5;393.5</Position>
           <StyleLien>1</StyleLien>
-          <Titre>Pour i de 0 à 
+          <Titre>Pour i de 0 à &#xd;
 TAILLE_TAB - 1</Titre>
           <IterationFixe>1</IterationFixe>
           <Enfants>
             <Iteration>
               <Position>671.5;487.5</Position>
               <StyleLien>0</StyleLien>
-              <Titre>Pour j de 0 à 
+              <Titre>Pour j de 0 à &#xd;
 TAILLE_TAB -1</Titre>
               <IterationFixe>1</IterationFixe>
               <Enfants>
@@ -34,14 +34,13 @@ TAILLE_TAB -1</Titre>
                   <estUnique>0</estUnique>
                   <operationsLogiques>
                     <operation>
-                      <Titre>valeurSaisie = tabSudoku
-[ i, j].valeur = 0</Titre>
+                      <Titre>tabSudoku[ i, j].valeur = 0</Titre>
                       <Enfants>
                         <Sortie>
-                          <Position>647;667</Position>
+                          <Position>716;669</Position>
                         </Sortie>
                         <Action>
-                          <Position>687;654</Position>
+                          <Position>608;658</Position>
                           <StyleLien>1</StyleLien>
                           <PreAssertion>?</PreAssertion>
                           <PostAssertion>?</PostAssertion>

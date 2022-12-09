@@ -2,10 +2,10 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>SUDOKU</nom>
-  <date_creation>8/12/2022 00:46</date_creation>
+  <date_creation>9/12/2022 14:07</date_creation>
   <Elements>
     <Action>
-      <Position>778;177</Position>
+      <Position>688;177</Position>
       <StyleLien>2</StyleLien>
       <PreAssertion>?</PreAssertion>
       <PostAssertion>?</PostAssertion>
@@ -14,7 +14,7 @@
       <DetailsVideVisible>0</DetailsVideVisible>
       <Enfants>
         <Iteration>
-          <Position>796.5;253.5</Position>
+          <Position>706.5;253.5</Position>
           <StyleLien>1</StyleLien>
           <Titre>?</Titre>
           <IterationFixe>0</IterationFixe>
@@ -23,8 +23,8 @@
               <Position>217;362</Position>
               <StyleLien>1</StyleLien>
               <PreAssertion>?</PreAssertion>
-              <PostAssertion>tabSudoku,erreurAutorise
-nbTour,TAILLE_TAB,
+              <PostAssertion>tabSudoku,erreurAutorise&#xd;
+nbTour,TAILLE_TAB,&#xd;
 TAILLE_ZONE</PostAssertion>
               <Titre>Initialiser la partie</Titre>
               <DetailsVisible>1</DetailsVisible>
@@ -34,8 +34,8 @@ TAILLE_ZONE</PostAssertion>
             <Action>
               <Position>545;363</Position>
               <StyleLien>1</StyleLien>
-              <PreAssertion>tabSudoku,erreurAutorise
-nbTour,TAILLE_TAB,
+              <PreAssertion>tabSudoku,erreurAutorise&#xd;
+nbTour,TAILLE_TAB,&#xd;
 TAILLE_ZONE</PreAssertion>
               <PostAssertion>issueDeLaSaisie</PostAssertion>
               <Titre>Jouer la partie</Titre>
@@ -44,7 +44,7 @@ TAILLE_ZONE</PreAssertion>
               <Enfants/>
             </Action>
             <Action>
-              <Position>1021;364</Position>
+              <Position>995;363</Position>
               <StyleLien>1</StyleLien>
               <PreAssertion>issueDeLaSaisie</PreAssertion>
               <PostAssertion>?</PostAssertion>

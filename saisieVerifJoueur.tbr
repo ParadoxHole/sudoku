@@ -2,25 +2,24 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>saisieVerifJoueur</nom>
-  <date_creation>8/12/2022 01:06</date_creation>
+  <date_creation>9/12/2022 15:00</date_creation>
   <Elements>
     <Action>
-      <Position>493;290</Position>
+      <Position>622;196</Position>
       <StyleLien>2</StyleLien>
-      <PreAssertion>indiceLigne,indiceCollone,&#xd;
-valeurSaisie,tabSudoku</PreAssertion>
-      <PostAssertion>issueDeLaSaisie,
+      <PreAssertion>tabSudoku</PreAssertion>
+      <PostAssertion>issueDeLaSaisie,&#xd;
 [valModifie]</PostAssertion>
       <Titre>SaisieVerifJoueur</Titre>
       <DetailsVisible>1</DetailsVisible>
       <DetailsVideVisible>1</DetailsVideVisible>
       <Enfants>
         <Action>
-          <Position>-55;416</Position>
+          <Position>18;317</Position>
           <StyleLien>1</StyleLien>
           <PreAssertion>?</PreAssertion>
-          <PostAssertion>indiceLigne,
-indiceCollone,
+          <PostAssertion>indiceLigne,&#xd;
+indiceCollone,&#xd;
 valeurSaisie</PostAssertion>
           <Titre>Saisie de l'utilisateur </Titre>
           <DetailsVisible>1</DetailsVisible>
@@ -28,189 +27,99 @@ valeurSaisie</PostAssertion>
           <Enfants/>
         </Action>
         <Action>
-          <Position>553;415</Position>
+          <Position>636;319</Position>
           <StyleLien>2</StyleLien>
-          <PreAssertion>indiceLigne,
-indiceCollone,
+          <PreAssertion>indiceLigne,&#xd;
+indiceCollone,&#xd;
 valeurSaisie</PreAssertion>
           <PostAssertion>[issueDeLaSaisie]</PostAssertion>
           <Titre>traiterCasSpeciaux</Titre>
           <DetailsVisible>1</DetailsVisible>
           <DetailsVideVisible>1</DetailsVideVisible>
           <Enfants>
-            <Action>
-              <Position>204;565</Position>
-              <StyleLien>2</StyleLien>
-              <PreAssertion>indiceLigne,
-indiceCollone,
-valeurSaisie</PreAssertion>
-              <PostAssertion>[issueDeLaSaisie]</PostAssertion>
-              <Titre>erreurDeSaisie</Titre>
-              <DetailsVisible>1</DetailsVisible>
-              <DetailsVideVisible>1</DetailsVideVisible>
-              <Enfants>
-                <Condition>
-                  <Position>288;640</Position>
-                  <StyleLien>0</StyleLien>
-                  <estUnique>0</estUnique>
-                  <operationsLogiques>
-                    <operation>
-                      <Titre>indiceLigne = char &amp;
+            <Condition>
+              <Position>667;392</Position>
+              <StyleLien>0</StyleLien>
+              <estUnique>0</estUnique>
+              <operationsLogiques>
+                <operation>
+                  <Titre>indiceLigne = char &amp;
 indiceCollone = char &amp; 
 valeurSaisi = char</Titre>
-                      <Enfants>
-                        <Action>
-                          <Position>271;712</Position>
-                          <StyleLien>1</StyleLien>
-                          <PreAssertion>?</PreAssertion>
-                          <PostAssertion>?</PostAssertion>
-                          <Titre>issueDeLaSaisie ← erreurDeSaisie</Titre>
-                          <DetailsVisible>1</DetailsVisible>
-                          <DetailsVideVisible>0</DetailsVideVisible>
-                          <Enfants/>
-                        </Action>
-                      </Enfants>
-                    </operation>
-                  </operationsLogiques>
-                </Condition>
-              </Enfants>
-            </Action>
-            <Action>
-              <Position>592;565</Position>
-              <StyleLien>2</StyleLien>
-              <PreAssertion>indiceLigne,
-indiceCollone,
-valeurSaisie</PreAssertion>
-              <PostAssertion>[issueDeLaSaisie]</PostAssertion>
-              <Titre>VerifAbandon</Titre>
-              <DetailsVisible>1</DetailsVisible>
-              <DetailsVideVisible>1</DetailsVideVisible>
-              <Enfants>
-                <Condition>
-                  <Position>682;640</Position>
-                  <StyleLien>0</StyleLien>
-                  <estUnique>0</estUnique>
-                  <operationsLogiques>
-                    <operation>
-                      <Titre>indiceLigne = 0 &amp;
+                  <Enfants>
+                    <Action>
+                      <Position>631;472</Position>
+                      <StyleLien>1</StyleLien>
+                      <PreAssertion>?</PreAssertion>
+                      <PostAssertion>?</PostAssertion>
+                      <Titre>issueDeLaSaisie ← erreurDeSaisie</Titre>
+                      <DetailsVisible>1</DetailsVisible>
+                      <DetailsVideVisible>0</DetailsVideVisible>
+                      <Enfants/>
+                    </Action>
+                  </Enfants>
+                </operation>
+                <operation>
+                  <Titre>indiceLigne = 0 &amp;
 indiceCollone = 0 &amp; 
 valeurSaisi = 0</Titre>
-                      <Enfants>
-                        <Action>
-                          <Position>669;708</Position>
-                          <StyleLien>1</StyleLien>
-                          <PreAssertion>?</PreAssertion>
-                          <PostAssertion>?</PostAssertion>
-                          <Titre>issueDeLaSaisie ← abandon</Titre>
-                          <DetailsVisible>1</DetailsVisible>
-                          <DetailsVideVisible>0</DetailsVideVisible>
-                          <Enfants/>
-                        </Action>
-                      </Enfants>
-                    </operation>
-                  </operationsLogiques>
-                </Condition>
-              </Enfants>
-            </Action>
+                  <Enfants>
+                    <Action>
+                      <Position>833;473</Position>
+                      <StyleLien>1</StyleLien>
+                      <PreAssertion>?</PreAssertion>
+                      <PostAssertion>?</PostAssertion>
+                      <Titre>issueDeLaSaisie ← abandon</Titre>
+                      <DetailsVisible>1</DetailsVisible>
+                      <DetailsVideVisible>0</DetailsVideVisible>
+                      <Enfants/>
+                    </Action>
+                  </Enfants>
+                </operation>
+              </operationsLogiques>
+            </Condition>
           </Enfants>
         </Action>
         <Action>
-          <Position>1164;415</Position>
+          <Position>1215;319</Position>
           <StyleLien>2</StyleLien>
-          <PreAssertion>indiceLigne,indiceCollone,
-valeurSaisie, tabSudoku,
+          <PreAssertion>indiceLigne,indiceCollone,&#xd;
+valeurSaisie, tabSudoku,&#xd;
 issueDeLaSaisie</PreAssertion>
           <PostAssertion>[issueDeLaSaisie]</PostAssertion>
-          <Titre>VerifierLaValeur</Titre>
+          <Titre>veriferModifValeur</Titre>
           <DetailsVisible>1</DetailsVisible>
           <DetailsVideVisible>1</DetailsVideVisible>
           <Enfants>
             <Condition>
-              <Position>1577;544</Position>
-              <StyleLien>1</StyleLien>
+              <Position>1631;452</Position>
+              <StyleLien>0</StyleLien>
               <estUnique>0</estUnique>
               <operationsLogiques>
                 <operation>
                   <Titre>issueDeLaSaisie = compatible</Titre>
                   <Enfants>
                     <Action>
-                      <Position>1299;645</Position>
-                      <StyleLien>1</StyleLien>
-                      <PreAssertion>indiceLigne,indiceCollone,
-valeurSaisie,tabSudoku,
+                      <Position>1453;545</Position>
+                      <StyleLien>2</StyleLien>
+                      <PreAssertion>indiceLigne,indiceCollone,&#xd;
+valeurSaisie,tabSudoku,&#xd;
 TAILLE_ZONE,TAILLE_TAB</PreAssertion>
-                      <PostAssertion>booléen</PostAssertion>
-                      <Titre>verifValeur</Titre>
+                      <PostAssertion>?</PostAssertion>
+                      <Titre>Verifier Compatibilité valeur</Titre>
                       <DetailsVisible>1</DetailsVisible>
-                      <DetailsVideVisible>1</DetailsVideVisible>
-                      <Enfants/>
-                    </Action>
-                    <Condition>
-                      <Position>1680;653</Position>
-                      <StyleLien>0</StyleLien>
-                      <estUnique>0</estUnique>
-                      <operationsLogiques>
-                        <operation>
-                          <Titre>booléen = faux</Titre>
-                          <Enfants>
-                            <Action>
-                              <Position>1643;748</Position>
-                              <StyleLien>1</StyleLien>
-                              <PreAssertion>?</PreAssertion>
-                              <PostAssertion>?</PostAssertion>
-                              <Titre>issueDeLaSaisie ← incompatible</Titre>
-                              <DetailsVisible>1</DetailsVisible>
-                              <DetailsVideVisible>0</DetailsVideVisible>
-                              <Enfants/>
-                            </Action>
-                          </Enfants>
-                        </operation>
-                      </operationsLogiques>
-                    </Condition>
-                  </Enfants>
-                </operation>
-              </operationsLogiques>
-            </Condition>
-            <Action>
-              <Position>983;542</Position>
-              <StyleLien>2</StyleLien>
-              <PreAssertion>?</PreAssertion>
-              <PostAssertion>[valModifie],
-[issueDeLaSaisie]</PostAssertion>
-              <Titre>Verifier si la valeur à été modifier</Titre>
-              <DetailsVisible>1</DetailsVisible>
-              <DetailsVideVisible>0</DetailsVideVisible>
-              <Enfants>
-                <Condition>
-                  <Position>988;636</Position>
-                  <StyleLien>1</StyleLien>
-                  <estUnique>0</estUnique>
-                  <operationsLogiques>
-                    <operation>
-                      <Titre> tabSudoku[ indiceLigne, 
-indiceCollone].valeur != 0</Titre>
+                      <DetailsVideVisible>0</DetailsVideVisible>
                       <Enfants>
-                        <Action>
-                          <Position>891;738</Position>
-                          <StyleLien>1</StyleLien>
-                          <PreAssertion>?</PreAssertion>
-                          <PostAssertion>valModifie</PostAssertion>
-                          <Titre>valModifie ← vrai</Titre>
-                          <DetailsVisible>1</DetailsVisible>
-                          <DetailsVideVisible>0</DetailsVideVisible>
-                          <Enfants/>
-                        </Action>
                         <Condition>
-                          <Position>1145;744</Position>
+                          <Position>1629;627</Position>
                           <StyleLien>0</StyleLien>
                           <estUnique>0</estUnique>
                           <operationsLogiques>
                             <operation>
-                              <Titre> tabSudoku[ indiceLigne, 
-indiceCollone].nbDepart = vrai</Titre>
+                              <Titre>verifValeur({paramêtre renseigner au dessus}) = faux</Titre>
                               <Enfants>
                                 <Action>
-                                  <Position>1138;816</Position>
+                                  <Position>1622;698</Position>
                                   <StyleLien>1</StyleLien>
                                   <PreAssertion>?</PreAssertion>
                                   <PostAssertion>?</PostAssertion>
@@ -224,6 +133,56 @@ indiceCollone].nbDepart = vrai</Titre>
                           </operationsLogiques>
                         </Condition>
                       </Enfants>
+                    </Action>
+                  </Enfants>
+                </operation>
+              </operationsLogiques>
+            </Condition>
+            <Action>
+              <Position>1120;450</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>[valModifie],&#xd;
+[issueDeLaSaisie]</PostAssertion>
+              <Titre>Verifier si la valeur à été modifier</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants>
+                <Condition>
+                  <Position>1042;547</Position>
+                  <StyleLien>0</StyleLien>
+                  <estUnique>0</estUnique>
+                  <operationsLogiques>
+                    <operation>
+                      <Titre>tabSudoku[indiceLigne][indiceColonne].nbDuDebut = vrai</Titre>
+                      <Enfants>
+                        <Action>
+                          <Position>1031;629</Position>
+                          <StyleLien>1</StyleLien>
+                          <PreAssertion>?</PreAssertion>
+                          <PostAssertion>?</PostAssertion>
+                          <Titre>issueDeLaSaisie ← incompatible</Titre>
+                          <DetailsVisible>1</DetailsVisible>
+                          <DetailsVideVisible>0</DetailsVideVisible>
+                          <Enfants/>
+                        </Action>
+                      </Enfants>
+                    </operation>
+                    <operation>
+                      <Titre> tabSudoku[ indiceLigne, 
+indiceCollone].valeur = 0</Titre>
+                      <Enfants>
+                        <Action>
+                          <Position>1237;632</Position>
+                          <StyleLien>1</StyleLien>
+                          <PreAssertion>?</PreAssertion>
+                          <PostAssertion>valModifie</PostAssertion>
+                          <Titre>valModifie ← vrai</Titre>
+                          <DetailsVisible>1</DetailsVisible>
+                          <DetailsVideVisible>0</DetailsVideVisible>
+                          <Enfants/>
+                        </Action>
+                      </Enfants>
                     </operation>
                   </operationsLogiques>
                 </Condition>
@@ -232,12 +191,12 @@ indiceCollone].nbDepart = vrai</Titre>
           </Enfants>
         </Action>
         <Action>
-          <Position>220;416</Position>
+          <Position>293;317</Position>
           <StyleLien>1</StyleLien>
           <PreAssertion>?</PreAssertion>
-          <PostAssertion>issueDeLaSaisi,
+          <PostAssertion>issueDeLaSaisi,&#xd;
 valModifie</PostAssertion>
-          <Titre>issueDeLaSaisi ← compatible
+          <Titre>issueDeLaSaisi ← compatible&#xd;
 valModifie ← faux</Titre>
           <DetailsVisible>1</DetailsVisible>
           <DetailsVideVisible>0</DetailsVideVisible>

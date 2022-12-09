@@ -2,13 +2,13 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>Jouer la partie</nom>
-  <date_creation>8/12/2022 00:52</date_creation>
+  <date_creation>9/12/2022 15:00</date_creation>
   <Elements>
     <Action>
       <Position>643;252</Position>
       <StyleLien>2</StyleLien>
-      <PreAssertion>tabSudoku,erreurAutorise
-nbTour,TAILLE_TAB,
+      <PreAssertion>tabSudoku,erreurAutorise&#xd;
+nbTour,TAILLE_TAB,&#xd;
 TAILLE_ZONE</PreAssertion>
       <PostAssertion>issueDeLaSaisie</PostAssertion>
       <Titre>Jouer la partie</Titre>
@@ -22,9 +22,9 @@ TAILLE_ZONE</PreAssertion>
           <IterationFixe>0</IterationFixe>
           <Enfants>
             <Action>
-              <Position>-161;450</Position>
+              <Position>-71;453</Position>
               <StyleLien>1</StyleLien>
-              <PreAssertion>tabSudoku, TAILLE_TAB,
+              <PreAssertion>tabSudoku, TAILLE_TAB,&#xd;
 TAILLE_ZONE</PreAssertion>
               <PostAssertion>?</PostAssertion>
               <Titre>afficherTableau</Titre>
@@ -33,23 +33,23 @@ TAILLE_ZONE</PreAssertion>
               <Enfants/>
             </Action>
             <Action>
-              <Position>151;449</Position>
+              <Position>241;452</Position>
               <StyleLien>2</StyleLien>
-              <PreAssertion>nbTour,
-ErreurAutorise,
+              <PreAssertion>nbTour,&#xd;
+ErreurAutorise,&#xd;
 nbErreurJoueur</PreAssertion>
               <PostAssertion>?</PostAssertion>
-              <Titre>Afficher le nombre &#xd;&#xd;
+              <Titre>Afficher le nombre &#xd;&#xd;&#xd;
 de tour et d'erreur</Titre>
               <DetailsVisible>1</DetailsVisible>
               <DetailsVideVisible>0</DetailsVideVisible>
               <Enfants>
                 <Action>
-                  <Position>234;564</Position>
+                  <Position>324;537</Position>
                   <StyleLien>1</StyleLien>
                   <PreAssertion>?</PreAssertion>
                   <PostAssertion>?</PostAssertion>
-                  <Titre>Afficher "Tour "  nbTour ", ErreurAutorise"/ErreurJoueur</Titre>
+                  <Titre>Afficher "Tour "  nbTour ", erreurAutorise "/" erreurJoueur</Titre>
                   <DetailsVisible>1</DetailsVisible>
                   <DetailsVideVisible>0</DetailsVideVisible>
                   <Enfants/>
@@ -57,11 +57,10 @@ de tour et d'erreur</Titre>
               </Enfants>
             </Action>
             <Action>
-              <Position>735;450</Position>
+              <Position>825;451</Position>
               <StyleLien>1</StyleLien>
-              <PreAssertion>indiceLigne,indiceCollone,&#xd;&#xd;
-valeurSaisie,tabSudoku</PreAssertion>
-              <PostAssertion>issueDeLaSaisie,
+              <PreAssertion>tabSudoku</PreAssertion>
+              <PostAssertion>issueDeLaSaisie,&#xd;
 [valModifie]</PostAssertion>
               <Titre>SaisieVerifJoueur</Titre>
               <DetailsVisible>1</DetailsVisible>
@@ -81,16 +80,16 @@ valeurSaisie,tabSudoku</PreAssertion>
             <Action>
               <Position>1201;451</Position>
               <StyleLien>2</StyleLien>
-              <PreAssertion>nbErreurJoueur,erreurAutorise
-valModifie,indiceLigne,tabSudoku,
+              <PreAssertion>nbErreurJoueur,erreurAutorise&#xd;
+valModifie,indiceLigne,tabSudoku,&#xd;
 indiceCollone,valeurSaisie</PreAssertion>
               <PostAssertion>?</PostAssertion>
-              <Titre>traitementDesDifferentesSituation</Titre>
+              <Titre>traitementDesDifferentesSituations</Titre>
               <DetailsVisible>1</DetailsVisible>
               <DetailsVideVisible>0</DetailsVideVisible>
               <Enfants>
                 <ConditionMultiple>
-                  <Position>1311;553</Position>
+                  <Position>1315;551</Position>
                   <StyleLien>0</StyleLien>
                   <Titre>issueDeLaSaisie</Titre>
                   <operationsLogiques>
@@ -98,10 +97,10 @@ indiceCollone,valeurSaisie</PreAssertion>
                       <Titre>compatible</Titre>
                       <Enfants>
                         <Action>
-                          <Position>442;748</Position>
+                          <Position>459;691</Position>
                           <StyleLien>2</StyleLien>
-                          <PreAssertion>tabSudoku,indiceLingne,
-indiceCollone,valeurSaisie
+                          <PreAssertion>tabSudoku,indiceLingne,&#xd;
+indiceCollone,valeurSaisie&#xd;
 valModifie</PreAssertion>
                           <PostAssertion>tabSudoku</PostAssertion>
                           <Titre>traiterValeurCompatible</Titre>
@@ -109,19 +108,19 @@ valModifie</PreAssertion>
                           <DetailsVideVisible>1</DetailsVideVisible>
                           <Enfants>
                             <Action>
-                              <Position>674;844</Position>
+                              <Position>691;787</Position>
                               <StyleLien>1</StyleLien>
-                              <PreAssertion>indiceLigne,indiceCollone,
+                              <PreAssertion>indiceLigne,indiceCollone,&#xd;
 valeurSaisie,tabSudoku</PreAssertion>
                               <PostAssertion>tabSudoku</PostAssertion>
-                              <Titre>tabSudoku[ indiceLigne, indiceCollone ].valeur&#xd;
+                              <Titre>tabSudoku[ indiceLigne, indiceCollone ].valeur&#xd;&#xd;
  ← valeurSaisie</Titre>
                               <DetailsVisible>1</DetailsVisible>
                               <DetailsVideVisible>1</DetailsVideVisible>
                               <Enfants/>
                             </Action>
                             <Condition>
-                              <Position>272;850</Position>
+                              <Position>289;793</Position>
                               <StyleLien>0</StyleLien>
                               <estUnique>0</estUnique>
                               <operationsLogiques>
@@ -129,9 +128,9 @@ valeurSaisie,tabSudoku</PreAssertion>
                                   <Titre>valModifie</Titre>
                                   <Enfants>
                                     <Action>
-                                      <Position>29;942</Position>
+                                      <Position>46;867</Position>
                                       <StyleLien>1</StyleLien>
-                                      <PreAssertion>tabSudoku,indiceLingne,
+                                      <PreAssertion>tabSudoku,indiceLingne,&#xd;
 indiceCollone,valeurSaisie</PreAssertion>
                                       <PostAssertion>?</PostAssertion>
                                       <Titre>Afficher : "valeur"  tabSudoku[ indiceLigne, indiceCollone ].valeur "modifiée en" valeurSaisie</Titre>
@@ -144,7 +143,7 @@ indiceCollone,valeurSaisie</PreAssertion>
                               </operationsLogiques>
                             </Condition>
                             <Action>
-                              <Position>109;842</Position>
+                              <Position>126;785</Position>
                               <StyleLien>1</StyleLien>
                               <PreAssertion>?</PreAssertion>
                               <PostAssertion>?</PostAssertion>
@@ -154,7 +153,7 @@ indiceCollone,valeurSaisie</PreAssertion>
                               <Enfants/>
                             </Action>
                             <Action>
-                              <Position>429;846</Position>
+                              <Position>446;789</Position>
                               <StyleLien>2</StyleLien>
                               <PreAssertion>tabSudoku</PreAssertion>
                               <PostAssertion>?</PostAssertion>
@@ -162,36 +161,16 @@ indiceCollone,valeurSaisie</PreAssertion>
                               <DetailsVisible>1</DetailsVisible>
                               <DetailsVideVisible>0</DetailsVideVisible>
                               <Enfants>
-                                <Action>
-                                  <Position>447;942</Position>
-                                  <StyleLien>1</StyleLien>
-                                  <PreAssertion>tabSudoku</PreAssertion>
-                                  <PostAssertion>booléen</PostAssertion>
-                                  <Titre>tabPlein</Titre>
-                                  <DetailsVisible>1</DetailsVisible>
-                                  <DetailsVideVisible>1</DetailsVideVisible>
-                                  <Enfants/>
-                                </Action>
                                 <Condition>
-                                  <Position>733;948</Position>
-                                  <StyleLien>1</StyleLien>
+                                  <Position>532;875</Position>
+                                  <StyleLien>0</StyleLien>
                                   <estUnique>0</estUnique>
                                   <operationsLogiques>
                                     <operation>
-                                      <Titre>booléen</Titre>
+                                      <Titre>tabPlein(tabSudoku)</Titre>
                                       <Enfants>
-                                        <Action>
-                                          <Position>627;1029</Position>
-                                          <StyleLien>1</StyleLien>
-                                          <PreAssertion>?</PreAssertion>
-                                          <PostAssertion>?</PostAssertion>
-                                          <Titre>Afficher"Bravo ! ! ! !"</Titre>
-                                          <DetailsVisible>1</DetailsVisible>
-                                          <DetailsVideVisible>0</DetailsVideVisible>
-                                          <Enfants/>
-                                        </Action>
                                         <Sortie>
-                                          <Position>798;1043</Position>
+                                          <Position>595;947</Position>
                                         </Sortie>
                                       </Enfants>
                                     </operation>
@@ -207,10 +186,10 @@ indiceCollone,valeurSaisie</PreAssertion>
                       <Titre>incompatible</Titre>
                       <Enfants>
                         <Action>
-                          <Position>1120;748</Position>
+                          <Position>1137;691</Position>
                           <StyleLien>2</StyleLien>
-                          <PreAssertion>nbErreurJoueur,
-erreurAutorise
+                          <PreAssertion>nbErreurJoueur,&#xd;
+erreurAutorise&#xd;
 valModifie,valeurSaisie</PreAssertion>
                           <PostAssertion>?</PostAssertion>
                           <Titre>traiterValeurIncompatible</Titre>
@@ -218,7 +197,7 @@ valModifie,valeurSaisie</PreAssertion>
                           <DetailsVideVisible>0</DetailsVideVisible>
                           <Enfants>
                             <Action>
-                              <Position>1205;841</Position>
+                              <Position>1222;784</Position>
                               <StyleLien>1</StyleLien>
                               <PreAssertion>?</PreAssertion>
                               <PostAssertion>?</PostAssertion>
@@ -228,15 +207,15 @@ valModifie,valeurSaisie</PreAssertion>
                               <Enfants/>
                             </Action>
                             <Condition>
-                              <Position>1357;849</Position>
+                              <Position>1374;792</Position>
                               <StyleLien>0</StyleLien>
                               <estUnique>0</estUnique>
                               <operationsLogiques>
                                 <operation>
-                                  <Titre>valModifie</Titre>
+                                  <Titre>tabSudoku[indiceLigne][indiceColonne].nbDuDebut = vrai</Titre>
                                   <Enfants>
                                     <Action>
-                                      <Position>1177;936</Position>
+                                      <Position>1277;881</Position>
                                       <StyleLien>1</StyleLien>
                                       <PreAssertion>?</PreAssertion>
                                       <PostAssertion>?</PostAssertion>
@@ -248,10 +227,10 @@ valModifie,valeurSaisie</PreAssertion>
                                   </Enfants>
                                 </operation>
                                 <operation>
-                                  <Titre>Sinon</Titre>
+                                  <Titre>sinon</Titre>
                                   <Enfants>
                                     <Action>
-                                      <Position>1410;933</Position>
+                                      <Position>1521;879</Position>
                                       <StyleLien>2</StyleLien>
                                       <PreAssertion>?</PreAssertion>
                                       <PostAssertion>?</PostAssertion>
@@ -260,9 +239,9 @@ valModifie,valeurSaisie</PreAssertion>
                                       <DetailsVideVisible>0</DetailsVideVisible>
                                       <Enfants>
                                         <Action>
-                                          <Position>1193;1021</Position>
+                                          <Position>1304;967</Position>
                                           <StyleLien>1</StyleLien>
-                                          <PreAssertion>indiceLigne,indiceCollone,
+                                          <PreAssertion>indiceLigne,indiceCollone,&#xd;
 tabSudoku</PreAssertion>
                                           <PostAssertion>?</PostAssertion>
                                           <Titre>rechercheDeValeurPossible</Titre>
@@ -271,26 +250,16 @@ tabSudoku</PreAssertion>
                                           <Enfants/>
                                         </Action>
                                         <Condition>
-                                          <Position>1567;1024</Position>
-                                          <StyleLien>1</StyleLien>
+                                          <Position>1678;970</Position>
+                                          <StyleLien>0</StyleLien>
                                           <estUnique>0</estUnique>
                                           <operationsLogiques>
                                             <operation>
                                               <Titre>nbErreurJoueur > erreurAutorises</Titre>
                                               <Enfants>
                                                 <Sortie>
-                                                  <Position>1742;1125</Position>
+                                                  <Position>1758;1041</Position>
                                                 </Sortie>
-                                                <Action>
-                                                  <Position>1472;1114</Position>
-                                                  <StyleLien>1</StyleLien>
-                                                  <PreAssertion>?</PreAssertion>
-                                                  <PostAssertion>?</PostAssertion>
-                                                  <Titre>Afficher "PERDU ! ! ! PLUS DE" ErreurAutorise "ERREUR"</Titre>
-                                                  <DetailsVisible>1</DetailsVisible>
-                                                  <DetailsVideVisible>0</DetailsVideVisible>
-                                                  <Enfants/>
-                                                </Action>
                                               </Enfants>
                                             </operation>
                                           </operationsLogiques>
@@ -309,7 +278,7 @@ tabSudoku</PreAssertion>
                       <Titre>abandon</Titre>
                       <Enfants>
                         <Action>
-                          <Position>1656;748</Position>
+                          <Position>1712;700</Position>
                           <StyleLien>2</StyleLien>
                           <PreAssertion>?</PreAssertion>
                           <PostAssertion>?</PostAssertion>
@@ -317,18 +286,8 @@ tabSudoku</PreAssertion>
                           <DetailsVisible>1</DetailsVisible>
                           <DetailsVideVisible>0</DetailsVideVisible>
                           <Enfants>
-                            <Action>
-                              <Position>1576;833</Position>
-                              <StyleLien>1</StyleLien>
-                              <PreAssertion>?</PreAssertion>
-                              <PostAssertion>?</PostAssertion>
-                              <Titre>Afficher "ABANDON ! !"</Titre>
-                              <DetailsVisible>1</DetailsVisible>
-                              <DetailsVideVisible>0</DetailsVideVisible>
-                              <Enfants/>
-                            </Action>
                             <Sortie>
-                              <Position>1790;853</Position>
+                              <Position>1753;781</Position>
                             </Sortie>
                           </Enfants>
                         </Action>
@@ -338,7 +297,7 @@ tabSudoku</PreAssertion>
                       <Titre>erreurDeSaisie</Titre>
                       <Enfants>
                         <Action>
-                          <Position>1819;747</Position>
+                          <Position>1875;699</Position>
                           <StyleLien>1</StyleLien>
                           <PreAssertion>?</PreAssertion>
                           <PostAssertion>?</PostAssertion>
@@ -354,7 +313,7 @@ tabSudoku</PreAssertion>
               </Enfants>
             </Action>
             <Action>
-              <Position>420;449</Position>
+              <Position>510;452</Position>
               <StyleLien>2</StyleLien>
               <PreAssertion>nbTour</PreAssertion>
               <PostAssertion>nbTour</PostAssertion>
@@ -363,7 +322,7 @@ tabSudoku</PreAssertion>
               <DetailsVideVisible>1</DetailsVideVisible>
               <Enfants>
                 <Action>
-                  <Position>498;568</Position>
+                  <Position>588;541</Position>
                   <StyleLien>1</StyleLien>
                   <PreAssertion>nbTour</PreAssertion>
                   <PostAssertion>nbTour</PostAssertion>

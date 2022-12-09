@@ -2,13 +2,13 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>verifiValeur</nom>
-  <date_creation>8/12/2022 01:05</date_creation>
+  <date_creation>9/12/2022 15:26</date_creation>
   <Elements>
     <Action>
-      <Position>485;84</Position>
+      <Position>704;103</Position>
       <StyleLien>2</StyleLien>
-      <PreAssertion>indiceLigne,indiceCollone,
-valeurSaisie,tabSudoku,
+      <PreAssertion>indiceLigne,indiceCollone,&#xd;
+valeurSaisie,tabSudoku,&#xd;
 TAILLE_ZONE,TAILLE_TAB</PreAssertion>
       <PostAssertion>booléen</PostAssertion>
       <Titre>verifValeur</Titre>
@@ -16,10 +16,10 @@ TAILLE_ZONE,TAILLE_TAB</PreAssertion>
       <DetailsVideVisible>1</DetailsVideVisible>
       <Enfants>
         <Action>
-          <Position>30;193</Position>
+          <Position>257;213</Position>
           <StyleLien>2</StyleLien>
-          <PreAssertion>indiceLigne,
-valeurSaisie,
+          <PreAssertion>indiceLigne,&#xd;
+valeurSaisie,&#xd;
 TAILLE_TAB</PreAssertion>
           <PostAssertion>[compatible]</PostAssertion>
           <Titre>Vérification Horizontale </Titre>
@@ -27,23 +27,23 @@ TAILLE_TAB</PreAssertion>
           <DetailsVideVisible>1</DetailsVideVisible>
           <Enfants>
             <Iteration>
-              <Position>204.5;286.5</Position>
+              <Position>431.5;293.5</Position>
               <StyleLien>0</StyleLien>
-              <Titre>Pour i de 0 à 
+              <Titre>Pour i de 0 à &#xd;
 TAILLE_TAB -1</Titre>
               <IterationFixe>1</IterationFixe>
               <Enfants>
                 <Condition>
-                  <Position>130;362</Position>
+                  <Position>357;369</Position>
                   <StyleLien>1</StyleLien>
                   <estUnique>0</estUnique>
                   <operationsLogiques>
                     <operation>
-                      <Titre>valeurSaisie = tabSudoku&#xd;&#xd;
+                      <Titre>valeurSaisie = tabSudoku&#xd;&#xd;&#xd;
 [ indiceLigne, i ].valeur</Titre>
                       <Enfants>
                         <Action>
-                          <Position>207;462</Position>
+                          <Position>435;457</Position>
                           <StyleLien>1</StyleLien>
                           <PreAssertion>?</PreAssertion>
                           <PostAssertion>?</PostAssertion>
@@ -53,7 +53,7 @@ TAILLE_TAB -1</Titre>
                           <Enfants/>
                         </Action>
                         <Sortie>
-                          <Position>165;474</Position>
+                          <Position>393;469</Position>
                         </Sortie>
                       </Enfants>
                     </operation>
@@ -64,7 +64,7 @@ TAILLE_TAB -1</Titre>
           </Enfants>
         </Action>
         <Condition>
-          <Position>489;199</Position>
+          <Position>726;217</Position>
           <StyleLien>0</StyleLien>
           <estUnique>0</estUnique>
           <operationsLogiques>
@@ -72,10 +72,10 @@ TAILLE_TAB -1</Titre>
               <Titre>compatible = faux</Titre>
               <Enfants>
                 <Action>
-                  <Position>371;279</Position>
+                  <Position>605;299</Position>
                   <StyleLien>2</StyleLien>
-                  <PreAssertion>indiceCollone,
-valeurSaisie,
+                  <PreAssertion>indiceCollone,&#xd;
+valeurSaisie,&#xd;
 TAILLE_TAB</PreAssertion>
                   <PostAssertion>[compatible]</PostAssertion>
                   <Titre>Vérification Verticale</Titre>
@@ -83,23 +83,23 @@ TAILLE_TAB</PreAssertion>
                   <DetailsVideVisible>1</DetailsVideVisible>
                   <Enfants>
                     <Iteration>
-                      <Position>537.5;386.5</Position>
+                      <Position>772.5;390.5</Position>
                       <StyleLien>0</StyleLien>
-                      <Titre>Pour i de 0 à 
+                      <Titre>Pour i de 0 à &#xd;
 TAILLE_TAB - 1</Titre>
                       <IterationFixe>1</IterationFixe>
                       <Enfants>
                         <Condition>
-                          <Position>464;467</Position>
+                          <Position>699;471</Position>
                           <StyleLien>1</StyleLien>
                           <estUnique>0</estUnique>
                           <operationsLogiques>
                             <operation>
-                              <Titre>valeurSaisie = tabSudoku&#xd;&#xd;
+                              <Titre>valeurSaisie = tabSudoku&#xd;&#xd;&#xd;
 [ i, indiceCollone ].valeur</Titre>
                               <Enfants>
                                 <Action>
-                                  <Position>557;566</Position>
+                                  <Position>793;558</Position>
                                   <StyleLien>1</StyleLien>
                                   <PreAssertion>?</PreAssertion>
                                   <PostAssertion>?</PostAssertion>
@@ -109,7 +109,7 @@ TAILLE_TAB - 1</Titre>
                                   <Enfants/>
                                 </Action>
                                 <Sortie>
-                                  <Position>498;576</Position>
+                                  <Position>734;568</Position>
                                 </Sortie>
                               </Enfants>
                             </operation>
@@ -124,7 +124,7 @@ TAILLE_TAB - 1</Titre>
           </operationsLogiques>
         </Condition>
         <Condition>
-          <Position>1108;201</Position>
+          <Position>1327;220</Position>
           <StyleLien>0</StyleLien>
           <estUnique>0</estUnique>
           <operationsLogiques>
@@ -132,9 +132,9 @@ TAILLE_TAB - 1</Titre>
               <Titre>compatible = faux</Titre>
               <Enfants>
                 <Action>
-                  <Position>934;278</Position>
+                  <Position>1153;297</Position>
                   <StyleLien>2</StyleLien>
-                  <PreAssertion>indiceLigne,indiceCollone,
+                  <PreAssertion>indiceLigne,indiceCollone,&#xd;
 valeurSaisie, TAILLE_ZONE</PreAssertion>
                   <PostAssertion>[compatible]</PostAssertion>
                   <Titre>Verification Zone</Titre>
@@ -142,52 +142,52 @@ valeurSaisie, TAILLE_ZONE</PreAssertion>
                   <DetailsVideVisible>1</DetailsVideVisible>
                   <Enfants>
                     <Action>
-                      <Position>709;400</Position>
+                      <Position>928;419</Position>
                       <StyleLien>1</StyleLien>
-                      <PreAssertion>indiceLigne,
+                      <PreAssertion>indiceLigne,&#xd;
 TAILLE_ZONE</PreAssertion>
                       <PostAssertion>indiceLigne</PostAssertion>
-                      <Titre>indiceLigne ← (arondirHaut(IndiceLigne/
+                      <Titre>indiceLigne ← (arondirHaut(IndiceLigne/&#xd;
 TAILLE_ZONE)-1)*TAILLE_ZONE</Titre>
                       <DetailsVisible>1</DetailsVisible>
                       <DetailsVideVisible>1</DetailsVideVisible>
                       <Enfants/>
                     </Action>
                     <Action>
-                      <Position>1180;400</Position>
+                      <Position>1399;419</Position>
                       <StyleLien>1</StyleLien>
-                      <PreAssertion>indiceCollone,
+                      <PreAssertion>indiceCollone,&#xd;
 TAILLE_ZONE</PreAssertion>
                       <PostAssertion>indiceCollone</PostAssertion>
-                      <Titre>indiceCollone ← (arondirHaut(indiceCollone/
+                      <Titre>indiceCollone ← (arondirHaut(indiceCollone/&#xd;
 TAILLE_ZONE)-1)*TAILLE_ZONE</Titre>
                       <DetailsVisible>1</DetailsVisible>
                       <DetailsVideVisible>1</DetailsVideVisible>
                       <Enfants/>
                     </Action>
                     <Iteration>
-                      <Position>1669.5;404.5</Position>
+                      <Position>1888.5;423.5</Position>
                       <StyleLien>0</StyleLien>
                       <Titre>Pour i de indiceLigne à indiceLigne + TAILLE_ZONE -1</Titre>
                       <IterationFixe>1</IterationFixe>
                       <Enfants>
                         <Iteration>
-                          <Position>1668.5;502.5</Position>
+                          <Position>1888.5;497.5</Position>
                           <StyleLien>0</StyleLien>
                           <Titre>Pour j de indiceCollone à indiceCollone + TAILLE_ZONE - 1</Titre>
                           <IterationFixe>1</IterationFixe>
                           <Enfants>
                             <Condition>
-                              <Position>1598;583</Position>
+                              <Position>1818;578</Position>
                               <StyleLien>1</StyleLien>
                               <estUnique>0</estUnique>
                               <operationsLogiques>
                                 <operation>
-                                  <Titre>valeurSaisie = tabSudoku
+                                  <Titre>valeurSaisie = tabSudoku&#xd;
 [ i, j].valeur</Titre>
                                   <Enfants>
                                     <Action>
-                                      <Position>1663;666</Position>
+                                      <Position>1883;661</Position>
                                       <StyleLien>1</StyleLien>
                                       <PreAssertion>?</PreAssertion>
                                       <PostAssertion>?</PostAssertion>
@@ -197,7 +197,7 @@ TAILLE_ZONE)-1)*TAILLE_ZONE</Titre>
                                       <Enfants/>
                                     </Action>
                                     <Sortie>
-                                      <Position>1611;677</Position>
+                                      <Position>1831;672</Position>
                                     </Sortie>
                                   </Enfants>
                                 </operation>
@@ -214,17 +214,16 @@ TAILLE_ZONE)-1)*TAILLE_ZONE</Titre>
           </operationsLogiques>
         </Condition>
         <Action>
-          <Position>-222;193</Position>
+          <Position>-3;212</Position>
           <StyleLien>2</StyleLien>
           <PreAssertion>?</PreAssertion>
           <PostAssertion>compatible</PostAssertion>
-          <Titre>Intialiser
-compatible à vrai</Titre>
+          <Titre>Intialiser compatible</Titre>
           <DetailsVisible>1</DetailsVisible>
           <DetailsVideVisible>0</DetailsVideVisible>
           <Enfants>
             <Action>
-              <Position>-179;296</Position>
+              <Position>0;290</Position>
               <StyleLien>1</StyleLien>
               <PreAssertion>?</PreAssertion>
               <PostAssertion>compatible</PostAssertion>
@@ -236,7 +235,7 @@ compatible à vrai</Titre>
           </Enfants>
         </Action>
         <Action>
-          <Position>1511;198</Position>
+          <Position>1730;217</Position>
           <StyleLien>1</StyleLien>
           <PreAssertion>compatible</PreAssertion>
           <PostAssertion>?</PostAssertion>

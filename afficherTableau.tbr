@@ -2,12 +2,12 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>afficherSudoku</nom>
-  <date_creation>8/12/2022 01:02</date_creation>
+  <date_creation>9/12/2022 15:08</date_creation>
   <Elements>
     <Action>
       <Position>693;24</Position>
       <StyleLien>2</StyleLien>
-      <PreAssertion>tabSudoku, TAILLE_TAB,
+      <PreAssertion>tabSudoku, TAILLE_TAB,&#xd;
 TAILLE_ZONE</PreAssertion>
       <PostAssertion>?</PostAssertion>
       <Titre>afficherSudoku</Titre>
@@ -36,7 +36,7 @@ TAILLE_ZONE</PreAssertion>
             <Iteration>
               <Position>422.5;225.5</Position>
               <StyleLien>1</StyleLien>
-              <Titre>Pour i de 0 à 
+              <Titre>Pour i de 0 à &#xd;
 TAILLE_TAB -1</Titre>
               <IterationFixe>1</IterationFixe>
               <Enfants>
@@ -111,7 +111,7 @@ TAILLE_TAB -1</Titre>
         <Action>
           <Position>816;136</Position>
           <StyleLien>2</StyleLien>
-          <PreAssertion>tabSudoku, TAILLE_TAB,&#xd;
+          <PreAssertion>tabSudoku, TAILLE_TAB,&#xd;&#xd;
 TAILLE_ZONE</PreAssertion>
           <PostAssertion>?</PostAssertion>
           <Titre>afficherNombreDuSudoku</Titre>
@@ -265,7 +265,7 @@ TAILLE_ZONE</PreAssertion>
                   <StyleLien>1</StyleLien>
                   <PreAssertion>?</PreAssertion>
                   <PostAssertion>?</PostAssertion>
-                  <Titre>afficher barre vertical, &#xd;&#xd;
+                  <Titre>afficher barre vertical, &#xd;&#xd;&#xd;
 1 espace et  indiceLigne + 1</Titre>
                   <DetailsVisible>1</DetailsVisible>
                   <DetailsVideVisible>0</DetailsVideVisible>

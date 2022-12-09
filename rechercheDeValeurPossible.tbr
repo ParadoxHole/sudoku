@@ -2,12 +2,12 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>rechercheDeValeurPossible</nom>
-  <date_creation>8/12/2022 01:03</date_creation>
+  <date_creation>9/12/2022 15:05</date_creation>
   <Elements>
     <Action>
       <Position>419;282</Position>
       <StyleLien>2</StyleLien>
-      <PreAssertion>indiceLigne,indiceCollone,
+      <PreAssertion>indiceLigne,indiceCollone,&#xd;
 tabSudoku</PreAssertion>
       <PostAssertion>?</PostAssertion>
       <Titre>rechercheDeValeurPossible</Titre>
@@ -26,44 +26,45 @@ tabSudoku</PreAssertion>
         </Action>
         <Iteration>
           <Position>787.5;381.5</Position>
-          <StyleLien>1</StyleLien>
+          <StyleLien>0</StyleLien>
           <Titre>Pour i de 1 à 9</Titre>
           <IterationFixe>1</IterationFixe>
           <Enfants>
             <Action>
-              <Position>465;487</Position>
-              <StyleLien>1</StyleLien>
-              <PreAssertion>indiceLigne,indiceCollone,
-i ,tabSudoku,
+              <Position>538;458</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>indiceLigne,indiceCollone,&#xd;
+valeurSaisie,tabSudoku,&#xd;
 TAILLE_ZONE,TAILLE_TAB</PreAssertion>
-              <PostAssertion>booléen</PostAssertion>
-              <Titre>verifValeur</Titre>
+              <PostAssertion>?</PostAssertion>
+              <Titre>Verifier Compatibilité valeur</Titre>
               <DetailsVisible>1</DetailsVisible>
-              <DetailsVideVisible>1</DetailsVideVisible>
-              <Enfants/>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants>
+                <Condition>
+                  <Position>714;540</Position>
+                  <StyleLien>0</StyleLien>
+                  <estUnique>0</estUnique>
+                  <operationsLogiques>
+                    <operation>
+                      <Titre>verifValeur({paramêtre renseigner au dessus}) = vrai</Titre>
+                      <Enfants>
+                        <Action>
+                          <Position>719;608</Position>
+                          <StyleLien>1</StyleLien>
+                          <PreAssertion>i</PreAssertion>
+                          <PostAssertion>?</PostAssertion>
+                          <Titre>Afficher  i</Titre>
+                          <DetailsVisible>1</DetailsVisible>
+                          <DetailsVideVisible>0</DetailsVideVisible>
+                          <Enfants/>
+                        </Action>
+                      </Enfants>
+                    </operation>
+                  </operationsLogiques>
+                </Condition>
+              </Enfants>
             </Action>
-            <Condition>
-              <Position>855;493</Position>
-              <StyleLien>0</StyleLien>
-              <estUnique>0</estUnique>
-              <operationsLogiques>
-                <operation>
-                  <Titre>booléen de verifValeur</Titre>
-                  <Enfants>
-                    <Action>
-                      <Position>847;584</Position>
-                      <StyleLien>1</StyleLien>
-                      <PreAssertion>i</PreAssertion>
-                      <PostAssertion>?</PostAssertion>
-                      <Titre>Afficher  i</Titre>
-                      <DetailsVisible>1</DetailsVisible>
-                      <DetailsVideVisible>0</DetailsVideVisible>
-                      <Enfants/>
-                    </Action>
-                  </Enfants>
-                </operation>
-              </operationsLogiques>
-            </Condition>
           </Enfants>
         </Iteration>
       </Enfants>
