@@ -1,5 +1,0 @@
-n = input("Entrez un nombre: ")
-a = input("Entrez un diviseur: ")
-
-if((n % a) == 0):
-    print("Le nombre ", n," st divisible par ", a,".")
