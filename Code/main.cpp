@@ -10,10 +10,14 @@ struct nbSudoku
 void afficherTableau(const nbSudoku tabSudoku[9][9], unsigned short int TAILLE_TAB, unsigned short int TAILLE_ZONE);
 //BUT : Afficher le tableau du sudoku
 
-void saisiVerifJoueur(const nbSudoku tabSudoku[9][9], unsigned short int &indiceLigne, unsigned short int &indiceCollone, unsigned short int &valeurSaisie, enum issueDeLaSaisie, bool &valModifie);
+void saisiVerifJoueur(const nbSudoku tabSudoku[9][9], unsigned short int &indiceLigne, unsigned short int &indiceCollone,
+                      unsigned short int &valeurSaisie, enum issueDeLaSaisie, bool &valModifie);
 //BUT : Vérifier si la valeur saisie par le joueur est compatible ou non avec la grille
 
 bool tabPlein(const nbSudoku tabSudoku[9][9], unsigned short int TAILLE_TAB);
+
+bool verifValeur(const nbSudoku tabSudoku[9][9], unsigned short int indiceLigne, unsigned short int indiceCollone,
+                 unsigned short int valeur, unsigned short int TAILLE_TAB, unsigned short int TAILLE_ZONE);
 
 int main()
 {
@@ -178,6 +182,12 @@ void afficherTableau(nbSudoku tabSudoku[9][9],unsigned short int TAILLE_TAB, uns
         }
         cout << " " << i+1;
     }
+}
+
+bool verifValeur(const nbSudoku tabSudoku[9][9], unsigned short int indiceLigne, unsigned short int indiceCollone,
+                 unsigned short int valeur, unsigned short int TAILLE_TAB, unsigned short int TAILLE_ZONE){
+    
+
 }
 
 bool tabPlein(nbSudoku tabSudoku[9][9],unsigned short int TAILLE_TAB)
