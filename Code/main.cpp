@@ -1,23 +1,30 @@
 #include <iostream>
 using namespace std;
 #include "game-tools.h"
+
 struct nbSudoku
 {
     short unsigned int valeur;
     bool nbDefini;
 };
+enum issueDeLaSaisie {compatible, incompatible, abandon, erreureDeSaisie};
+
 
 void afficherTableau(const nbSudoku tabSudoku[9][9], unsigned short int TAILLE_TAB, unsigned short int TAILLE_ZONE);
 //BUT : Afficher le tableau du sudoku
 
 void saisiVerifJoueur(const nbSudoku tabSudoku[9][9], unsigned short int &indiceLigne, unsigned short int &indiceCollone,
-                      unsigned short int &valeurSaisie, enum issueDeLaSaisie, bool &valModifie);
+                      unsigned short int &valeurSaisie, issueDeLaSaisie &issueDeLaSaisie, bool &valModifie, 
+                      unsigned short int TAILLE_TAB, unsigned short int TAILLE_ZONE);
 //BUT : Vérifier si la valeur saisie par le joueur est compatible ou non avec la grille
 
+
 bool tabPlein(const nbSudoku tabSudoku[9][9], unsigned short int TAILLE_TAB);
+//BUT : Vérifier si le tableau est plein
 
 bool verifValeur(const nbSudoku tabSudoku[9][9], unsigned short int indiceLigne, unsigned short int indiceCollone,
                  unsigned short int valeur, unsigned short int TAILLE_TAB, unsigned short int TAILLE_ZONE);
+//BUT : Vérifier si la valeur est compatible ou non avec la grille
 
 int main()
 {
@@ -27,7 +34,7 @@ int main()
     unsigned short int TAILLE_ZONE;
     unsigned short int nbTour;
     bool valModifie;
-    enum issueDeLaSaisie {compatible, incompatible, abandon, erreureDeSaisie};
+    issueDeLaSaisie issueDeLaSaisie;
 
     unsigned short int indiceLigne;
     unsigned short int indiceCollone;
@@ -57,9 +64,9 @@ int main()
     // ... >> Initialiser les variables de Tailles >> TAILLE_TAB, TAILLE_ZONE
     TAILLE_TAB = 9;
     TAILLE_ZONE = 3;
-
     // ... >> initialiserNbTour >> nbtour
     nbTour = 1;
+    nbErreurJoueur = 0;
 
     //tabSudoku, erreurAutorise nbTour, TAILLE_TAB, TAILLE_ZONE >> jouerLaPartie >> issueDeLaSaisie -------------------------
     while(true){
@@ -70,6 +77,7 @@ int main()
         cout << "Tour " << nbTour << nbErreurJoueur << "/" << erreurAutorise << endl;
 
         //tabSudoku >> SaisieVerifJoueur >> issueDeLaSaisie, [valModifie]
+        saisiVerifJoueur(tabSudoku, indiceLigne, indiceCollone, valeurSaisie, issueDeLaSaisie, valModifie, TAILLE_TAB, TAILLE_ZONE);
         
         //nbErreurJoueur, erreurAutorise, nbTour, issueDeLaSaisie, valModifie, tabSudoku, valeurSaisie >> jouerLaPartie >> écran
         switch(issueDeLaSaisie)
@@ -186,8 +194,73 @@ void afficherTableau(nbSudoku tabSudoku[9][9],unsigned short int TAILLE_TAB, uns
 
 bool verifValeur(const nbSudoku tabSudoku[9][9], unsigned short int indiceLigne, unsigned short int indiceCollone,
                  unsigned short int valeur, unsigned short int TAILLE_TAB, unsigned short int TAILLE_ZONE){
-    
 
+    // indiceLigne, tabSudoku, valeur, TAILLE_TAB >> verification Horizontale >> bool
+    for(unsigned short int i = 0; i < TAILLE_TAB; i++){
+        if (tabSudoku[indiceLigne][i].valeur == valeur){
+            return false;
+        }
+    }
+
+    // indiceCollone, tabSudoku, valeur, TAILLE_TAB >> verification Verticale >> bool
+    for(unsigned short int i = 0; i < TAILLE_TAB; i++){
+        if (tabSudoku[i][indiceCollone].valeur == valeur){
+            return false;
+        }
+    }
+
+    // indiceLigne, indiceCollone, tabSudoku, valeur, TAILLE_TAB, TAILLE_ZONE >> verification Zone >> bool
+
+        // indiceLigne, indiceCollone, TAILLE_ZONE >> calculerCoinGaucheZone >> indiceLigneZone, indiceColonneZone
+    indiceLigne = (cdecl((indiceLigne/TAILLE_ZONE))-1)*TAILLE_ZONE;
+    indiceCollone = (cdecl((indiceCollone/TAILLE_ZONE))-1)*TAILLE_ZONE;
+
+        // indiceLigne, indiceColonne, tabSudoku, valeur, TAILLE_ZONE >> verification Zone >> bool
+    for(unsigned short int i = indiceLigne; i < indiceLigne+TAILLE_ZONE - 1; i++){
+        for(unsigned short int j = indiceCollone; j < indiceCollone+TAILLE_ZONE - 1; j++){
+            if (tabSudoku[i][j].valeur == valeur){
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+void saisiVerifJoueur(const nbSudoku tabSudoku[9][9], unsigned short int &indiceLigne, unsigned short int &indiceCollone,
+                      unsigned short int &valeurSaisie, issueDeLaSaisie &issueDeLaSaisie, bool &valModifie, 
+                      unsigned short int TAILLE_TAB, unsigned short int TAILLE_ZONE){
+
+    // clavier >> saisieUtilisateur >> indiceLigne, indiceCollone, valeurSaisie
+    cout << "Proposition (cf. x y i) ? ";
+    cin >> indiceLigne >> indiceCollone >> valeurSaisie;
+
+    // ... >> intialisation >> issueDeLaSaisie, valModifie
+    issueDeLaSaisie = compatible;
+    valModifie = false;
+
+    // indiceLigne, indiceCollone, valeurSaisie >> traiterCasSpeciaux >> [issueDeLaSaisie]
+    if(indiceLigne == 0 || indiceCollone == 0 || valeurSaisie == 0){
+        issueDeLaSaisie = abandon;
+    }
+    else if((isalpha(indiceLigne) || isalpha(indiceCollone) || isalpha(valeurSaisie)) || (indiceLigne > TAILLE_TAB || indiceCollone > TAILLE_TAB || valeurSaisie > 9) || (indiceLigne < 1 || indiceCollone < 1 || valeurSaisie < 1)){
+        issueDeLaSaisie = erreureDeSaisie;
+    }
+
+    // indiceLigne, indiceCollone, valeurSaisie, tabSudoku, issueDeLaSaisie >> verifValeur >> [valModifie], [issueDeLaSaisie]
+    if(tabSudoku[indiceLigne][indiceCollone].nbDefini == true){
+        issueDeLaSaisie = incompatible;
+    }
+    else if(tabSudoku[indiceLigne][indiceCollone].valeur != 0){
+        valModifie = true;
+    }
+
+    // indiceLigne, indiceCollone, valeurSaisie, tabSudoku, issueDeLaSaisie >> verifValeur >> issueDeLaSaisie
+    if (issueDeLaSaisie == compatible){
+        if(verifValeur(tabSudoku, indiceLigne, indiceCollone, valeurSaisie, TAILLE_TAB, TAILLE_ZONE) == false){
+           issueDeLaSaisie = incompatible;
+        }
+    }    
 }
 
 bool tabPlein(nbSudoku tabSudoku[9][9],unsigned short int TAILLE_TAB)
