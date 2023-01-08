@@ -2,13 +2,13 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>verifiValeur</nom>
-  <date_creation>9/12/2022 15:26</date_creation>
+  <date_creation>8/1/2023 16:32</date_creation>
   <Elements>
     <Action>
       <Position>704;103</Position>
       <StyleLien>2</StyleLien>
-      <PreAssertion>indiceLigne,indiceCollone,&#xd;
-valeurSaisie,tabSudoku,&#xd;
+      <PreAssertion>indiceLigne,indiceCollone,&#xd;&#xd;
+valeurSaisie,tabSudoku,&#xd;&#xd;
 TAILLE_ZONE,TAILLE_TAB</PreAssertion>
       <PostAssertion>booléen</PostAssertion>
       <Titre>verifValeur</Titre>
@@ -18,8 +18,8 @@ TAILLE_ZONE,TAILLE_TAB</PreAssertion>
         <Action>
           <Position>257;213</Position>
           <StyleLien>2</StyleLien>
-          <PreAssertion>indiceLigne,&#xd;
-valeurSaisie,&#xd;
+          <PreAssertion>indiceLigne,&#xd;&#xd;
+valeurSaisie,&#xd;&#xd;
 TAILLE_TAB</PreAssertion>
           <PostAssertion>[compatible]</PostAssertion>
           <Titre>Vérification Horizontale </Titre>
@@ -29,7 +29,7 @@ TAILLE_TAB</PreAssertion>
             <Iteration>
               <Position>431.5;293.5</Position>
               <StyleLien>0</StyleLien>
-              <Titre>Pour i de 0 à &#xd;
+              <Titre>Pour i de 0 à &#xd;&#xd;
 TAILLE_TAB -1</Titre>
               <IterationFixe>1</IterationFixe>
               <Enfants>
@@ -39,7 +39,7 @@ TAILLE_TAB -1</Titre>
                   <estUnique>0</estUnique>
                   <operationsLogiques>
                     <operation>
-                      <Titre>valeurSaisie = tabSudoku&#xd;&#xd;&#xd;
+                      <Titre>valeurSaisie = tabSudoku&#xd;&#xd;&#xd;&#xd;
 [ indiceLigne, i ].valeur</Titre>
                       <Enfants>
                         <Action>
@@ -74,8 +74,8 @@ TAILLE_TAB -1</Titre>
                 <Action>
                   <Position>605;299</Position>
                   <StyleLien>2</StyleLien>
-                  <PreAssertion>indiceCollone,&#xd;
-valeurSaisie,&#xd;
+                  <PreAssertion>indiceCollone,&#xd;&#xd;
+valeurSaisie,&#xd;&#xd;
 TAILLE_TAB</PreAssertion>
                   <PostAssertion>[compatible]</PostAssertion>
                   <Titre>Vérification Verticale</Titre>
@@ -85,7 +85,7 @@ TAILLE_TAB</PreAssertion>
                     <Iteration>
                       <Position>772.5;390.5</Position>
                       <StyleLien>0</StyleLien>
-                      <Titre>Pour i de 0 à &#xd;
+                      <Titre>Pour i de 0 à &#xd;&#xd;
 TAILLE_TAB - 1</Titre>
                       <IterationFixe>1</IterationFixe>
                       <Enfants>
@@ -95,7 +95,7 @@ TAILLE_TAB - 1</Titre>
                           <estUnique>0</estUnique>
                           <operationsLogiques>
                             <operation>
-                              <Titre>valeurSaisie = tabSudoku&#xd;&#xd;&#xd;
+                              <Titre>valeurSaisie = tabSudoku&#xd;&#xd;&#xd;&#xd;
 [ i, indiceCollone ].valeur</Titre>
                               <Enfants>
                                 <Action>
@@ -134,7 +134,7 @@ TAILLE_TAB - 1</Titre>
                 <Action>
                   <Position>1153;297</Position>
                   <StyleLien>2</StyleLien>
-                  <PreAssertion>indiceLigne,indiceCollone,&#xd;
+                  <PreAssertion>indiceLigne,indiceCollone,&#xd;&#xd;
 valeurSaisie, TAILLE_ZONE</PreAssertion>
                   <PostAssertion>[compatible]</PostAssertion>
                   <Titre>Verification Zone</Titre>
@@ -144,10 +144,10 @@ valeurSaisie, TAILLE_ZONE</PreAssertion>
                     <Action>
                       <Position>928;419</Position>
                       <StyleLien>1</StyleLien>
-                      <PreAssertion>indiceLigne,&#xd;
+                      <PreAssertion>indiceLigne,&#xd;&#xd;
 TAILLE_ZONE</PreAssertion>
                       <PostAssertion>indiceLigne</PostAssertion>
-                      <Titre>indiceLigne ← (arondirHaut(IndiceLigne/&#xd;
+                      <Titre>indiceLigne ← (arondirHaut(IndiceLigne/&#xd;&#xd;
 TAILLE_ZONE)-1)*TAILLE_ZONE</Titre>
                       <DetailsVisible>1</DetailsVisible>
                       <DetailsVideVisible>1</DetailsVideVisible>
@@ -156,10 +156,10 @@ TAILLE_ZONE)-1)*TAILLE_ZONE</Titre>
                     <Action>
                       <Position>1399;419</Position>
                       <StyleLien>1</StyleLien>
-                      <PreAssertion>indiceCollone,&#xd;
+                      <PreAssertion>indiceCollone,&#xd;&#xd;
 TAILLE_ZONE</PreAssertion>
                       <PostAssertion>indiceCollone</PostAssertion>
-                      <Titre>indiceCollone ← (arondirHaut(indiceCollone/&#xd;
+                      <Titre>indiceCollone ← (arondirHaut(indiceCollone/&#xd;&#xd;
 TAILLE_ZONE)-1)*TAILLE_ZONE</Titre>
                       <DetailsVisible>1</DetailsVisible>
                       <DetailsVideVisible>1</DetailsVideVisible>
@@ -183,7 +183,7 @@ TAILLE_ZONE)-1)*TAILLE_ZONE</Titre>
                               <estUnique>0</estUnique>
                               <operationsLogiques>
                                 <operation>
-                                  <Titre>valeurSaisie = tabSudoku&#xd;
+                                  <Titre>valeurSaisie = tabSudoku&#xd;&#xd;
 [ i, j].valeur</Titre>
                                   <Enfants>
                                     <Action>
