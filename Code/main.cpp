@@ -39,6 +39,7 @@ bool verifValeur(nbSudoku tabSudoku[9][9], unsigned short int indiceLigne, unsig
 
 int main()
 {
+
     unsigned short int erreurAutorise;
     unsigned short int nbErreurJoueur;
     unsigned short int TAILLE_TAB;
@@ -54,112 +55,134 @@ int main()
     char continuer; // permet d'attendre la saisie du joueur, utile seulement dans le code
     bool finPartie; // permet de savoir si la partie est finie ou non, utile seulement dans le code car on ne peut pas sortir de la boucle principale sans sortir d'un switch
 
-    //[***************************************| Initialiser la partie |*************************************]
-    // calvier >> initialiserLaPartie >> tabSudoku, erreurAutorise, nbTour, TAILLE_TAB, TAILLE_ZONE
-
-    afficherTexteEnCouleur("|| Bienvenue dans le jeu du Sudoku ||", jaune, true);
-    cout << "Vous devez remplir la grille avec les chiffres de 1 a 9" << endl;
-    cout << "Chaque chiffre ne peut apparaitre qu'une seule fois dans chaque ligne, chaque colonne et chaque carre de 3x3 cases" << endl;
-    cout << "Vous pouvez abandonner la partie en saisissant trois 0" << endl;
-    cout << endl;
-
-    // calvier >> saisieVerifErreurAutorisees >>  erreurAutorise
     while (true)
     {
-        cout << "Veuilliez saisir le nombre maximum d'erreur que vous vous autorisees : ";
-        cin >> erreurAutorise;
-        if (erreurAutorise >= 3)
+        //[***************************************| Initialiser la partie |*************************************]
+        // calvier >> initialiserLaPartie >> tabSudoku, erreurAutorise, nbTour, TAILLE_TAB, TAILLE_ZONE
+
+        afficherTexteEnCouleur("|| Bienvenue dans le jeu du Sudoku ||", jaune, true);
+        cout << "Vous devez remplir la grille avec les chiffres de 1 a 9" << endl;
+        cout << "Chaque chiffre ne peut apparaitre qu'une seule fois dans chaque ligne, chaque colonne et chaque carre de 3x3 cases" << endl;
+        cout << "Vous pouvez abandonner la partie en saisissant trois 0" << endl;
+        cout << endl;
+
+        //[***************************************| Jouer la partie |*************************************]
+        // calvier >> saisieVerifErreurAutorisees >>  erreurAutorise
+        while (true)
         {
-            break;
-        }
-        afficherTexteEnCouleur("Vous devez choisir une valeur superieur ou egale a 3", rouge, true);
-    }
-    effacer();
-
-    // ... >> Initialiser le tableau avec toutes ses valeurs >> tabSudoku
-    nbSudoku tabSudoku[9][9] = {{{5, true}, {3, true}, {0, false}, {0, false}, {7, true}, {0, false}, {0, false}, {0, false}, {0, false}},
-                                {{6, true}, {0, false}, {0, false}, {1, true}, {9, true}, {5, true}, {0, false}, {0, false}, {0, false}},
-                                {{0, false}, {9, true}, {8, true}, {0, false}, {0, false}, {0, false}, {0, false}, {6, true}, {0, false}},
-                                {{8, true}, {0, false}, {0, false}, {0, false}, {6, true}, {0, false}, {0, false}, {0, false}, {3, true}},
-                                {{4, true}, {0, false}, {0, false}, {8, true}, {0, false}, {3, true}, {0, false}, {0, false}, {1, true}},
-                                {{7, true}, {0, false}, {0, false}, {0, false}, {2, true}, {0, false}, {0, false}, {0, false}, {6, true}},
-                                {{0, false}, {6, true}, {0, false}, {0, false}, {0, false}, {0, false}, {2, true}, {8, true}, {0, false}},
-                                {{0, false}, {0, false}, {0, false}, {4, true}, {1, true}, {9, true}, {0, false}, {0, false}, {5, true}},
-                                {{0, false}, {0, false}, {0, false}, {0, false}, {8, true}, {0, false}, {0, false}, {7, true}, {9, true}}};
-    // ... >> Initialiser les variables de Tailles >> TAILLE_TAB, TAILLE_ZONE
-    TAILLE_TAB = 9;
-    TAILLE_ZONE = 3;
-    // ... >> initialiserNbTour >> nbtour
-    nbTour = 1;
-    nbErreurJoueur = 0;
-
-    //[***************************************| Jouer la partie |****************************************************]
-    // tabSudoku, erreurAutorise nbTour, TAILLE_TAB, TAILLE_ZONE >> jouerLaPartie >> issueDeLaSaisie
-    while (true)
-    {
-        // tabSudoku, TAILLE_TAB, TAILLE_ZONE >> afficherTableau >> écran
-        afficherTableau(tabSudoku, TAILLE_TAB, TAILLE_ZONE);
-
-        // nbTour, erreurAutorise, nbErreurJoueur >> afficherResultat >> écran
-        cout << "Tour " << nbTour << ", ";
-        cout << "Erreur " << nbErreurJoueur << "/" << erreurAutorise << endl;
-
-        // tabSudoku >> SaisieVerifJoueur >> issueDeLaSaisie, [valModifie]
-        saisiVerifJoueur(tabSudoku, indiceLigne, indiceCollone, valeurSaisie, issueDeLaSaisie, valModifie, TAILLE_TAB, TAILLE_ZONE);
-
-        // nbErreurJoueur, erreurAutorise, nbTour, issueDeLaSaisie, valModifie, tabSudoku, valeurSaisie >> jouerLaPartie >> écran
-        switch (issueDeLaSaisie)
-        {
-        case compatible:
-            // tabSudoku, indiceLigne, indiceCollone, valeurSaisie, valModifie >> traiterValeurCompatible >> tabSudoku
-            cout << "OUI !";
-            if (valModifie)
+            cout << "Veuilliez saisir le nombre maximum d'erreur que vous vous autorisees : ";
+            cin >> erreurAutorise;
+            if (erreurAutorise >= 3)
             {
-                cout << "valeur" << tabSudoku[indiceLigne][indiceCollone].valeur << "modifie en" << valeurSaisie << endl;
-            }
-            // tabSudoku >> verifierVictoire >> bool
-            if (tabPlein(tabSudoku, TAILLE_TAB))
-            {
-                cout << "Bravo ! ! !";
-                finPartie = true;
                 break;
             }
-            // indiceLigne, indiceCollone, valeurSaisie >> majTableau >> tabSudoku
-            tabSudoku[indiceLigne][indiceCollone].valeur = valeurSaisie;
-            break;
-        case incompatible:
-            // nbErreurJoueur >> traiterValeurIncompatible >> nbErreurJoueur
-            cout << "ERREUR #";
-            if (tabSudoku[indiceLigne][indiceCollone].nbDefini)
+            afficherTexteEnCouleur("Vous devez choisir une valeur superieur ou egale a 3", rouge, true);
+        }
+        effacer();
+
+        // ... >> Initialiser le tableau avec toutes ses valeurs >> tabSudoku
+        nbSudoku tabSudoku[9][9] = {{{5, true}, {3, true}, {0, false}, {0, false}, {7, true}, {0, false}, {0, false}, {0, false}, {0, false}},
+                                    {{6, true}, {0, false}, {0, false}, {1, true}, {9, true}, {5, true}, {0, false}, {0, false}, {0, false}},
+                                    {{0, false}, {9, true}, {8, true}, {0, false}, {0, false}, {0, false}, {0, false}, {6, true}, {0, false}},
+                                    {{8, true}, {0, false}, {0, false}, {0, false}, {6, true}, {0, false}, {0, false}, {0, false}, {3, true}},
+                                    {{4, true}, {0, false}, {0, false}, {8, true}, {0, false}, {3, true}, {0, false}, {0, false}, {1, true}},
+                                    {{7, true}, {0, false}, {0, false}, {0, false}, {2, true}, {0, false}, {0, false}, {0, false}, {6, true}},
+                                    {{0, false}, {6, true}, {0, false}, {0, false}, {0, false}, {0, false}, {2, true}, {8, true}, {0, false}},
+                                    {{0, false}, {0, false}, {0, false}, {4, true}, {1, true}, {9, true}, {0, false}, {0, false}, {5, true}},
+                                    {{0, false}, {0, false}, {0, false}, {0, false}, {8, true}, {0, false}, {0, false}, {7, true}, {9, true}}};
+        // ... >> Initialiser les variables de Tailles >> TAILLE_TAB, TAILLE_ZONE
+        TAILLE_TAB = 9;
+        TAILLE_ZONE = 3;
+        // ... >> initialiserNbTour >> nbtour
+        nbTour = 1;
+        nbErreurJoueur = 0;
+
+        //[***************************************| Jouer la partie |****************************************************]
+        // tabSudoku, erreurAutorise nbTour, TAILLE_TAB, TAILLE_ZONE >> jouerLaPartie >> issueDeLaSaisie
+        while (true)
+        {
+            // tabSudoku, TAILLE_TAB, TAILLE_ZONE >> afficherTableau >> écran
+            afficherTableau(tabSudoku, TAILLE_TAB, TAILLE_ZONE);
+
+            // nbTour, erreurAutorise, nbErreurJoueur >> afficherResultat >> écran
+            cout << "Tour " << nbTour << ", ";
+            cout << "Erreur " << nbErreurJoueur << "/" << erreurAutorise << endl;
+
+            // actualiser nombre de tour
+            nbTour ++;
+
+            // tabSudoku >> SaisieVerifJoueur >> issueDeLaSaisie, [valModifie]
+            saisiVerifJoueur(tabSudoku, indiceLigne, indiceCollone, valeurSaisie, issueDeLaSaisie, valModifie, TAILLE_TAB, TAILLE_ZONE);
+
+            // nbErreurJoueur, erreurAutorise, nbTour, issueDeLaSaisie, valModifie, tabSudoku, valeurSaisie >> jouerLaPartie >> écran
+            switch (issueDeLaSaisie)
             {
-                cout << "Saisie sur la grille de depart #";
-            }
-            else
-            {
-                cout << "Valeur incompatible";
-                nbErreurJoueur++;
-                if (nbErreurJoueur >= erreurAutorise)
+            case compatible:
+                // tabSudoku, indiceLigne, indiceCollone, valeurSaisie, valModifie >> traiterValeurCompatible >> tabSudoku
+                
+                if (valModifie)
+                {
+                    cout << "OUI ! " << "valeur " << tabSudoku[indiceLigne][indiceCollone].valeur << " modifie en " << valeurSaisie << endl;
+                } else {
+                    cout << "OUI ! "<< endl;
+                }
+                // tabSudoku >> verifierVictoire >> bool
+                if (tabPlein(tabSudoku, TAILLE_TAB))
                 {
                     finPartie = true;
                     break;
                 }
+                // indiceLigne, indiceCollone, valeurSaisie >> majTableau >> tabSudoku
+                tabSudoku[indiceLigne][indiceCollone].valeur = valeurSaisie;
+                break;
+            case incompatible:
+                // nbErreurJoueur >> traiterValeurIncompatible >> nbErreurJoueur
+                cout << "ERREUR #";
+                if (tabSudoku[indiceLigne][indiceCollone].nbDefini)
+                {
+                    cout << "Saisie sur la grille de depart #" << endl;
+                }
+                else
+                {
+                    cout << "Valeur incompatible" << endl;
+                    nbErreurJoueur++;
+                    if (nbErreurJoueur >= erreurAutorise)
+                    {
+                        finPartie = true;
+                        break;
+                    }
+                }
+
+                break;
+            case abandon:
+                finPartie = true;
+                break;
+            case erreureDeSaisie:
+                cout << "ERREUR DE SAISIE ! ! !" << endl;
+                break;
+            };
+            if (finPartie)
+            {
+                break;
             }
 
-            break;
-        case abandon:
-            cout << "A B A N D O N ! !";
-            finPartie = true;
-            break;
-        case erreureDeSaisie:
-            cout << "ERREUR DE SAISIE ! ! !";
-            break;
-        };
-        if (finPartie)
-        {
-            break;
-        }
+            cout << "Appuyer sur une touche pour continuer... " << endl;
 
-        cout << endl;
+            cin >> continuer;
+            effacer();
+        }
+        //[***************************************| Finaliser la partie |*************************************]
+        switch(issueDeLaSaisie){
+            case compatible:
+                cout << "Bravo ! ! ! !" << endl;
+                break;
+            case incompatible:
+                cout << "PERDU ! ! ! PLUS DE " << erreurAutorise << " ERREURS " << endl;
+                break;
+            case abandon:
+                cout << "A B A N D O N ! !"  << endl;
+                break;
+        }
         cout << "Appuyer sur une touche pour continuer... " << endl;
 
         cin >> continuer;
@@ -270,9 +293,9 @@ bool verifValeur(nbSudoku tabSudoku[9][9], unsigned short int indiceLigne, unsig
     indiceCollone = indiceCollone - (indiceCollone % TAILLE_ZONE);
 
     // indiceLigne, indiceColonne, tabSudoku, valeur, TAILLE_ZONE >> verification Zone >> bool
-    for (unsigned short int i = indiceLigne; i < indiceLigne + TAILLE_ZONE - 1; i++)
+    for (unsigned short int i = indiceLigne; i < indiceLigne + TAILLE_ZONE; i++)
     {
-        for (unsigned short int j = indiceCollone; j < indiceCollone + TAILLE_ZONE - 1; j++)
+        for (unsigned short int j = indiceCollone; j < indiceCollone + TAILLE_ZONE; j++)
         {
             if (tabSudoku[i][j].valeur == valeur)
             {
@@ -295,7 +318,7 @@ void saisiVerifJoueur(nbSudoku tabSudoku[9][9], unsigned short int &indiceLigne,
     cout << "Proposition (cf. x y i) ? ";
     cin >> charIndiceLigne >> charIndiceCollone >> charValeurSaisie;
 
-    //convertion de char vers int
+    // convertion de char vers int
     indiceLigne = int(charIndiceLigne) - DIFF_INT_ASCII;
     indiceCollone = int(charIndiceCollone) - DIFF_INT_ASCII;
     valeurSaisie = int(charValeurSaisie) - DIFF_INT_ASCII;
@@ -313,6 +336,9 @@ void saisiVerifJoueur(nbSudoku tabSudoku[9][9], unsigned short int &indiceLigne,
              (indiceCollone > 0 && indiceCollone < TAILLE_TAB - 1) &&
              (valeurSaisie > 0 && valeurSaisie < 9))
     {
+        indiceLigne --;
+        indiceCollone --;
+
         if (tabSudoku[indiceLigne][indiceCollone].nbDefini == true)
         {
             issueDeLaSaisie = incompatible;
