@@ -288,10 +288,17 @@ void saisiVerifJoueur(nbSudoku tabSudoku[9][9], unsigned short int &indiceLigne,
                       unsigned short int &valeurSaisie, issue &issueDeLaSaisie, bool &valModifie,
                       unsigned short int TAILLE_TAB, unsigned short int TAILLE_ZONE)
 {
+    char charIndiceLigne, charIndiceCollone, charValeurSaisie;
+    const unsigned short int DIFF_INT_ASCII = 48; // différence entre le code ascii et le nombre
 
     // clavier >> saisieUtilisateur >> indiceLigne, indiceCollone, valeurSaisie
     cout << "Proposition (cf. x y i) ? ";
-    cin >> indiceLigne >> indiceCollone >> valeurSaisie;
+    cin >> charIndiceLigne >> charIndiceCollone >> charValeurSaisie;
+
+    //convertion de char vers int
+    indiceLigne = int(charIndiceLigne) - DIFF_INT_ASCII;
+    indiceCollone = int(charIndiceCollone) - DIFF_INT_ASCII;
+    valeurSaisie = int(charValeurSaisie) - DIFF_INT_ASCII;
 
     // ... >> intialisation >> issueDeLaSaisie, valModifie
     issueDeLaSaisie = compatible;
@@ -302,28 +309,31 @@ void saisiVerifJoueur(nbSudoku tabSudoku[9][9], unsigned short int &indiceLigne,
     {
         issueDeLaSaisie = abandon;
     }
-    else if ((isalpha(indiceLigne) || isalpha(indiceCollone) || isalpha(valeurSaisie)) || (indiceLigne > TAILLE_TAB || indiceCollone > TAILLE_TAB || valeurSaisie > 9) || (indiceLigne < 1 || indiceCollone < 1 || valeurSaisie < 1))
+    else if ((indiceLigne > 0 && indiceLigne < TAILLE_TAB - 1) &&
+             (indiceCollone > 0 && indiceCollone < TAILLE_TAB - 1) &&
+             (valeurSaisie > 0 && valeurSaisie < 9))
     {
-        issueDeLaSaisie = erreureDeSaisie;
-    }
-
-    // indiceLigne, indiceCollone, valeurSaisie, tabSudoku, issueDeLaSaisie >> verifValeur >> [valModifie], [issueDeLaSaisie]
-    if (tabSudoku[indiceLigne][indiceCollone].nbDefini == true)
-    {
-        issueDeLaSaisie = incompatible;
-    }
-    else if (tabSudoku[indiceLigne][indiceCollone].valeur != 0)
-    {
-        valModifie = true;
-    }
-
-    // indiceLigne, indiceCollone, valeurSaisie, tabSudoku, issueDeLaSaisie >> verifValeur >> issueDeLaSaisie
-    if (issueDeLaSaisie == compatible)
-    {
-        if (verifValeur(tabSudoku, indiceLigne, indiceCollone, valeurSaisie, TAILLE_TAB, TAILLE_ZONE) == false)
+        if (tabSudoku[indiceLigne][indiceCollone].nbDefini == true)
         {
             issueDeLaSaisie = incompatible;
         }
+        else
+        {
+            if (tabSudoku[indiceLigne][indiceCollone].valeur != 0)
+            {
+                valModifie = true;
+            }
+
+            // indiceLigne, indiceCollone, valeurSaisie, tabSudoku, issueDeLaSaisie >> verifValeur >> issueDeLaSaisie
+            if (verifValeur(tabSudoku, indiceLigne, indiceCollone, valeurSaisie, TAILLE_TAB, TAILLE_ZONE) == false)
+            {
+                issueDeLaSaisie = incompatible;
+            }
+        }
+    }
+    else
+    {
+        issueDeLaSaisie = erreureDeSaisie;
     }
 }
 
