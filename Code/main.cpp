@@ -42,8 +42,8 @@ int main()
 
     unsigned short int erreurAutorise;
     unsigned short int nbErreurJoueur;
-    unsigned short int TAILLE_TAB;
-    unsigned short int TAILLE_ZONE;
+    const unsigned short int TAILLE_TAB = 9;
+    const unsigned short int TAILLE_ZONE = 3;
     unsigned short int nbTour;
     bool valModifie;
     issue issueDeLaSaisie;
@@ -52,7 +52,7 @@ int main()
     unsigned short int indiceCollone;
     unsigned short int valeurSaisie;
 
-    char continuer; // permet d'attendre la saisie du joueur, utile seulement dans le code
+    string kk;      // pour arrêter le défilement écran
     bool finPartie; // permet de savoir si la partie est finie ou non, utile seulement dans le code car on ne peut pas sortir de la boucle principale sans sortir d'un switch
 
     while (true)
@@ -90,9 +90,6 @@ int main()
                                     {{0, false}, {6, true}, {0, false}, {0, false}, {0, false}, {0, false}, {2, true}, {8, true}, {0, false}},
                                     {{0, false}, {0, false}, {0, false}, {4, true}, {1, true}, {9, true}, {0, false}, {0, false}, {5, true}},
                                     {{0, false}, {0, false}, {0, false}, {0, false}, {8, true}, {0, false}, {0, false}, {7, true}, {9, true}}};
-        // ... >> Initialiser les variables de Tailles >> TAILLE_TAB, TAILLE_ZONE
-        TAILLE_TAB = 9;
-        TAILLE_ZONE = 3;
         // ... >> initialiserNbTour >> nbtour
         nbTour = 1;
         nbErreurJoueur = 0;
@@ -109,7 +106,7 @@ int main()
             cout << "Erreur " << nbErreurJoueur << "/" << erreurAutorise << endl;
 
             // actualiser nombre de tour
-            nbTour ++;
+            nbTour++;
 
             // tabSudoku >> SaisieVerifJoueur >> issueDeLaSaisie, [valModifie]
             saisiVerifJoueur(tabSudoku, indiceLigne, indiceCollone, valeurSaisie, issueDeLaSaisie, valModifie, TAILLE_TAB, TAILLE_ZONE);
@@ -119,12 +116,15 @@ int main()
             {
             case compatible:
                 // tabSudoku, indiceLigne, indiceCollone, valeurSaisie, valModifie >> traiterValeurCompatible >> tabSudoku
-                
+
                 if (valModifie)
                 {
-                    cout << "OUI ! " << "valeur " << tabSudoku[indiceLigne][indiceCollone].valeur << " modifie en " << valeurSaisie << endl;
-                } else {
-                    cout << "OUI ! "<< endl;
+                    cout << "OUI ! "
+                         << "valeur " << tabSudoku[indiceLigne][indiceCollone].valeur << " modifie en " << valeurSaisie << endl;
+                }
+                else
+                {
+                    cout << "OUI ! " << endl;
                 }
                 // tabSudoku >> verifierVictoire >> bool
                 if (tabPlein(tabSudoku, TAILLE_TAB))
@@ -145,20 +145,35 @@ int main()
                 else
                 {
                     cout << "Valeur incompatible" << endl;
+
+                    cout << "Valeur possible : ";
+
+                    for (unsigned short int i = 0; i < TAILLE_TAB; i++)
+                    {
+                        if (verifValeur(tabSudoku, indiceLigne, indiceCollone, i++, TAILLE_TAB, TAILLE_ZONE))
+                        {
+                            cout << i + 1 << " ";
+                        }
+                    }
+                    cout << endl;
+
                     nbErreurJoueur++;
                     if (nbErreurJoueur >= erreurAutorise)
                     {
                         finPartie = true;
-                        break;
                     }
                 }
-
                 break;
+
+            case erreureDeSaisie:
+                cout << "ERREUR DE SAISIE ! ! !" << endl;
+                break;
+
             case abandon:
                 finPartie = true;
                 break;
-            case erreureDeSaisie:
-                cout << "ERREUR DE SAISIE ! ! !" << endl;
+
+            default:
                 break;
             };
             if (finPartie)
@@ -166,26 +181,29 @@ int main()
                 break;
             }
 
-            cout << "Appuyer sur une touche pour continuer... " << endl;
+            cout << endl << "Appuyer sur une touche pour continuer... " << endl;
 
-            cin >> continuer;
+            std::cin.ignore(100, '\n');
+            getline(cin, kk);
             effacer();
         }
         //[***************************************| Finaliser la partie |*************************************]
-        switch(issueDeLaSaisie){
-            case compatible:
-                cout << "Bravo ! ! ! !" << endl;
-                break;
-            case incompatible:
-                cout << "PERDU ! ! ! PLUS DE " << erreurAutorise << " ERREURS " << endl;
-                break;
-            case abandon:
-                cout << "A B A N D O N ! !"  << endl;
-                break;
+        switch (issueDeLaSaisie)
+        {
+        case compatible:
+            cout << "Bravo ! ! ! !" << endl;
+            break;
+        case incompatible:
+            cout << "PERDU ! ! ! PLUS DE " << erreurAutorise << " ERREURS " << endl;
+            break;
+        case abandon:
+            cout << "A B A N D O N ! !" << endl;
+            break;
         }
         cout << "Appuyer sur une touche pour continuer... " << endl;
 
-        cin >> continuer;
+        std::cin.ignore(100, '\n');
+        getline(cin, kk);
         effacer();
     }
 
@@ -289,8 +307,8 @@ bool verifValeur(nbSudoku tabSudoku[9][9], unsigned short int indiceLigne, unsig
     // indiceLigne, indiceCollone, tabSudoku, valeur, TAILLE_TAB, TAILLE_ZONE >> verification Zone >> bool
 
     // indiceLigne, indiceCollone, TAILLE_ZONE >> calculerCoinGaucheZone >> indiceLigneZone, indiceColonneZone
-    indiceLigne = indiceLigne - (indiceLigne % TAILLE_ZONE);
-    indiceCollone = indiceCollone - (indiceCollone % TAILLE_ZONE);
+    indiceLigne = static_cast<short unsigned int>(indiceLigne - (indiceLigne % TAILLE_ZONE));
+    indiceCollone = static_cast<short unsigned int>(indiceCollone - (indiceCollone % TAILLE_ZONE));
 
     // indiceLigne, indiceColonne, tabSudoku, valeur, TAILLE_ZONE >> verification Zone >> bool
     for (unsigned short int i = indiceLigne; i < indiceLigne + TAILLE_ZONE; i++)
@@ -316,12 +334,12 @@ void saisiVerifJoueur(nbSudoku tabSudoku[9][9], unsigned short int &indiceLigne,
 
     // clavier >> saisieUtilisateur >> indiceLigne, indiceCollone, valeurSaisie
     cout << "Proposition (cf. x y i) ? ";
-    cin >> charIndiceLigne >> charIndiceCollone >> charValeurSaisie;
+    cin >> charIndiceCollone >> charIndiceLigne >> charValeurSaisie;
 
     // convertion de char vers int
-    indiceLigne = int(charIndiceLigne) - DIFF_INT_ASCII;
-    indiceCollone = int(charIndiceCollone) - DIFF_INT_ASCII;
-    valeurSaisie = int(charValeurSaisie) - DIFF_INT_ASCII;
+    indiceCollone = static_cast<short unsigned int>(int(charIndiceCollone) - DIFF_INT_ASCII);
+    indiceLigne = static_cast<short unsigned int>(int(charIndiceLigne) - DIFF_INT_ASCII);
+    valeurSaisie = static_cast<short unsigned int>(int(charValeurSaisie) - DIFF_INT_ASCII);
 
     // ... >> intialisation >> issueDeLaSaisie, valModifie
     issueDeLaSaisie = compatible;
@@ -336,8 +354,8 @@ void saisiVerifJoueur(nbSudoku tabSudoku[9][9], unsigned short int &indiceLigne,
              (indiceCollone > 0 && indiceCollone < TAILLE_TAB - 1) &&
              (valeurSaisie > 0 && valeurSaisie < 9))
     {
-        indiceLigne --;
-        indiceCollone --;
+        indiceLigne--;
+        indiceCollone--;
 
         if (tabSudoku[indiceLigne][indiceCollone].nbDefini == true)
         {
