@@ -2,21 +2,21 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>initialiserPartie</nom>
-  <date_creation>9/12/2022 14:18</date_creation>
+  <date_creation>12/1/2023 01:03</date_creation>
   <Elements>
     <Action>
-      <Position>936;205</Position>
+      <Position>890;208</Position>
       <StyleLien>2</StyleLien>
       <PreAssertion>?</PreAssertion>
-      <PostAssertion>tabSudoku,erreurAutorise&#xd;
-nbTour,TAILLE_TAB,&#xd;
+      <PostAssertion>tabSudoku,erreurAutorise&#xd;&#xd;
+nbTour,TAILLE_TAB,&#xd;&#xd;
 TAILLE_ZONE</PostAssertion>
       <Titre>initialiserPartie</Titre>
       <DetailsVisible>1</DetailsVisible>
       <DetailsVideVisible>0</DetailsVideVisible>
       <Enfants>
         <Action>
-          <Position>380;302</Position>
+          <Position>422;315</Position>
           <StyleLien>2</StyleLien>
           <PreAssertion>?</PreAssertion>
           <PostAssertion>erreurAutorise</PostAssertion>
@@ -25,33 +25,34 @@ TAILLE_ZONE</PostAssertion>
           <DetailsVideVisible>0</DetailsVideVisible>
           <Enfants>
             <Iteration>
-              <Position>468.5;386.5</Position>
+              <Position>510.5;399.5</Position>
               <StyleLien>1</StyleLien>
               <Titre>?</Titre>
               <IterationFixe>0</IterationFixe>
               <Enfants>
                 <Action>
-                  <Position>394;504</Position>
-                  <StyleLien>1</StyleLien>
+                  <Position>360;512</Position>
+                  <StyleLien>2</StyleLien>
                   <PreAssertion>?</PreAssertion>
                   <PostAssertion>erreurAutorise</PostAssertion>
                   <Titre>saisieErreurAutorise</Titre>
                   <DetailsVisible>1</DetailsVisible>
                   <DetailsVideVisible>0</DetailsVideVisible>
-                  <Enfants/>
-                </Action>
-                <Action>
-                  <Position>12;504</Position>
-                  <StyleLien>1</StyleLien>
-                  <PreAssertion>erreurAutorise</PreAssertion>
-                  <PostAssertion>erreurAutorise</PostAssertion>
-                  <Titre>erreurAutorise ← 0</Titre>
-                  <DetailsVisible>1</DetailsVisible>
-                  <DetailsVideVisible>1</DetailsVideVisible>
-                  <Enfants/>
+                  <Enfants>
+                    <Action>
+                      <Position>351;592</Position>
+                      <StyleLien>1</StyleLien>
+                      <PreAssertion>?</PreAssertion>
+                      <PostAssertion>?</PostAssertion>
+                      <Titre>erreurAutorise ← saisie</Titre>
+                      <DetailsVisible>1</DetailsVisible>
+                      <DetailsVideVisible>0</DetailsVideVisible>
+                      <Enfants/>
+                    </Action>
+                  </Enfants>
                 </Action>
                 <Condition>
-                  <Position>683;510</Position>
+                  <Position>651;520</Position>
                   <StyleLien>0</StyleLien>
                   <estUnique>0</estUnique>
                   <operationsLogiques>
@@ -59,14 +60,14 @@ TAILLE_ZONE</PostAssertion>
                       <Titre>erreurAutorise >= 3</Titre>
                       <Enfants>
                         <Sortie>
-                          <Position>744;611</Position>
+                          <Position>712;621</Position>
                         </Sortie>
                       </Enfants>
                     </operation>
                   </operationsLogiques>
                 </Condition>
                 <Action>
-                  <Position>862;506</Position>
+                  <Position>830;516</Position>
                   <StyleLien>1</StyleLien>
                   <PreAssertion>?</PreAssertion>
                   <PostAssertion>?</PostAssertion>
@@ -93,7 +94,7 @@ TAILLE_ZONE</PostAssertion>
           <Position>1159;312</Position>
           <StyleLien>2</StyleLien>
           <PreAssertion>?</PreAssertion>
-          <PostAssertion>TAILLE_TAB,&#xd;
+          <PostAssertion>TAILLE_TAB,&#xd;&#xd;
 TAILLE_ZONE</PostAssertion>
           <Titre>Initialiser les variables de Tailles</Titre>
           <DetailsVisible>1</DetailsVisible>
@@ -122,11 +123,21 @@ TAILLE_ZONE</PostAssertion>
           </Enfants>
         </Action>
         <Action>
-          <Position>1524;312</Position>
+          <Position>1503;314</Position>
           <StyleLien>1</StyleLien>
           <PreAssertion>?</PreAssertion>
           <PostAssertion>nbTour</PostAssertion>
           <Titre>nbTour ← 1</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+        <Action>
+          <Position>277;317</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>?</PreAssertion>
+          <PostAssertion>?</PostAssertion>
+          <Titre>afficher les règles</Titre>
           <DetailsVisible>1</DetailsVisible>
           <DetailsVideVisible>0</DetailsVideVisible>
           <Enfants/>

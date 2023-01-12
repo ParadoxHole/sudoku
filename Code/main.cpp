@@ -9,6 +9,7 @@
 #include <iostream>
 using namespace std;
 #include "game-tools.h"
+
 struct nbSudoku
 {
     short unsigned int valeur;
@@ -39,7 +40,6 @@ bool verifValeur(nbSudoku tabSudoku[9][9], unsigned short int indiceLigne, unsig
 
 int main()
 {
-
     unsigned short int erreurAutorise;
     unsigned short int nbErreurJoueur;
     const unsigned short int TAILLE_TAB = 9;
@@ -60,13 +60,13 @@ int main()
         //[***************************************| Initialiser la partie |*************************************]
         // calvier >> initialiserLaPartie >> tabSudoku, erreurAutorise, nbTour, TAILLE_TAB, TAILLE_ZONE
 
+        // .. >> afficher les règles >> affichage
         afficherTexteEnCouleur("|| Bienvenue dans le jeu du Sudoku ||", jaune, true);
         cout << "Vous devez remplir la grille avec les chiffres de 1 a 9" << endl;
         cout << "Chaque chiffre ne peut apparaitre qu'une seule fois dans chaque ligne, chaque colonne et chaque carre de 3x3 cases" << endl;
         cout << "Vous pouvez abandonner la partie en saisissant trois 0" << endl;
         cout << endl;
 
-        //[***************************************| Jouer la partie |*************************************]
         // calvier >> saisieVerifErreurAutorisees >>  erreurAutorise
         while (true)
         {
@@ -146,13 +146,13 @@ int main()
                 {
                     cout << "Valeur incompatible" << endl;
 
+                    // tabSudoku, indiceLigne, indiceCollone >> recherche de valeur possible >> affichage
                     cout << "Valeur possible : ";
-
                     for (unsigned short int i = 0; i < TAILLE_TAB; i++)
                     {
-                        if (verifValeur(tabSudoku, indiceLigne, indiceCollone, i++, TAILLE_TAB, TAILLE_ZONE))
+                        if (verifValeur(tabSudoku, indiceLigne, indiceCollone, i, TAILLE_TAB, TAILLE_ZONE))
                         {
-                            cout << i + 1 << " ";
+                            cout << i << " ";
                         }
                     }
                     cout << endl;
@@ -173,8 +173,6 @@ int main()
                 finPartie = true;
                 break;
 
-            default:
-                break;
             };
             if (finPartie)
             {
@@ -198,6 +196,9 @@ int main()
             break;
         case abandon:
             cout << "A B A N D O N ! !" << endl;
+            break;
+
+        default:
             break;
         }
         cout << "Appuyer sur une touche pour continuer... " << endl;
@@ -307,6 +308,7 @@ bool verifValeur(nbSudoku tabSudoku[9][9], unsigned short int indiceLigne, unsig
     // indiceLigne, indiceCollone, tabSudoku, valeur, TAILLE_TAB, TAILLE_ZONE >> verification Zone >> bool
 
     // indiceLigne, indiceCollone, TAILLE_ZONE >> calculerCoinGaucheZone >> indiceLigneZone, indiceColonneZone
+    
     indiceLigne = static_cast<short unsigned int>(indiceLigne - (indiceLigne % TAILLE_ZONE));
     indiceCollone = static_cast<short unsigned int>(indiceCollone - (indiceCollone % TAILLE_ZONE));
 
@@ -329,7 +331,7 @@ void saisiVerifJoueur(nbSudoku tabSudoku[9][9], unsigned short int &indiceLigne,
                       unsigned short int &valeurSaisie, issue &issueDeLaSaisie, bool &valModifie,
                       unsigned short int TAILLE_TAB, unsigned short int TAILLE_ZONE)
 {
-    char charIndiceLigne, charIndiceCollone, charValeurSaisie;
+    char charIndiceLigne, charIndiceCollone, charValeurSaisie; // premet de traiter le cas ou il y a uen erreur de saisie
     const unsigned short int DIFF_INT_ASCII = 48; // différence entre le code ascii et le nombre
 
     // clavier >> saisieUtilisateur >> indiceLigne, indiceCollone, valeurSaisie
@@ -345,19 +347,19 @@ void saisiVerifJoueur(nbSudoku tabSudoku[9][9], unsigned short int &indiceLigne,
     issueDeLaSaisie = compatible;
     valModifie = false;
 
-    // indiceLigne, indiceCollone, valeurSaisie >> traiterCasSpeciaux >> [issueDeLaSaisie]
+    // indiceLigne, indiceCollone, valeurSaisie >> verifierLaProposition >> [issueDeLaSaisie]
     if (indiceLigne == 0 && indiceCollone == 0 && valeurSaisie == 0)
     {
         issueDeLaSaisie = abandon;
     }
-    else if ((indiceLigne > 0 && indiceLigne < TAILLE_TAB - 1) &&
-             (indiceCollone > 0 && indiceCollone < TAILLE_TAB - 1) &&
+    else if ((indiceLigne > 0 && indiceLigne <= TAILLE_TAB) &&
+             (indiceCollone > 0 && indiceCollone <= TAILLE_TAB) &&
              (valeurSaisie > 0 && valeurSaisie < 9))
     {
         indiceLigne--;
         indiceCollone--;
 
-        if (tabSudoku[indiceLigne][indiceCollone].nbDefini == true)
+        if (tabSudoku[indiceLigne][indiceCollone].nbDefini)
         {
             issueDeLaSaisie = incompatible;
         }
@@ -368,7 +370,7 @@ void saisiVerifJoueur(nbSudoku tabSudoku[9][9], unsigned short int &indiceLigne,
                 valModifie = true;
             }
 
-            // indiceLigne, indiceCollone, valeurSaisie, tabSudoku, issueDeLaSaisie >> verifValeur >> issueDeLaSaisie
+            // indiceLigne, indiceCollone, valeurSaisie, tabSudoku, issueDeLaSaisie >> verifierCompatibilitéValeur >> [issueDeLaSaisie]
             if (verifValeur(tabSudoku, indiceLigne, indiceCollone, valeurSaisie, TAILLE_TAB, TAILLE_ZONE) == false)
             {
                 issueDeLaSaisie = incompatible;

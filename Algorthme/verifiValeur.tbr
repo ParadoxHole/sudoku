@@ -2,7 +2,7 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>verifiValeur</nom>
-  <date_creation>8/1/2023 16:32</date_creation>
+  <date_creation>12/1/2023 02:05</date_creation>
   <Elements>
     <Action>
       <Position>704;103</Position>
@@ -147,38 +147,36 @@ valeurSaisie, TAILLE_ZONE</PreAssertion>
                       <PreAssertion>indiceLigne,&#xd;&#xd;
 TAILLE_ZONE</PreAssertion>
                       <PostAssertion>indiceLigne</PostAssertion>
-                      <Titre>indiceLigne ← (arondirHaut(IndiceLigne/&#xd;&#xd;
-TAILLE_ZONE)-1)*TAILLE_ZONE</Titre>
+                      <Titre>indiceLigne ← indiceLigne -  ((indiceLigne-1)%TAILLE_ZONE)</Titre>
                       <DetailsVisible>1</DetailsVisible>
                       <DetailsVideVisible>1</DetailsVideVisible>
                       <Enfants/>
                     </Action>
                     <Action>
-                      <Position>1399;419</Position>
+                      <Position>1155;496</Position>
                       <StyleLien>1</StyleLien>
                       <PreAssertion>indiceCollone,&#xd;&#xd;
 TAILLE_ZONE</PreAssertion>
                       <PostAssertion>indiceCollone</PostAssertion>
-                      <Titre>indiceCollone ← (arondirHaut(indiceCollone/&#xd;&#xd;
-TAILLE_ZONE)-1)*TAILLE_ZONE</Titre>
+                      <Titre>indiceCollone ← indiceCollone -  ((indiceCollone-1)%TAILLE_ZONE)</Titre>
                       <DetailsVisible>1</DetailsVisible>
                       <DetailsVideVisible>1</DetailsVideVisible>
                       <Enfants/>
                     </Action>
                     <Iteration>
-                      <Position>1888.5;423.5</Position>
+                      <Position>1665.5;419.5</Position>
                       <StyleLien>0</StyleLien>
-                      <Titre>Pour i de indiceLigne à indiceLigne + TAILLE_ZONE -1</Titre>
+                      <Titre>Pour i de indiceLigne à indiceLigne + TAILLE_ZONE</Titre>
                       <IterationFixe>1</IterationFixe>
                       <Enfants>
                         <Iteration>
-                          <Position>1888.5;497.5</Position>
+                          <Position>1669.5;494.5</Position>
                           <StyleLien>0</StyleLien>
-                          <Titre>Pour j de indiceCollone à indiceCollone + TAILLE_ZONE - 1</Titre>
+                          <Titre>Pour j de indiceCollone à indiceCollone + TAILLE_ZONE</Titre>
                           <IterationFixe>1</IterationFixe>
                           <Enfants>
                             <Condition>
-                              <Position>1818;578</Position>
+                              <Position>1595;574</Position>
                               <StyleLien>1</StyleLien>
                               <estUnique>0</estUnique>
                               <operationsLogiques>
@@ -187,7 +185,7 @@ TAILLE_ZONE)-1)*TAILLE_ZONE</Titre>
 [ i, j].valeur</Titre>
                                   <Enfants>
                                     <Action>
-                                      <Position>1883;661</Position>
+                                      <Position>1567;656</Position>
                                       <StyleLien>1</StyleLien>
                                       <PreAssertion>?</PreAssertion>
                                       <PostAssertion>?</PostAssertion>
@@ -197,7 +195,7 @@ TAILLE_ZONE)-1)*TAILLE_ZONE</Titre>
                                       <Enfants/>
                                     </Action>
                                     <Sortie>
-                                      <Position>1831;672</Position>
+                                      <Position>1738;671</Position>
                                     </Sortie>
                                   </Enfants>
                                 </operation>
@@ -223,7 +221,7 @@ TAILLE_ZONE)-1)*TAILLE_ZONE</Titre>
           <DetailsVideVisible>0</DetailsVideVisible>
           <Enfants>
             <Action>
-              <Position>0;290</Position>
+              <Position>3;289</Position>
               <StyleLien>1</StyleLien>
               <PreAssertion>?</PreAssertion>
               <PostAssertion>compatible</PostAssertion>
@@ -235,7 +233,7 @@ TAILLE_ZONE)-1)*TAILLE_ZONE</Titre>
           </Enfants>
         </Action>
         <Action>
-          <Position>1730;217</Position>
+          <Position>1598;220</Position>
           <StyleLien>1</StyleLien>
           <PreAssertion>compatible</PreAssertion>
           <PostAssertion>?</PostAssertion>
