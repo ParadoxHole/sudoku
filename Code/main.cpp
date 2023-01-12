@@ -3,7 +3,6 @@
  But :  jouer au sudoku
  Date de dernière modification : 05/01/2023
  Auteur : Bodin Maximilien, Jacob-Sauserreau Maxime, Martin Edgar
- Remarques :
 */
 
 #include <iostream>
@@ -23,7 +22,7 @@ enum issue
     erreureDeSaisie
 };
 
-void afficherTableau(nbSudoku tabSudoku[9][9], unsigned short int TAILLE_TAB, unsigned short int TAILLE_ZONE);
+void afficherSudoku(nbSudoku tabSudoku[9][9], unsigned short int TAILLE_TAB, unsigned short int TAILLE_ZONE);
 // BUT : Afficher le tableau du sudoku
 
 void saisiVerifJoueur(nbSudoku tabSudoku[9][9], unsigned short int &indiceLigne, unsigned short int &indiceCollone,
@@ -40,19 +39,18 @@ bool verifValeur(nbSudoku tabSudoku[9][9], unsigned short int indiceLigne, unsig
 
 int main()
 {
-    unsigned short int erreurAutorise;
-    unsigned short int nbErreurJoueur;
-    const unsigned short int TAILLE_TAB = 9;
-    const unsigned short int TAILLE_ZONE = 3;
-    unsigned short int nbTour;
-    bool valModifie;
+    unsigned short int erreurAutorise; //nombre d’erreur autorisé défini par le joueur
+    unsigned short int nbErreurJoueur; //nombre d’erreur commise par le joueur
+    const unsigned short int TAILLE_TAB = 9; //taille du sudoku
+    const unsigned short int TAILLE_ZONE = 3; //taille d'une zone
+    unsigned short int nbTour; //nombre de tour
+    bool valModifie; //permet de savoir si la valeur a été modifiée ou non
     issue issueDeLaSaisie;
 
-    unsigned short int indiceLigne;
-    unsigned short int indiceCollone;
-    unsigned short int valeurSaisie;
+    unsigned short int indiceLigne; //indice de la ligne
+    unsigned short int indiceCollone; //indice de la collone
+    unsigned short int valeurSaisie; //valeur saisie par le joueur
 
-    string kk;      // pour arrêter le défilement écran
     bool finPartie; // permet de savoir si la partie est finie ou non, utile seulement dans le code car on ne peut pas sortir de la boucle principale sans sortir d'un switch
 
     while (true)
@@ -98,8 +96,8 @@ int main()
         // tabSudoku, erreurAutorise nbTour, TAILLE_TAB, TAILLE_ZONE >> jouerLaPartie >> issueDeLaSaisie
         while (true)
         {
-            // tabSudoku, TAILLE_TAB, TAILLE_ZONE >> afficherTableau >> écran
-            afficherTableau(tabSudoku, TAILLE_TAB, TAILLE_ZONE);
+            // tabSudoku, TAILLE_TAB, TAILLE_ZONE >> afficherSudoku >> écran
+            afficherSudoku(tabSudoku, TAILLE_TAB, TAILLE_ZONE);
 
             // nbTour, erreurAutorise, nbErreurJoueur >> afficherResultat >> écran
             cout << "Tour " << nbTour << ", ";
@@ -181,8 +179,7 @@ int main()
 
             cout << endl << "Appuyer sur une touche pour continuer... " << endl;
 
-            std::cin.ignore(100, '\n');
-            getline(cin, kk);
+            _getwch(); // pour arrêter le défilement écran
             effacer();
         }
         //[***************************************| Finaliser la partie |*************************************]
@@ -201,19 +198,18 @@ int main()
         default:
             break;
         }
-        cout << "Appuyer sur une touche pour continuer... " << endl;
 
-        std::cin.ignore(100, '\n');
-        getline(cin, kk);
+        cout << "Appuyer sur une touche pour continuer... " << endl;
+        _getwch(); // pour arrêter le défilement écran
         effacer();
     }
 
     return 0;
 }
 
-void afficherTableau(nbSudoku tabSudoku[9][9], unsigned short int TAILLE_TAB, unsigned short int TAILLE_ZONE)
+void afficherSudoku(nbSudoku tabSudoku[9][9], unsigned short int TAILLE_TAB, unsigned short int TAILLE_ZONE)
 {
-
+    // afficherLigneDebutFin
     for (unsigned short int i = 0; i < TAILLE_TAB; i++)
     {
         if (i % TAILLE_ZONE == 0)
@@ -229,6 +225,7 @@ void afficherTableau(nbSudoku tabSudoku[9][9], unsigned short int TAILLE_TAB, un
 
     cout << endl;
 
+    // afficherNombreDuSudoku
     for (unsigned short int indiceLigne = 0; indiceLigne < TAILLE_TAB; indiceLigne++)
     {
         if (indiceLigne % TAILLE_ZONE == 0)
@@ -265,8 +262,10 @@ void afficherTableau(nbSudoku tabSudoku[9][9], unsigned short int TAILLE_TAB, un
 
         cout << "| " << indiceLigne + 1 << endl;
     }
+
     cout << "  -------------------------" << endl;
 
+    // afficherLigneDebutFin
     for (unsigned short int i = 0; i < TAILLE_TAB; i++)
     {
         if (i % TAILLE_ZONE == 0)
@@ -347,11 +346,12 @@ void saisiVerifJoueur(nbSudoku tabSudoku[9][9], unsigned short int &indiceLigne,
     issueDeLaSaisie = compatible;
     valModifie = false;
 
-    // indiceLigne, indiceCollone, valeurSaisie >> verifierLaProposition >> [issueDeLaSaisie]
+    // indiceLigne, indiceCollone, valeurSaisie >> verifierLaProposition >> [issueDeLaSaisie], [valModifie]
     if (indiceLigne == 0 && indiceCollone == 0 && valeurSaisie == 0)
     {
         issueDeLaSaisie = abandon;
     }
+    // indiceLigne, indiceCollone, valeurSaisie >> verifier modification et compatibilité >> [issueDeLaSaisie], [valModifie]
     else if ((indiceLigne > 0 && indiceLigne <= TAILLE_TAB) &&
              (indiceCollone > 0 && indiceCollone <= TAILLE_TAB) &&
              (valeurSaisie > 0 && valeurSaisie < 9))
